@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌌 D2 Hub
+# D2 Hub
 
 ### The Ultimate Destiny 2 Endgame Companion & Live Overlay
 
