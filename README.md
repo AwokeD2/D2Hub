@@ -16,7 +16,7 @@
 
 ---
 
-[📥 Download Latest Installer](https://github.com/AwokeD2/D2Hub/releases/latest) • [✨ Key Features](#-features) • [⌨️ Hotkeys](#️-default-hotkeys) • [🛠️ Building from Source](#️-building-from-source)
+[📥 Download Latest Installer](https://github.com/AwokeD2/D2Hub/releases/latest) • [✨ Key Features](#-features) • [⌨️ Hotkeys](#️-default-hotkeys) • [📥 Installation](#-installation)
 
 </div>
 
@@ -100,40 +100,9 @@
 
 ---
 
-## 🛠️ Building from Source
-
-```bash
-# 1. Clone repository
-git clone https://github.com/AwokeD2/D2Hub.git
-cd D2Hub
-
-# 2. Install dependencies
-npm install
-
-# 3. Start development server
-npm run dev
-
-# 4. Start Tauri desktop app in development
-npm run tauri dev
-```
-
-### 📦 1-Click Release & Auto-Updater Publishing
-
-To build a signed release package and automatically upload it to GitHub:
-
-```powershell
-# Interactive version selection (Patch / Minor / Major)
-npm run release
-
-# Or run directly via batch file:
-./release.bat
-```
-
----
-
 ## 🔒 Privacy & Security
 
-- **100% Local & Open Source**: All settings, macros, and profile credentials are saved locally on your machine (`localStorage` and local config files).
+- **100% Local Storage**: All settings, macros, and profile credentials are saved locally on your machine (`localStorage` and local config files).
 - **No Telemetry**: No user data or account tokens are tracked or sent to external servers.
 
 ---
