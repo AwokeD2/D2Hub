@@ -9,7 +9,7 @@
     "version": "v1.0",
     "downloads": "1",
     "rating": 5,
-    "description": "Community macro for Destiny 2.\n\nPress F8 to open the config menu",
+    "description": "Press F8 to open the config menu",
     "instructions": [
       "Press the configured hotkey in-game to execute."
     ],
