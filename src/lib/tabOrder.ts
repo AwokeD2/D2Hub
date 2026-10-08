@@ -1,13 +1,14 @@
-export type TabId = "loadouts" | "macros" | "dim" | "godroll" | "raid" | "dungeon" | "overlay" | "redeem";
+export type TabId = "loadouts" | "macros" | "rotations" | "dim" | "godroll" | "raid" | "dungeon" | "overlay" | "redeem";
 
 // Redeem is deliberately NOT included here — it stays pinned in its fixed
 // spot in the tab bar (past the account picker) and is not reorderable or
 // hideable. These are the only tabs Settings' "Tab Order" section manages.
-export const ALL_TAB_IDS: TabId[] = ["loadouts", "macros", "dim", "godroll", "raid", "dungeon", "overlay"];
+export const ALL_TAB_IDS: TabId[] = ["loadouts", "macros", "rotations", "dim", "godroll", "raid", "dungeon", "overlay"];
 
 export const TAB_LABELS: Record<TabId, string> = {
   loadouts: "Loadouts",
   macros: "Macros",
+  rotations: "Rotations",
   dim: "DIM",
   godroll: "Destiny Sites",
   raid: "Raids",

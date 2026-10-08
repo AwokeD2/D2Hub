@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { listen } from "@tauri-apps/api/event";
 import * as api from "../lib/api";
+import EncounterTools from "./EncounterTools";
 
 const REGION_KEY = "d2hub.ocrRegion";
 const OPACITY_KEY = "d2hub.overlayOpacity";
@@ -140,6 +141,7 @@ export default function OverlayPanel({ profile, onOpenGodroll }: Props) {
   const [test, setTest] = useState<api.OcrTestResult | null>(null);
   const [testBusy, setTestBusy] = useState(false);
   const [status, setStatus] = useState("");
+  const [showEncounterTools, setShowEncounterTools] = useState(false);
 
   const regionRef = useRef(region);
   useEffect(() => { regionRef.current = region; if (region) localStorage.setItem(REGION_KEY, JSON.stringify(region)); }, [region]);
@@ -595,6 +597,30 @@ export default function OverlayPanel({ profile, onOpenGodroll }: Props) {
               onClick={toggleHotkeysEnabled}
             >{hotkeysEnabled ? "ON" : "OFF"}</button>
           </Field>
+        </div>
+
+        <div className="my-3 border-t border-neutral-800" />
+
+        {/* Encounter Tools & Metronomes */}
+        <div className="rounded border border-neutral-800 bg-neutral-900/50 p-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="text-xs font-semibold text-purple-300">⚔️ Interactive Raid Tools & Audio Metronomes</span>
+              <p className="text-[10px] text-neutral-500">Verity 4th 3D solver, Vesper Radiation alerts, and Crota Chalice timer</p>
+            </div>
+            <button
+              onClick={() => setShowEncounterTools(v => !v)}
+              className={btn + (showEncounterTools ? " " + accent : "")}
+            >
+              {showEncounterTools ? "Hide Tools" : "Open Tools"}
+            </button>
+          </div>
+
+          {showEncounterTools && (
+            <div className="mt-3 rounded border border-neutral-800/80 bg-neutral-950 p-2">
+              <EncounterTools />
+            </div>
+          )}
         </div>
 
         <div className="my-3 border-t border-neutral-800" />

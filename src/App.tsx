@@ -13,6 +13,7 @@ import OverlayPanel from "./components/OverlayPanel";
 import SettingsModal from "./components/SettingsModal";
 import WelcomeModal from "./components/WelcomeModal";
 import UpdateToast from "./components/UpdateToast";
+import RotationPanel from "./components/RotationPanel";
 import { type Account, ACCOUNTS_KEY, ACTIVE_ACCOUNT_KEY, MAIN_ID, loadAccounts, profileForAccount, slugify } from "./lib/accounts";
 import { type TabId, TAB_LABELS, loadTabPrefs, saveTabPrefs, type TabPrefs } from "./lib/tabOrder";
 import { isExtraFeaturesUnlocked } from "./lib/extraFeatures";
@@ -279,6 +280,9 @@ export default function App() {
         </div>
         <div className="flex min-h-0 flex-1 overflow-hidden" style={show("macros")}>
           <MacroPanel />
+        </div>
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden" style={show("rotations")}>
+          <RotationPanel />
         </div>
         <div className="flex min-h-0 flex-1 flex-col overflow-hidden" style={show("overlay")}>
           <OverlayPanel profile={profile} onOpenGodroll={() => setTab("godroll")} />

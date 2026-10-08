@@ -1,9 +1,11 @@
 import { useState, useMemo, useRef } from "react";
 import { RAIDS_DATA, type RaidGuide } from "../data/raids";
+import EncounterTools from "./EncounterTools";
 
 export default function RaidPanel() {
   const [selectedRaidId, setSelectedRaidId] = useState<string>("ron");
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeView, setActiveView] = useState<"guide" | "tools">("guide");
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
   const filteredRaids = useMemo(() => {
@@ -106,43 +108,67 @@ export default function RaidPanel() {
       {/* Main Content: Embedded Guide with In-Order Section Tabs */}
       <div className="flex flex-1 flex-col overflow-hidden bg-neutral-950">
         {/* Top Activity Bar */}
-        <div className="flex items-center justify-between border-b border-neutral-800/80 bg-neutral-900/40 px-4 py-2.5">
+        <div className="flex items-center justify-between border-b border-neutral-800/80 bg-neutral-900/40 px-4 py-2">
           <div className="flex items-center gap-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">
-              Raid Guide
-            </span>
-            <h2 className="text-sm font-bold text-neutral-100 flex items-center gap-2">
-              {currentRaid.name}
-              <span className="text-xs font-normal text-neutral-400">({currentRaid.location})</span>
-            </h2>
+            <div className="flex items-center rounded border border-neutral-800 bg-neutral-950 p-0.5 text-xs">
+              <button
+                onClick={() => setActiveView("guide")}
+                className={`rounded px-2.5 py-1 font-semibold transition-colors ${
+                  activeView === "guide" ? "bg-purple-900/70 text-purple-200 border border-purple-600" : "text-neutral-400 hover:text-neutral-200"
+                }`}
+              >
+                📖 Raid Guide
+              </button>
+              <button
+                onClick={() => setActiveView("tools")}
+                className={`rounded px-2.5 py-1 font-semibold transition-colors ${
+                  activeView === "tools" ? "bg-purple-900/70 text-purple-200 border border-purple-600" : "text-neutral-400 hover:text-neutral-200"
+                }`}
+              >
+                🧩 Encounter Tools (Verity / Vesper / Crota)
+              </button>
+            </div>
+
+            {activeView === "guide" && (
+              <h2 className="text-sm font-bold text-neutral-100 flex items-center gap-2">
+                {currentRaid.name}
+                <span className="text-xs font-normal text-neutral-400">({currentRaid.location})</span>
+              </h2>
+            )}
           </div>
 
-          <div className="flex items-center gap-2 text-xs text-neutral-400">
-            <button
-              onClick={() => {
-                if (iframeRef.current) {
-                  iframeRef.current.src = `/guides/${selectedRaidId}.html`;
-                }
-              }}
-              className="rounded bg-neutral-800/80 hover:bg-neutral-700 px-2.5 py-1 text-[11px] text-neutral-200 transition-colors"
-              title="Reset view"
-            >
-              🔄 Reset
-            </button>
-          </div>
+          {activeView === "guide" && (
+            <div className="flex items-center gap-2 text-xs text-neutral-400">
+              <button
+                onClick={() => {
+                  if (iframeRef.current) {
+                    iframeRef.current.src = `/guides/${selectedRaidId}.html`;
+                  }
+                }}
+                className="rounded bg-neutral-800/80 hover:bg-neutral-700 px-2.5 py-1 text-[11px] text-neutral-200 transition-colors"
+                title="Reset view"
+              >
+                🔄 Reset
+              </button>
+            </div>
+          )}
         </div>
 
-        {/* Embedded Guide Viewport */}
-        <div className="flex-1 overflow-hidden relative">
-          <iframe
-            ref={iframeRef}
-            key={selectedRaidId}
-            src={`/guides/${selectedRaidId}.html`}
-            title={currentRaid.name}
-            className="w-full h-full border-0 bg-[#0b0e14]"
-            sandbox="allow-same-origin allow-scripts allow-popups"
-          />
-        </div>
+        {/* Viewport: Either Guide iframe or EncounterTools component */}
+        {activeView === "guide" ? (
+          <div className="flex-1 overflow-hidden relative">
+            <iframe
+              ref={iframeRef}
+              key={selectedRaidId}
+              src={`/guides/${selectedRaidId}.html`}
+              title={currentRaid.name}
+              className="w-full h-full border-0 bg-[#0b0e14]"
+              sandbox="allow-same-origin allow-scripts allow-popups"
+            />
+          </div>
+        ) : (
+          <EncounterTools />
+        )}
       </div>
     </div>
   );

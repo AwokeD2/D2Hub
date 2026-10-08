@@ -17,6 +17,7 @@ src-tauri/gen/
 .env
 .env.local
 .env.*.local
+.github_token
 
 # OS files
 Thumbs.db
