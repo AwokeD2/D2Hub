@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Paracausality SG</title>
+
+    <!-- Embed -->
+    <meta content="Warlord's Ruin Guide" property="og:title" />
+    <meta content="Paracausality SG" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta
+      content="Nestled deep in the mountains of the EDZ, Scorn lay claim to a Dark Age castle containing dangerous relics, and a blighted vengeance festers in the dirt."
+      property="og:description"
+    />
+    <meta
+      content="https://paracausality.netlify.app/wr_guide.html"
+      property="og:url"
+    />
+    <meta content="https://i.imgur.com/MGTQNwS.webp" property="og:image" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta content="#b4b8b7" data-react-helmet="true" name="theme-color" />
+    <!-- Favicons -->
+    <link href="https://www.paracausality.com/assets/img/witnessicon.webp" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="https://www.paracausality.com/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="https://www.paracausality.com/assets/css/style.css" rel="stylesheet" />
+
+    <!-- Script for Header and Footer-->
+    
+  
+<style>
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 60px !important;
+  }
+  body {
+    background-color: #0b0e14 !important;
+    color: #e2e8f0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    padding: 0.75rem 2rem 3rem 2rem !important;
+    overflow-x: hidden !important;
+  }
+  header, footer, #header, #footer, .header, .footer, #preloader, .back-to-top {
+    display: none !important;
+  }
+  
+  /* Natural Beautiful Typography */
+  h1 {
+    font-size: 1.85rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 0.75rem !important;
+  }
+  h2 {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #f8fafc !important;
+    scroll-margin-top: 60px !important;
+  }
+  h3 {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+    margin-top: 1.25rem !important;
+    scroll-margin-top: 60px !important;
+  }
+  p, li, td, th {
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Sticky Section Navigator */
+  #section-nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(11, 14, 20, 0.96) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #1e293b;
+    padding: 8px 0 10px 0;
+    margin: 0 -2rem 24px -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #section-nav-inner {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #0b0e14;
+  }
+  #section-nav-inner::-webkit-scrollbar {
+    height: 4px;
+  }
+  #section-nav-inner::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+  .sec-nav-link {
+    white-space: nowrap;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #181f2c;
+    border: 1px solid #283548;
+    color: #94a3b8;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .sec-nav-link:hover {
+    background: #232d3f;
+    color: #f8fafc;
+    border-color: #475569;
+    text-decoration: none;
+  }
+  .sec-nav-link.active {
+    background: #7c3aed !important;
+    color: #ffffff !important;
+    border-color: #9333ea !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+    text-decoration: none;
+  }
+
+  /* High-Res Full Proportional Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    margin: 10px 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  .container, .container-fluid {
+    max-width: 1280px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0e14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+</style>
+
+<script>
+  function highlightNavLink(el) {
+    document.querySelectorAll('.sec-nav-link').forEach(l => l.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+</script>
+
+</head>
+
+  <body>
+
+    <div id="section-nav-sticky">
+      <div id="section-nav-inner">
+        
+      <a href="#sec-heading-0" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Drop Table
+      </a>
+    
+
+      <a href="#sec-heading-1" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Secret Chests & Collectibles
+      </a>
+    
+
+      <a href="#sec-heading-2" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Weapons
+      </a>
+    
+
+      <a href="#sec-heading-3" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Rathil, First Broken Knight of Fikrul
+      </a>
+    
+
+      <a href="#sec-heading-4" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Imprisoned Dungeon
+      </a>
+    
+
+      <a href="#sec-heading-5" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Locus of Wailing Grief
+      </a>
+    
+
+      <a href="#sec-heading-6" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Hefnd's Vengeance, Blighted Chimaera
+      </a>
+    
+
+      <a href="#sec-heading-7" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Video Guides
+      </a>
+    
+      </div>
+    </div>
+    
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages"></header>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section
+        class="breadcrumbs"
+        style="background-image: url('./assets/img/guides/WR/wr_banner.webp')"
+      >
+        <div class="container mt-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/wr/wr_overlay.webp"
+            class="img-fluid"
+            alt="..."
+            style="width: 50px"
+          />&emsp;
+          <h1
+            style="
+              color: white;
+              display: inline;
+              position: absolute;
+              vertical-align: middle;
+            "
+          >
+            Warlord's Ruin Guide
+          </h1>
+          <ol class="mt-2" style="color: white">
+            Encounters:&emsp;
+            <li>
+              <a style="color: white" href="#Rathil"
+                >Rathil, First Broken Knight of Fikrul</a
+              >
+            </li>
+            <li>
+              <a style="color: white" href="#Dungeon">Imprisoned Dungeon</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Locus">Locus of Wailing Grief</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Hefnd"
+                >Hefnd's Vengeance, Blighted Chimaera</a
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <div class="container">
+        <div class="mt-4 mb-4">
+          <div class="section-title">
+            <h2>Done by: Vedallion#7774 | December 3rd 2023</h2>
+          </div>
+          <h2 id="sec-heading-0" >Drop Table</h2>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/Warlords-Ruin-loot-table-Infographic-BlueberriesGG-v2.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4">
+          <h2 id="sec-heading-1" >Secret Chests & Collectibles</h2>
+          <p>
+            The Warlord's Ruin dungeon in Destiny 2 has collectible Ahamkara
+            Bones, which are crucial to both the “In the Shadow of the Mountain”
+            quest and the “Heed the Whispers, O Vengeance Mine” triumph. The
+            latter increases the likelihood of obtaining the Buried Bloodlines
+            Exotic sidearm.
+          </p>
+          <h5>"In the Shadow of the Mountain" Quest</h5>
+          <p>
+            After you complete the dungeon for the first time, you will be given
+            the "In the Shadow of the Mountain" quest, which requires you to
+            obtain 30 Dark Ether Tinctures, 3 Blighted Wishing Glass, and 4
+            Ahamkara Bones. Unlike previous dungeons, you need to do
+            <b>3</b> runs ofo the dungeon to obtain all of the collectibles.
+          </p>
+          <h5>Getting Dark Tinctures</h5>
+          <p>
+            Dark Ether Tinctures are obtained by eliminating unique Screeb-like
+            foes known as <b>Thieving Wretches</b>. These enemies can respawn,
+            so you can farm them to obtain enough Dark Ether Tinctures. The
+            first Thieving Wretch will spawn on the bridge prior to the first
+            encounter; the second will appear in the maze following the defeat
+            of the first boss; and the third will appear on the mountainside
+            following the defeat of the second boss.
+          </p>
+          <h5>Getting Blighted Wishing Glass</h5>
+          <p>
+            You will receive one Blighted Wishing Glass per encounter completion
+            from the loot chest. After completing that quest step, you will need
+            to gather the following three bones along with additional Dark Ether
+            Tinctures and Blighted Wishing Glass. After completing that step,
+            you will need to repeat the process until all ten bones have been
+            collected.
+          </p>
+        </div>
+
+        <div class="mt-4 mb-4">
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">All 10 Bones of Hefnd Location Guide - All Warlord&#39;s Ruin Dungeon Collectibles Guide [Destiny 2]</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=fOCtLrkyncM" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+        </div>
+
+        <div class="mb-4">
+          <div class="row">
+            <div
+              class="col-md justify-content-center align-self-center"
+            >
+              <h5>Secret Chests</h5>
+              <p>
+                There are a tonne of fake chests in the dungeon, which forces
+                the user who interacts to be stunned and summon screebs. The
+                fake chests have a strange blue ether glow, TWO of these chests
+                will not have the glow and are the real chests which drops loot.
+                These 2 chests will be different for each run, so make sure you
+                check all of them. One person may test the chests and sacrifice
+                themself while the rest stand back.
+              </p>
+            </div>
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinCollectables.SecretChest2.webp"
+                class="img-fluid"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Weapons" name="Weapons">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/2023_Warlord_s_Ruin_Dungeon_Press_Kit_Dungeon_COMPRESSED_16x9_002.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-2" >Weapons</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <b>Origin Trait: </b><br /><br />
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/877a57624bf7ca0e5e946f666a5b0a4b.webp"
+            class="img-fluid"
+            alt="..."
+            style="width: 50px"
+          />
+          &nbsp;
+          <p
+            style="display: inline; vertical-align: middle; position: absolute"
+          >
+            Sundering - Destroying vehicles and constructs grants this weapon
+            bonus reload speed and charge rate. Constructs include barricades,
+            turrets, Stasis crystals, and other objects created in the field.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Strand.webp"
+                class="img-fluid"
+                alt="Strand"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Vengeful Whisper</b><br />&emsp;&emsp;&emsp;Legendary //
+              Precision Frame // Bow
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Bowstring:</li>
+                  <ul>
+                    <li>Agile Bowstring</li>
+                    <br />
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Arrow:</li>
+                  <ul>
+                    <li>Carbon Arrow Shaft</li>
+                    <br />
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Explosive Head</li>
+                    <li>Archer's Tempo</li>
+                    <li>Slice</li>
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Hatchling</li>
+                    <li>Precision Instrument</li>
+                    <li>Successful Warm-Up</li>
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Reload Speed <br />
+                Mod Slot: Minor Spec, Major Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/839344841.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            Mainly used for the sake of its strand synergy. Kinetic bows like
+            the Accrued Redemption will fare better than this bow in higher
+            level content, the content bows mainly find themselves used in,
+            thanks to how kinetic weapons do more damage to unshielded enemies
+            than Strand and Stasis weapons. Nonetheless, Vengeful Whisper's
+            perks are still competitive, and if you do not have a good top slot
+            bow then you may consider trying for a good roll of this bow.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Strand.webp"
+                class="img-fluid"
+                alt="Strand"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Naeem's Lance</b><br />&emsp;&emsp;&emsp;Legendary //
+              Rapid-Fire Frame // Sniper Rifle
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Barrel:</li>
+                  <ul>
+                    <li>Arrowhead Brake</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Magazine:</li>
+                  <ul>
+                    <li>Accurized Rounds</li>
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Reconstruction</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Slice</li>
+                    <li>Precision Instrument</li>
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Reload Speed <br />
+                Mod Slot: Boss Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/2806569825.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            Reconstruction is a very good perk, however it cannot make up for
+            the lack of competitive perks in the weapon's second column.
+            Precision Instrument may be a decent perk, however it also suffers
+            from the issue of being a strand weapon, meaning it loses out on
+            extra damage that competitors like The Supremacy have. This weapon's
+            frame and perks make it essentially unusable in PvP.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Arc.webp"
+                class="img-fluid"
+                alt="Arc"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Indebted Kindness</b><br />&emsp;&emsp;&emsp;Legendary //
+              Rocket-Assisted Frame // Sidearm
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Barrel:</li>
+                  <ul>
+                    <li>Volatile Launch</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Magazine:</li>
+                  <ul>
+                    <li>Tactical Magazine</li>
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Beacon Rounds</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Voltshot</li>
+                    br
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Stability, Reload Speed <br />
+                Mod Slot: Major Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/3381450498.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            Indebted Kindness is the first legendary special sidearm in the
+            game. Definitely a strong weapon but it finds itself having a lack
+            of use cases. Special sidearms tend to be beaten at close range by
+            fusions and shotguns, at ad clear by grenade launchers and at long
+            range by snipers. Where this weapon finds its niche is that with
+            anti-barrier effects (anti-barrier sidearm/radiant), it is able to
+            destroy the shield in one shot, making it useful for content with
+            champions.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Strand.webp"
+                class="img-fluid"
+                alt="Strand"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Dragoncult Sickle</b><br />&emsp;&emsp;&emsp;Legendary //
+              Caster Frame // Sword
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Blade:</li>
+                  <ul>
+                    <li>Hungry Blade</li>
+                    <br />
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Guard:</li>
+                  <ul>
+                    <li>Balanced Guard</li>
+                    <br />
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Reconstruction</li>
+                    <li>Demolitionist</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Hatchling</li>
+                    <li>Chain Reaction</li>
+                    <li>Surrounded</li>
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Impact <br />
+                Mod Slot: Boss Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/3668817296.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            Caster Swords are quite weak currently, so this weapon tends to see
+            little use. Its best use is probably a niche ad-clear setup, but
+            even then machine guns can do its job easily. If caster frames get
+            buffed to the point that they can compete with top sword contenders,
+            this sword with Surrounded will be quite valuable.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Void.webp"
+                class="img-fluid"
+                alt="Void"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Buried Bloodline</b><br />&emsp;&emsp;&emsp;Exotic // Sidearm
+            </p>
+            <div class="row">
+              <h5><u>Details</u></h5>
+              <b>Hungering Quarrel: </b>
+              <p>
+                Double fires tracking bolts. Landing bolts leeches health from
+                the target.
+              </p>
+              <b>Violent Reanimation: </b>
+              <p>
+                Multiple final blows with this weapon grant Devour to the
+                wielder.
+              </p>
+              <b>Splitvein Lineage(Catalyst): </b>
+              <p>While Devour is active, Weakens enemies on hit.</p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/2023_Warlord_s_Ruin_Dungeon_Press_Kit_Dungeon_COMPRESSED_002.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-4">
+            Similar story to its legendary counterpart, the Indebted Kindness.
+            This weapon, however, has a fairly useful niche in that it allows
+            for all subclasses to use Devour, which is still a fairly strong
+            perk despite its recent nerf. Whether it is worth using this weapon
+            just to get Devour is another matter entirely, as the healing that
+            most classes have access to (Restoration, Cure, Rifts etc) is
+            oftentimes sufficient for most content.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Rathil" name="Rathil">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/rathil.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-3" >Rathil, First Broken Knight of Fikrul</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Once you have entered the fortress, you are up against Rathil. This
+            is a simple encounter with a few stages, but it provides excellent
+            teaching material for the main dungeon mechanic of Warlord's Ruin.
+          </p>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/3zVy6WnP_o.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h5>The Scorn Laterns</h5>
+          <p>
+            The objective of Warlord's Ruin is to eliminate all Taken Blights
+            from the battlefield before the <b>"Imminent Wish"</b> timer on the
+            left side of the screen reaches zero. The boss or an enemy will drop
+            <b>Scorn Lanterns</b> onto the battlefield in each of the three
+            encounters. The main thing that you will want to pay attention to is
+            the small Taken Blight in the centre. Each lantern will have a white
+            circle around it, denoting its radius. Standing in that white circle
+            will cause the Taken Blight to disappear and fade into a blue light
+            with bones floating inside. This process takes about five seconds,
+            but moves more quickly if there are multiple players in the circle.
+          </p>
+          <div class="row">
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.LanternRadius.webp"
+                class="img-fluid"
+                alt="..."
+              />
+              <small
+                >A player must stand inside the radius to cleanse the taken
+                coruption in the latern.</small
+              >
+            </div>
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.LanternBlue.webp"
+                class="img-fluid"
+                alt="..."
+              />
+              <small
+                >Once the latern is cleansed, the taken ball in the middle with
+                disappear.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h5>The Cages</h5>
+          <p>
+            The boss will teleport you into one of the cages hanging above the
+            arena. You will see three Taken eyes around each cage containing a
+            guardian. The door to the cage will open once you kill the three
+            eyes around you. You can help to shoot the eyes of your team mates
+            as well. Once you and your team are out of the cages, activate the
+            Scorn lanterns by standing in the radius. You only need to activate
+            one before the wish timer runs out to get to DPS, but if you
+            activate multiple, you get more time to deal more damage.
+          </p>
+          <div class="row">
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.CageEyes.webp"
+                class="img-fluid"
+                alt="..."
+              />
+            </div>
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/destiny-2-warlord-s-ruin-rathil-cage-blights.webp"
+                class="img-fluid"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <h5>DPS</h5>
+            <p>
+              Once you you've cleansed the laterns in time, you'll get the
+              <b>“Naeem's Wish Empowerment”</b> buff to damage the boss. Because
+              of his low health, you can use any technique you are most
+              comfortable with, but rockets or swords are always a good idea.
+              You can damage him until the buff on the left side of your screen
+              counts down to zero and his shields comes back up, then repeat the
+              procedure until he's killed.
+            </p>
+          </div>
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.WishBuff.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Dungeon" name="Dungeon">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/imprisoned_dungeons.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-4" >Imprisoned Dungeon</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-2">
+          <p>
+            You will be teleported into a prison where you must escape after
+            defeating Rahil. In two of the cells, there will be two sets of
+            Roman numerals inscribed next to skeletons; these two numbers will
+            always sum up to six.
+          </p>
+          <p>
+            You can shoot the six dials that are located throughout the prison:
+          </p>
+          <ul>
+            <li>
+              The first time you shoot a dial, it turns on and starts to spin
+              <b>anticlockwise</b>;
+            </li>
+            <li>the next time you shoot, it <b>stops spinning</b>;</li>
+            <li>
+              and the third time you shoot, it starts to spin <b>clockwise</b>.
+            </li>
+          </ul>
+          <p>
+            The objective is to match the number of clockwise and anticlockwise
+            dials with the number inscribed on the skeletons.
+          </p>
+          <p>Here is an example:</p>
+        </div>
+
+        <div class="row mt-2 mb-4">
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/Step%2018-15%20screenshot.webp"
+              class="img-fluid"
+              alt="..."
+            /><small
+              ><b>Right</b>-handed skeleton with III inscribed in
+              <b>white</b> indicate that three dials must be turned in a
+              <b>clockwise</b> direction.</small
+            >
+          </div>
+
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/Step%2018-42%20screenshot.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              ><b>Left</b>-handed skeleton with III inscribed in
+              <b>orange</b> indicate that three dials must be turned in a
+              <b>anticlockwise</b> direction.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <b>Note:</b>
+          <ul>
+            <li>
+              <i
+                >Not your left and right hands; it is the left and right of the
+                skeleton. White is always clockwise, and orange is always
+                anticlockwise.</i
+              >
+            </li>
+            <li>
+              <i
+                >The number inscribed on the slab and the floor will change with
+                every run. Adjust the dial's direction when needed.</i
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="row mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              If there are fewer than three players, the cell doors will be open
+              to allow you to move around the space. Collaboratively, shoot the
+              six buttons from your cells to reconfigure them as the skeletons
+              indicate, and then shoot the "confirm" lever.
+            </p>
+          </div>
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.PrisonKey.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/IxSJzde3_o.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Locus" name="Locus">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/locus.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-5" >Locus of Wailing Grief</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            When the battle begins, you should aim to spawn the Scorn Lanterns
+            by eliminating every Taken eye that appears around the boss. This
+            will cause two Scorn Broken Knights to appear, one on each side of
+            the arena. These enemies will drop one lantern upon dying, and if
+            you give them enough time to live, they will drop another one as
+            well.
+          </p>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/5x8GX5DC_o.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            A snowstorm will begin to fill the arena when these enemies spawn,
+            and they will start the wish timer like the first encounter. You can
+            remove stacks of the <b>"Biting Cold"</b> debuff by running near
+            torches that are positioned all along the backside of the arena.
+            <b>"The bones call forth a freezing tempest"</b> will appear in the
+            combat log when this storm begins. If those stacks reach 10, you
+            will die. This will go away once the Imminent Wish timer runs out.
+          </p>
+          <div class="row">
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.BitingCold.webp"
+                class="img-fluid"
+                alt="..."
+              />
+            </div>
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.TempestTorch.webp"
+                class="img-fluid"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <p>
+              <b>Burning Desire</b> orbs spawn in the middle, close to the rally
+              flag, depending on how many Scorn Lanterns you activate. If you
+              are efficient, you can spawn three or four of these, which will
+              allow you to get to DPS faster. Take each of these orbs to one of
+              the pyres surrounding the boss. Once you activate all four, DPS
+              begins.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.TempestOrb.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="row h-100 mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.TempestPyres.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <h5>DPS</h5>
+            <p>
+              Gather around the last activated pyre for DPS. Each pyre grants
+              you about 15 seconds of DPS where you can hit the boss. You must
+              stay close to the pyres because the snowstorm will return and they
+              shield you from the Biting Cold. When the timer expires, you must
+              rotate to the next pyre.
+            </p>
+            <p>
+              The rotation of the pyres is entirely up to team, whichever flow
+              works best for your team. For example in this image, the team
+              simply rotates left. This boss has a lot of health, so maximize
+              your DPS for a longer encounter. We suggest using rockets and a
+              powerful DPS secondary like the Solar Eremite fusion rifle, or the
+              kinetic sniper rifle The Supremacy with rewind rounds + kinetic
+              tremors/FTTC. Linear fusion rifles may also be a good option.
+              After the fourth pyre runs out of time, repeat the process to
+              relight the pyres until you defeat the boss.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Hefnd" name="Hefnd">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/hefnd.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-6" >Hefnd's Vengeance, Blighted Chimaera</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            In the dungeon's last encounter, your fireteam faces off against the
+            soul of a long-dead Ahamkara, who has assumed the shape of a
+            captured Chimara. This fight goes through the same basic cycle as
+            the other encounters, with you having to activate the Scorn lanterns
+            in order to take off the boss's shield.
+          </p>
+          <p>
+            As in the previous encounter, defeating all of the Taken eyes will
+            cause the Scorn Broken Knight enemy to spawn, which in turn causes
+            the Scorn Lanterns to spawn. If you give the Scorn Broken Knight
+            enough time to survive, it will spawn an additional lantern; if you
+            activate more than one, the DPS timer—which is symbolized by the
+            <b>“Naeem's Wish Empowerment”</b> buff on the left side of your
+            screen—will be extended.
+          </p>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/WR/i0hGsKn9_o.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <h5>Vengeful Corruption</h5>
+            <p>
+              The <b>"Hex of Vengeful Corruption"</b> debuff must be removed in
+              order to activate the lanterns; if you have it when the timer
+              expires, you will perish. To do this, melee an enemy known as a
+              <b>"Corrupted Hex Drinker"</b>, and if they melee you back after
+              you pass it to them, they will pass it back to you. Therefore,
+              once you remove the debuff, try to avoid meleeing anyone else.
+            </p>
+            <b>Tips: </b>
+            <ul>
+              <li>
+                Ranged melees also pass the debuff over (Hammers, Knife Throw,
+                Celestial Fire etc.)
+              </li>
+              <li>
+                You can wait until a few seconds left, melee the drinkers and
+                run away briefly.
+              </li>
+              <li>
+                The timer of the debuff still counts down while it's being
+                passed over.
+              </li>
+            </ul>
+            <p>DPS starts shortly after the debuff is dealt with.</p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.RestCorruption.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="row h-100 mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.RestHealth.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <h5>Climbing the Arena</h5>
+            <p>
+              After spawning the lanterns and dealing enough damage to the boss
+              to make it climb up again, repeat the process until you reach the
+              top and the beginning of the true DPS phase. The boss is
+              represented by the white portion of its health bar at the bottom
+              of the screen. If you deal enough damage to it, it will move up to
+              the next section.
+            </p>
+            <b>Tips: </b>
+            <ul>
+              <li>
+                The length of your DPS depends on the number of lanterns
+                clensed.
+              </li>
+              <li>
+                Use all the time you have to DPS the boss as this will save you
+                more time later. Don't be afraid to use ults.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h5>DPS</h5>
+          <p>
+            The full DPS phase begins after you reach the summit. Deal damage
+            until you see "My hide is thick, O vengeance mine" in the combat
+            log. This indicates that the boss will become immune and that the
+            platform you are currently on will be covered in Taken corruption.
+            Rotate to one of the other large platforms (there are three total).
+            This will take away the boss's shield and let you deal damage. You
+            can prolong the duration of time you have to damage the boss by
+            killing the Taken eyes floating around it. Rotate to the last
+            platform and continue dealing damage until the boss becomes immune.
+          </p>
+          <b>Tips: </b>
+          <ul>
+            <li>
+              Hunter tether (single-shot) will tether damage taken from the boss
+              onto the eyes. This will allow the eyes to be killed instantly and
+              prolongs the DPS <b>significantly</b>.
+            </li>
+            <li>
+              Killing the eyes while on a well of radiance with pheonix protocol
+              allows you to get back your ult pretty fast.
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.RestHide.webp"
+                class="img-fluid"
+                alt="..."
+              />
+            </div>
+            <div class="col-md">
+              <img
+                src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.RestPlatform.webp"
+                class="img-fluid"
+                alt="..."
+              />
+            </div>
+          </div>
+          <p class="mt-4">
+            Following that, it will teleport you to the bottom, where you will
+            have to keep going until you deal enough damage to push the monster
+            below the final health gate. This can occur during the DPS phase at
+            the top, but it can also happen while you are climbing.
+          </p>
+        </div>
+
+        <div class="row mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <h5>Final Stand</h5>
+            <p>
+              After you make it to the final stand health gate, the boss will
+              teleport you to an open platform where you must kill it before it
+              kills you. You can hide behind the pillars or deal damage to the
+              boss while it is at risk of killing you. After you defeat
+              Warlord's Ruin's final boss, you will have completed the dungeon.
+            </p>
+            <p>
+              If this is your first time running the dungeon, you will be given
+              the <b>"In the Shadow of the Mountain"</b> quest, which requires
+              you to search the dungeon few more times in search of different
+              collectibles.
+            </p>
+            <b>Tips: </b>
+            <ul>
+              <li>
+                There is neither a timer nor a wipe mechanic for final stand,
+                you have infinite time to kill the boss from here on out, just
+                don't die.
+              </li>
+              <li>
+                Important for master or solo runs, when you get teleported, you
+                don't have to stay on the platform to DPS. You can actually move
+                back all the way to one of the 3 platforms and DPS from a
+                distance, safe from all the attacks of the boss.
+              </li>
+            </ul>
+          </div>
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/WR/WarlordsRuinGuide.RestFinalStand.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4">
+          <h2 id="sec-heading-7" >Video Guides</h2>
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2 Complete WARLORD&#39;S RUIN Dungeon Guide!</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=fmL7Yb_KhsA" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">How To Get the BURIED BLOODLINE CATALYST!!</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=_5TAoYftWr0" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer"></footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+    <!-- Vendor JS Files -->
+    <script src="https://www.paracausality.com/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    
+    <script src="https://www.paracausality.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="https://www.paracausality.com/assets/js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+

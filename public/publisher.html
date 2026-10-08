@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D2 Hub // GIT-PUSH & Release Publisher</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            obsidian: '#090a0f',
+            panel: '#10121a',
+            surface: '#151824',
+            surfaceHover: '#1c2030',
+            brand: {
+              400: '#c084fc',
+              500: '#a855f7',
+              600: '#9333ea',
+              700: '#7e22ce',
+              900: '#3b0764',
+              950: '#1e0836'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: radial-gradient(circle at 50% 0%, #1e1035 0%, #090a0f 65%);
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+      user-select: none;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0b0c12; }
+    ::-webkit-scrollbar-thumb { background: #272a38; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f445b; }
+    .glass {
+      background: rgba(21, 24, 36, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(168, 85, 247, 0.15);
+    }
+    .glass-active {
+      background: rgba(88, 28, 135, 0.25);
+      border-color: rgba(168, 85, 247, 0.6);
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+    }
+  </style>
+</head>
+<body class="h-screen flex flex-col overflow-hidden bg-obsidian text-neutral-200 antialiased">
+
+  <!-- Top Window Header -->
+  <header class="flex items-center justify-between border-b border-purple-900/30 bg-panel/80 px-6 py-3.5 backdrop-blur-md shrink-0">
+    <div class="flex items-center gap-3.5">
+      <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-indigo-700 shadow-lg shadow-purple-950/60 ring-1 ring-purple-400/40">
+        <span class="text-lg font-black text-white tracking-tighter">D2</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-sm font-bold tracking-wide text-white uppercase flex items-center gap-2">
+            D2 Hub <span class="text-brand-400">//</span> Git-Push & Release Suite
+          </h1>
+          <span class="rounded-full bg-brand-950/80 border border-brand-500/40 px-2 py-0.5 text-[10px] font-mono font-bold text-brand-300 shadow-sm">
+            PROD PUBLISHER
+          </span>
+        </div>
+        <p class="text-[11px] text-neutral-400 flex items-center gap-1.5 mt-0.5">
+          <span>Target Repo:</span>
+          <span class="font-mono font-semibold text-neutral-200" id="repoName">AwokeD2/D2Hub</span>
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse ml-1"></span>
+          <span class="text-[10px] text-emerald-400 font-semibold">Ready</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Current Version Pill -->
+    <div class="flex items-center gap-3">
+      <div class="flex flex-col items-end">
+        <span class="text-[10px] uppercase font-bold tracking-wider text-neutral-400">Current Version</span>
+        <span class="font-mono text-sm font-black text-brand-300" id="currentVerBadge">v1.0.4</span>
+      </div>
+      <button id="refreshBtn" title="Refresh Status" class="rounded-lg border border-neutral-800 bg-surface p-2 text-neutral-400 hover:border-brand-500/40 hover:text-brand-300 transition-all cursor-pointer">
+        🔄
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main class="flex-1 grid grid-cols-12 gap-5 p-5 min-h-0 overflow-hidden">
+    <!-- LEFT PANEL: Release Options & Notes (6 Cols) -->
+    <div class="col-span-6 flex flex-col gap-4 min-h-0 overflow-y-auto pr-1">
+      <!-- Card 1: Version Bump Selector -->
+      <div class="glass rounded-xl p-4">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center gap-2">
+            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-brand-900/60 text-brand-400 text-[10px] font-bold">1</span>
+            Select Version Bump
+          </h2>
+          <span class="text-[11px] font-mono text-neutral-400" id="targetVerPreview">Next: v1.0.5</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2.5" id="bumpGrid">
+          <!-- Patch -->
+          <div id="card-patch" class="glass-active cursor-pointer rounded-lg p-3 transition-all flex flex-col justify-between hover:border-brand-500/70">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-brand-300">Patch</span>
+              <span class="h-2 w-2 rounded-full bg-brand-400"></span>
+            </div>
+            <div class="mt-2">
+              <div class="text-sm font-mono font-bold text-white" id="patchVal">1.0.5</div>
+              <div class="text-[10px] text-neutral-400 mt-0.5 leading-tight">Bug fixes & tweaks</div>
+            </div>
+          </div>
+          <!-- Minor -->
+          <div id="card-minor" class="glass cursor-pointer rounded-lg p-3 transition-all flex flex-col justify-between hover:border-brand-500/70">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-neutral-300">Minor</span>
+              <span class="h-2 w-2 rounded-full bg-neutral-600"></span>
+            </div>
+            <div class="mt-2">
+              <div class="text-sm font-mono font-bold text-white" id="minorVal">1.1.0</div>
+              <div class="text-[10px] text-neutral-400 mt-0.5 leading-tight">Features & updates</div>
+            </div>
+          </div>
+          <!-- Major -->
+          <div id="card-major" class="glass cursor-pointer rounded-lg p-3 transition-all flex flex-col justify-between hover:border-brand-500/70">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-neutral-300">Major</span>
+              <span class="h-2 w-2 rounded-full bg-neutral-600"></span>
+            </div>
+            <div class="mt-2">
+              <div class="text-sm font-mono font-bold text-white" id="majorVal">2.0.0</div>
+              <div class="text-[10px] text-neutral-400 mt-0.5 leading-tight">Major overhaul</div>
+            </div>
+          </div>
+        </div>
+        <!-- Custom Version Row -->
+        <div class="mt-3 flex items-center gap-2 pt-2 border-t border-purple-900/20">
+          <input type="checkbox" id="useCustomVer" class="rounded border-neutral-700 bg-surface text-brand-500 focus:ring-0 cursor-pointer">
+          <label for="useCustomVer" class="text-xs text-neutral-300 cursor-pointer font-medium">Custom Version:</label>
+          <input type="text" id="customVerInput" disabled placeholder="e.g. 1.0.5" class="flex-1 rounded-md border border-neutral-700 bg-surface px-2.5 py-1 text-xs font-mono text-neutral-200 placeholder-neutral-500 focus:border-brand-500 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed">
+        </div>
+      </div>
+
+      <!-- Card 2: Release Changelog Composer -->
+      <div class="glass rounded-xl p-4 flex-1 flex flex-col min-h-0">
+        <div class="flex items-center justify-between mb-2.5">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-neutral-300 flex items-center gap-2">
+            <span class="flex h-5 w-5 items-center justify-center rounded-full bg-brand-900/60 text-brand-400 text-[10px] font-bold">2</span>
+            Release Changelog / Notes
+          </h2>
+          <span class="text-[10px] text-neutral-500">Markdown Supported</span>
+        </div>
+        <!-- Quick Tags -->
+        <div class="flex flex-wrap items-center gap-1.5 mb-2">
+          <button type="button" data-tag="✨ Feature: " class="tag-btn rounded bg-surfaceHover px-2 py-0.5 text-[10px] font-medium text-purple-300 hover:bg-brand-900/50 hover:text-white transition-colors border border-purple-900/40 cursor-pointer">+ ✨ Feature</button>
+          <button type="button" data-tag="🐛 Fix: " class="tag-btn rounded bg-surfaceHover px-2 py-0.5 text-[10px] font-medium text-emerald-300 hover:bg-emerald-950/60 hover:text-white transition-colors border border-emerald-900/40 cursor-pointer">+ 🐛 Bug Fix</button>
+          <button type="button" data-tag="⚡ Optimization: " class="tag-btn rounded bg-surfaceHover px-2 py-0.5 text-[10px] font-medium text-amber-300 hover:bg-amber-950/60 hover:text-white transition-colors border border-amber-900/40 cursor-pointer">+ ⚡ Speed</button>
+          <button type="button" data-tag="🎮 Skate Suite: " class="tag-btn rounded bg-surfaceHover px-2 py-0.5 text-[10px] font-medium text-cyan-300 hover:bg-cyan-950/60 hover:text-white transition-colors border border-cyan-900/40 cursor-pointer">+ 🎮 Skates</button>
+          <button type="button" data-tag="🌐 Community: " class="tag-btn rounded bg-surfaceHover px-2 py-0.5 text-[10px] font-medium text-indigo-300 hover:bg-indigo-950/60 hover:text-white transition-colors border border-indigo-900/40 cursor-pointer">+ 🌐 Cloud</button>
+        </div>
+        <textarea id="releaseNotes" placeholder="- Describe key updates, skate macro changes, or bug fixes in this release..." class="flex-1 w-full rounded-lg border border-neutral-700 bg-surface/90 p-3 text-xs text-neutral-100 placeholder-neutral-500 focus:border-brand-500 focus:ring-1 focus:ring-brand-500/50 focus:outline-none resize-none font-sans leading-relaxed min-h-[140px]"></textarea>
+      </div>
+
+      <!-- Action Button Group -->
+      <div class="flex items-center gap-3 pt-1">
+        <button id="publishBtn" class="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 via-brand-600 to-indigo-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-purple-950/80 hover:from-purple-500 hover:to-indigo-500 active:scale-[0.99] transition-all cursor-pointer border border-purple-400/30">
+          <span id="publishIcon">🚀</span>
+          <span id="publishText">BUILD & PUBLISH RELEASE TO GITHUB</span>
+        </button>
+        <button id="cancelBtn" class="hidden rounded-xl border border-red-700/60 bg-red-950/80 px-4 py-3 text-sm font-bold text-red-300 hover:bg-red-900 hover:text-white transition-all cursor-pointer shadow-md">
+          ⏹ Abort
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Live Progress & Terminal Console (6 Cols) -->
+    <div class="col-span-6 flex flex-col gap-3 min-h-0 overflow-hidden">
+      <!-- Pipeline Stepper Status -->
+      <div class="glass rounded-xl p-3.5 shrink-0">
+        <div class="flex items-center justify-between text-[11px] font-semibold text-neutral-400 mb-2">
+          <span>PIPELINE ENGINE</span>
+          <span id="pipelineStatus" class="text-brand-300 font-mono">Idle</span>
+        </div>
+        <div class="grid grid-cols-4 gap-2 text-center text-[10px]">
+          <div id="step1" class="rounded bg-surface py-1.5 px-1 border border-neutral-800 text-neutral-400 transition-colors">1. Sync Version</div>
+          <div id="step2" class="rounded bg-surface py-1.5 px-1 border border-neutral-800 text-neutral-400 transition-colors">2. Compile & Sign</div>
+          <div id="step3" class="rounded bg-surface py-1.5 px-1 border border-neutral-800 text-neutral-400 transition-colors">3. Manifest</div>
+          <div id="step4" class="rounded bg-surface py-1.5 px-1 border border-neutral-800 text-neutral-400 transition-colors">4. GitHub Upload</div>
+        </div>
+      </div>
+
+      <!-- Live Terminal Console -->
+      <div class="glass rounded-xl p-3 flex-1 flex flex-col min-h-0 bg-obsidian/90 border-purple-900/40 shadow-inner">
+        <div class="flex items-center justify-between pb-2 mb-2 border-b border-neutral-800 shrink-0 text-xs">
+          <div class="flex items-center gap-2">
+            <div class="flex items-center gap-1.5">
+              <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-amber-500/80"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="font-mono text-[11px] font-bold text-neutral-400 ml-1">BUILD CONSOLE LOG</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="copyBtn" class="text-[10px] text-neutral-400 hover:text-brand-300 rounded px-2 py-0.5 bg-surface border border-neutral-800 transition-colors cursor-pointer">📋 Copy</button>
+            <button id="clearBtn" class="text-[10px] text-neutral-400 hover:text-red-300 rounded px-2 py-0.5 bg-surface border border-neutral-800 transition-colors cursor-pointer">🗑️ Clear</button>
+          </div>
+        </div>
+        <div id="terminal" class="flex-1 overflow-y-auto font-mono text-[11px] leading-relaxed p-1 text-neutral-300 space-y-1 select-text">
+          <div class="text-neutral-500">[SYSTEM] Engine initialized. Select version and click 'Build & Publish'.</div>
+        </div>
+      </div>
+
+      <!-- Success Card (Shown after publish) -->
+      <div id="successCard" class="hidden rounded-xl border border-emerald-500/50 bg-emerald-950/40 p-3.5 text-emerald-200 flex items-center justify-between shadow-lg shadow-emerald-950/50 shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 font-bold text-base">✓</div>
+          <div>
+            <div class="text-xs font-bold text-white">Release Successfully Published!</div>
+            <div class="text-[11px] text-emerald-300 font-mono" id="successTag">v1.0.5</div>
+          </div>
+        </div>
+        <button id="openReleaseBtn" class="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-emerald-500 transition-colors shadow-sm cursor-pointer">
+          View on GitHub ↗
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Tauri IPC Helpers
+    const invoke = window.__TAURI__?.core?.invoke || (async (cmd, args) => {
+      console.log('Mock invoke:', cmd, args);
+      return {};
+    });
+    const listen = window.__TAURI__?.event?.listen || ((evt, cb) => () => {});
+
+    let currentVersion = '1.0.4';
+    let nextVersions = { patch: '1.0.5', minor: '1.1.0', major: '2.0.0' };
+    let selectedType = 'patch';
+    let selectedVersion = '1.0.5';
+    let publishedReleaseUrl = '';
+
+    async function fetchStatus() {
+      try {
+        const data = await invoke('get_status');
+        currentVersion = data.current;
+        nextVersions = data.next;
+        document.getElementById('currentVerBadge').innerText = 'v' + currentVersion;
+        document.getElementById('patchVal').innerText = nextVersions.patch;
+        document.getElementById('minorVal').innerText = nextVersions.minor;
+        document.getElementById('majorVal').innerText = nextVersions.major;
+        document.getElementById('repoName').innerText = data.repo;
+        updateSelectedVersion();
+      } catch (e) {
+        console.error('Status fetch error:', e);
+      }
+    }
+
+    function selectBump(type) {
+      if (document.getElementById('useCustomVer').checked) {
+        document.getElementById('useCustomVer').checked = false;
+        toggleCustomVer(false);
+      }
+      selectedType = type;
+      ['patch', 'minor', 'major'].forEach(t => {
+        const card = document.getElementById('card-' + t);
+        const dot = card.querySelector('span:last-child');
+        const title = card.querySelector('span:first-child');
+        if (t === type) {
+          card.className = 'glass-active cursor-pointer rounded-lg p-3 transition-all flex flex-col justify-between hover:border-brand-500/70';
+          dot.className = 'h-2 w-2 rounded-full bg-brand-400';
+          title.className = 'text-xs font-bold text-brand-300';
+        } else {
+          card.className = 'glass cursor-pointer rounded-lg p-3 transition-all flex flex-col justify-between hover:border-brand-500/70';
+          dot.className = 'h-2 w-2 rounded-full bg-neutral-600';
+          title.className = 'text-xs font-bold text-neutral-300';
+        }
+      });
+      updateSelectedVersion();
+    }
+
+    function toggleCustomVer(enabled) {
+      const input = document.getElementById('customVerInput');
+      input.disabled = !enabled;
+      if (enabled) {
+        ['patch', 'minor', 'major'].forEach(t => {
+          const card = document.getElementById('card-' + t);
+          card.className = 'glass cursor-pointer rounded-lg p-3 transition-all flex flex-col justify-between opacity-50';
+        });
+        selectedType = 'custom';
+        input.focus();
+        onCustomVerChange(input.value);
+      } else {
+        selectBump('patch');
+      }
+    }
+
+    function onCustomVerChange(val) {
+      selectedVersion = val.trim().replace(/^v/, '') || nextVersions.patch;
+      document.getElementById('targetVerPreview').innerText = 'Next: v' + selectedVersion;
+    }
+
+    function updateSelectedVersion() {
+      if (selectedType === 'patch') selectedVersion = nextVersions.patch;
+      else if (selectedType === 'minor') selectedVersion = nextVersions.minor;
+      else if (selectedType === 'major') selectedVersion = nextVersions.major;
+      document.getElementById('targetVerPreview').innerText = 'Next: v' + selectedVersion;
+    }
+
+    function addTag(tag) {
+      const ta = document.getElementById('releaseNotes');
+      if (ta.value && !ta.value.endsWith('\n')) ta.value += '\n';
+      ta.value += tag;
+      ta.focus();
+    }
+
+    async function publishRelease() {
+      const notes = document.getElementById('releaseNotes').value.trim();
+      const finalVersion = selectedVersion;
+
+      document.getElementById('publishBtn').disabled = true;
+      document.getElementById('publishBtn').className = 'flex-1 flex items-center justify-center gap-2 rounded-xl bg-neutral-800 px-5 py-3 text-sm font-bold text-neutral-400 cursor-not-allowed border border-neutral-700';
+      document.getElementById('publishIcon').innerText = '⏳';
+      document.getElementById('publishText').innerText = 'COMPILING & PUBLISHING v' + finalVersion + '...';
+      document.getElementById('cancelBtn').classList.remove('hidden');
+      document.getElementById('successCard').classList.add('hidden');
+      document.getElementById('pipelineStatus').innerText = 'Building...';
+
+      updatePipelineStep(1);
+
+      try {
+        await invoke('start_publish', { version: finalVersion, notes: notes });
+      } catch (e) {
+        alert('Failed to start build: ' + e);
+        resetPublishUi();
+      }
+    }
+
+    async function cancelBuild() {
+      try {
+        await invoke('cancel_publish');
+      } catch {}
+      resetPublishUi();
+    }
+
+    function renderLogLine(line) {
+      const term = document.getElementById('terminal');
+      const div = document.createElement('div');
+      if (line.includes('[SUCCESS]')) {
+        div.className = 'text-emerald-400 font-bold bg-emerald-950/30 px-1.5 py-0.5 rounded';
+        updatePipelineStep(4);
+        checkSuccess(line);
+      } else if (line.includes('[ERROR]')) {
+        div.className = 'text-red-400 font-bold bg-red-950/30 px-1.5 py-0.5 rounded';
+        resetPublishUi();
+      } else if (line.includes('[WARN]')) {
+        div.className = 'text-amber-300';
+      } else if (line.includes('Compiling') || line.includes('Building')) {
+        div.className = 'text-purple-300';
+        updatePipelineStep(2);
+      } else if (line.includes('Uploading') || line.includes('manifest')) {
+        div.className = 'text-cyan-300';
+        updatePipelineStep(3);
+      } else {
+        div.className = 'text-neutral-300';
+      }
+      div.textContent = line;
+      term.appendChild(div);
+      term.scrollTop = term.scrollHeight;
+    }
+
+    function updatePipelineStep(stepNum) {
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById('step' + i);
+        if (i < stepNum) {
+          el.className = 'rounded bg-emerald-950/60 py-1.5 px-1 border border-emerald-700/60 text-emerald-300 font-bold';
+        } else if (i === stepNum) {
+          el.className = 'rounded bg-purple-950/80 py-1.5 px-1 border border-brand-500 text-brand-300 font-bold animate-pulse';
+        } else {
+          el.className = 'rounded bg-surface py-1.5 px-1 border border-neutral-800 text-neutral-500';
+        }
+      }
+    }
+
+    function checkSuccess(successLine) {
+      document.getElementById('successCard').classList.remove('hidden');
+      document.getElementById('successTag').innerText = 'v' + selectedVersion + ' published to GitHub';
+      publishedReleaseUrl = 'https://github.com/AwokeD2/D2Hub/releases/tag/v' + selectedVersion;
+      document.getElementById('openReleaseBtn').onclick = () => {
+        invoke('open_url', { url: publishedReleaseUrl });
+      };
+      resetPublishUi();
+      fetchStatus();
+    }
+
+    function resetPublishUi() {
+      document.getElementById('publishBtn').disabled = false;
+      document.getElementById('publishBtn').className = 'flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 via-brand-600 to-indigo-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-purple-950/80 hover:from-purple-500 hover:to-indigo-500 active:scale-[0.99] transition-all cursor-pointer border border-purple-400/30';
+      document.getElementById('publishIcon').innerText = '🚀';
+      document.getElementById('publishText').innerText = 'BUILD & PUBLISH RELEASE TO GITHUB';
+      document.getElementById('cancelBtn').classList.add('hidden');
+      document.getElementById('pipelineStatus').innerText = 'Completed';
+    }
+
+    function clearLogs() {
+      document.getElementById('terminal').innerHTML = '<div class="text-neutral-500">[SYSTEM] Console cleared.</div>';
+    }
+
+    function copyLogs() {
+      const term = document.getElementById('terminal');
+      navigator.clipboard.writeText(term.innerText);
+      alert('Logs copied to clipboard!');
+    }
+
+    // Event Listeners
+    document.getElementById('refreshBtn').onclick = fetchStatus;
+    document.getElementById('card-patch').onclick = () => selectBump('patch');
+    document.getElementById('card-minor').onclick = () => selectBump('minor');
+    document.getElementById('card-major').onclick = () => selectBump('major');
+    document.getElementById('useCustomVer').onchange = (e) => toggleCustomVer(e.target.checked);
+    document.getElementById('customVerInput').oninput = (e) => onCustomVerChange(e.target.value);
+    document.querySelectorAll('.tag-btn').forEach(b => {
+      b.onclick = () => addTag(b.getAttribute('data-tag'));
+    });
+    document.getElementById('publishBtn').onclick = publishRelease;
+    document.getElementById('cancelBtn').onclick = cancelBuild;
+    document.getElementById('copyBtn').onclick = copyLogs;
+    document.getElementById('clearBtn').onclick = clearLogs;
+
+    // Listen to live build logs from Tauri
+    listen('build-log', (event) => {
+      renderLogLine(event.payload);
+    });
+
+    listen('build-finished', (event) => {
+      resetPublishUi();
+    });
+
+    fetchStatus();
+  </script>
+</body>
+</html>

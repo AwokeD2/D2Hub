@@ -1,6 +1,6 @@
 <div align="center">
 
-# D2 Hub
+# 🌌 D2 Hub
 
 ### The Ultimate Destiny 2 Endgame Companion & Live Overlay
 
@@ -49,9 +49,11 @@
 
 ---
 
-### 🌐 Embedded Destiny 2 Web App Hub
+### 🌐 Embedded Destiny 2 Web App & Guides Hub
 - Embedded native browser panels with isolated cookies, persistent logins, and multi-account support:
   - 🛡️ **Destiny Item Manager (DIM)**
+  - 🏰 **Raids**: Full encounter guides, maps, mechanics & overviews (*Salvation's Edge, Desert Perpetual, Crota's End, King's Fall, Root of Nightmares, Vow, VoG, DSC, GoS, Last Wish*) via Paracausality.
+  - 🗝️ **Dungeons**: Comprehensive dungeon mechanics & encounter breakdowns (*Sundered Doctrine, Vesper's Host, Warlord's Ruin, Ghosts of the Deep, Spire, Duality, Grasp, Prophecy, Pit, Shattered Throne*) via Paracausality.
   - 📋 **D2 Reference List**
   - 💡 **Light.gg**
   - 🎯 **D2TTK**

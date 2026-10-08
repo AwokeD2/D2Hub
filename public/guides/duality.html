@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Paracausality SG</title>
+
+    <!-- Embed -->
+    <meta content="Duality Guide" property="og:title" />
+    <meta content="Paracausality SG" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta
+      content="Dive into the depths of the exiled emperor's mind in search of dark secrets. "
+      property="og:description"
+    />
+    <meta
+      content="https://paracausality.netlify.app/duality_guide.html"
+      property="og:url"
+    />
+    <meta content="https://i.imgur.com/fptNprY.webp" property="og:image" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta content="#c62727" data-react-helmet="true" name="theme-color" />
+
+    <!-- Favicons -->
+    <link href="https://www.paracausality.com/assets/img/witnessicon.webp" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="https://www.paracausality.com/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="https://www.paracausality.com/assets/css/style.css" rel="stylesheet" />
+
+    <!-- Script for Header and Footer-->
+    
+  
+<style>
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 60px !important;
+  }
+  body {
+    background-color: #0b0e14 !important;
+    color: #e2e8f0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    padding: 0.75rem 2rem 3rem 2rem !important;
+    overflow-x: hidden !important;
+  }
+  header, footer, #header, #footer, .header, .footer, #preloader, .back-to-top {
+    display: none !important;
+  }
+  
+  /* Natural Beautiful Typography */
+  h1 {
+    font-size: 1.85rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 0.75rem !important;
+  }
+  h2 {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #f8fafc !important;
+    scroll-margin-top: 60px !important;
+  }
+  h3 {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+    margin-top: 1.25rem !important;
+    scroll-margin-top: 60px !important;
+  }
+  p, li, td, th {
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Sticky Section Navigator */
+  #section-nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(11, 14, 20, 0.96) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #1e293b;
+    padding: 8px 0 10px 0;
+    margin: 0 -2rem 24px -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #section-nav-inner {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #0b0e14;
+  }
+  #section-nav-inner::-webkit-scrollbar {
+    height: 4px;
+  }
+  #section-nav-inner::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+  .sec-nav-link {
+    white-space: nowrap;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #181f2c;
+    border: 1px solid #283548;
+    color: #94a3b8;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .sec-nav-link:hover {
+    background: #232d3f;
+    color: #f8fafc;
+    border-color: #475569;
+    text-decoration: none;
+  }
+  .sec-nav-link.active {
+    background: #7c3aed !important;
+    color: #ffffff !important;
+    border-color: #9333ea !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+    text-decoration: none;
+  }
+
+  /* High-Res Full Proportional Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    margin: 10px 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  .container, .container-fluid {
+    max-width: 1280px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0e14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+</style>
+
+<script>
+  function highlightNavLink(el) {
+    document.querySelectorAll('.sec-nav-link').forEach(l => l.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+</script>
+
+</head>
+
+  <body>
+
+    <div id="section-nav-sticky">
+      <div id="section-nav-inner">
+        
+      <a href="#sec-heading-0" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Drop Table
+      </a>
+    
+
+      <a href="#sec-heading-1" class="sec-nav-link" onclick="highlightNavLink(this)">
+        The Mindscape
+      </a>
+    
+
+      <a href="#sec-heading-2" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Nightmare of Gahlran, Sorrow Bearer
+      </a>
+    
+
+      <a href="#sec-heading-3" class="sec-nav-link" onclick="highlightNavLink(this)">
+        The Crypt
+      </a>
+    
+
+      <a href="#sec-heading-4" class="sec-nav-link" onclick="highlightNavLink(this)">
+        The Vault
+      </a>
+    
+
+      <a href="#sec-heading-5" class="sec-nav-link" onclick="highlightNavLink(this)">
+        The Depths
+      </a>
+    
+
+      <a href="#sec-heading-6" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Nightmare of Caiatl, Princess-Imperial
+      </a>
+    
+      </div>
+    </div>
+    
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages"></header>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section
+        class="breadcrumbs"
+        style="
+          background-image: url('./assets/img/guides/Duality/duality_banner.webp');
+        "
+      >
+        <div class="container mt-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/duality_overlay.webp"
+            class="img-fluid"
+            alt="..."
+            style="width: 50px"
+          />&emsp;
+          <h1
+            style="
+              color: white;
+              display: inline;
+              position: absolute;
+              vertical-align: middle;
+            "
+          >
+            Duality Guide
+          </h1>
+          <ol class="mt-2" style="color: white">
+            Encounters:&emsp;
+            <li>
+              <a style="color: white" href="#Mindscape">The Mindscape</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Gahlran"
+                >Nightmare of Gahlran, Sorrow Bearer</a
+              >
+            </li>
+            <li>
+              <a style="color: white" href="#Crypt">The Crypt</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Vault">The Vault</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Depths">The Depths</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Caiatl"
+                >Nightmare of Caiatl, Princess-Imperial</a
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <div class="container">
+        <div class="mt-4 mb-4">
+          <div class="section-title">
+            <h2>Done by: Kenai#2066 | Feb 3rd 2023</h2>
+          </div>
+          <h2 id="sec-heading-0" >Drop Table</h2>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/Duality-dungeon-loot-table-Destiny-2-inforgraphic.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <hr />
+
+        <div
+          class="mt-4 mb-4"
+          id="Mindscape"
+          name="Mindscape"
+        >
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/eve-astra-duality-004.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-1" >The Mindscape</h2>
+          </div>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <p>
+              You are first dropped into the Tribute Hall from Season of
+              Opulence. Move on and speak with Eris, who will connect you to one
+              of Calus's statues to transport you into his mind. Once she's
+              finished speaking, descend through the opening to begin the
+              dungeon.
+            </p>
+            <p>
+              As soon as you landed, move ahead and examine the grate. A red,
+              blazing bell will be visible in the distance. Shooting a bell will
+              send players into the nightmare realm, where they will be able to
+              access certain areas and mechanics they would not be able to
+              access otherwise. A bell can be shot from anywhere while in the
+              normal world, but when in the Nightmare realm, players must stand
+              within the circle around the bell in order to be transported back
+              to the real world. Shooting the bell outside this circle kills all
+              players not within the circle around the bell. During dungeon
+              encounters, players may notice that the bell is locked. In order
+              to unlock the bell, players must kill Bellkeepers.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/2022_Season_17_Duality_Dungeon_Compressed_018.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="row h-100 mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/2022_Season_17_Duality_Dungeon_Compressed_013.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <p>
+              Proceed through the following a number of chambers while
+              experimenting with the platforming and bells. Climb up, keep an
+              eye out for grates with bright bells hidden behind them, and be
+              cautious to kill enemies along the way to prevent being flung into
+              pits.
+            </p>
+            <p>
+              The walkway will lead you to a big, lavish chamber with some
+              sculptures in it. When you defeat all the opponents in this area,
+              a door on the floor in the center of the room will open. Drop down
+              to the first confrontation.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Gahlran" name="Gahlran">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/2022_Season_17_Duality_Dungeon_Compressed_014.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-2" >Nightmare of Gahlran, Sorrow Bearer</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p><b>Loadouts: </b></p>
+          <ul>
+            <li>Snipers (shooting bells at range)</li>
+            <li>Fusion Rifles (killing visions)</li>
+            <li>Swords (Lament, Falling Guillotine)</li>
+            <li>
+              Damage Supers (Thundercrash, Gathering Storm, Well of Radiance
+              etc)
+            </li>
+          </ul>
+          <p>
+            The two versions of the same lengthy room where this meeting takes
+            place are the normal realm and the nightmare realm. <b>Axe</b>,
+            <b>Chalice</b>, <b>Sun</b>, and <b>War Beast</b> are the four
+            symbols from the Leviathan raid that are shown on each of the four
+            standard locations, which each have bells on them.
+          </p>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/9ad7de4f-duality-dungeon-guide-4.webp"
+            class="img-fluid"
+            alt="..."
+            style="margin: auto; display: block"
+          />
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            When you enter the nightmare realm, two bellkeepers appear beside
+            the bell that was not shot (for example, if I shoot the bell closer
+            to the cup/sun rooms, the bellkeepers will appear at the bell closer
+            to the axe/warbeast rooms, and vice versa). The bell that was used
+            to enter the nightmare realm must be used to leave it.
+          </p>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/destiny-2-duality-dungeon-nightmare-of-gahlran-sorrow-bearer-colossus-side-room.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              When in the nightmare realm, the symbol rooms that were previously
+              closed will be open. Two of them will have nothing inside, but two
+              of them will have some ads alongside a Standard Bearer. Kill the
+              Standard Bearers and pick up the standard. Players will know if
+              they have a standard if they see a buff on their screen: “Standard
+              Essence: (whatever symbol appears on the standard)”. Once the team
+              has two standards, they can use the bell to return to the normal
+              dimension. The players with a standard will then deposit their
+              standard at the door of the corresponding room.
+            </p>
+            <p>
+              When a Standard is deposited, the door to that room will open,
+              allowing the two players to enter. There will be a few war beasts
+              and a colossus in the room, but killing them is unnecessary. Once
+              the players are in the rooms, the third player can shoot the bell
+              to send the team back into the nightmare realm.
+            </p>
+          </div>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <p>
+              The players in the rooms will then kill any Visions of Ghalran
+              that appear. When all of the shades in a room (usually 6-7 per
+              room) are killed, the door to that room opens. When both rooms'
+              visions are destroyed, damage to Ghalran begins. The player
+              outside kills bellkeepers and waits for the players inside to kill
+              the visions. At around 10 seconds left on the timer, players
+              should stop doing damage and head back to the bell so that the
+              team does not die. Repeat until Gahlran has been killed.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/vlcsnap_2022_06_01_10h03m39s392.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div>
+            <p><b>Master Difficulty: </b></p>
+            <ul>
+              <li>
+                Bellkeepers have <b>void</b> shields (<b>Match Game</b> is
+                present).
+              </li>
+              <li>
+                <b>Incinerator Unstoppable Champions</b> spawn in the side room
+                in the Dreaming Realm after depositing a Standard.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Crypt" name="Crypt">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/2022_Season_17_Duality_Dungeon_Compressed_004.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-3" >The Crypt</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            It's time to enter the crypt once you've killed Gahlran (for the
+            second time if you've completed the Crown of Sorrow raid before).
+            Walk along the corridor until you reach a spacious, airy chamber.
+            Flip the switch on one of the pillars in the center of the chamber
+            by leaping along the pathway to your left. As a result, the coffins
+            in the wall in front of you will expand and change into platforms.
+          </p>
+          <p>
+            Take the new route up, then cross the room back down. To bring forth
+            another set of coffins, flip another switch here. Return to the
+            coffin wall and climb it until a new entrance appears. You will
+            eventually come to a significant leap of faith if you continue down
+            the slide and through the winding tunnels. You ought should be able
+            to make it to the platform if you jump at the very last second. If
+            you're having trouble, use a class-appropriate leaping exotic or a
+            sword.
+          </p>
+        </div>
+
+        <div class="row h-100 mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center mt-2"
+          >
+            <p>
+              Continue down the route until you come to a chamber with a bell
+              and four sculptures of gladiators. Take note of how the statues
+              appear to stand in everyday life. By turning them
+              counterclockwise, the objective is to get them all facing the
+              bell. There always appears to be one statue pointing straight
+              forward, two pointing backward, and one pointing to the side.
+            </p>
+            <p>
+              To enter the shadow world, use the bell. There are switches on the
+              backs of these sculptures that enable the statues to function
+              normally (the shadow realm statues do not move). Use the bell to
+              teleport back after pressing the switches as many times as
+              necessary. If you've done everything successfully, the entrance to
+              the vault beneath the bell will unlock, allowing you to go to the
+              following encounter.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/eve-astra-duality-018.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Vault" name="Vault">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/2022_Season_17_Duality_Dungeon_Compressed_006.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-4" >The Vault</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p><b>Loadouts:</b></p>
+          <ul>
+            <li>
+              Wave-frame grenade launcher/Eriana's Vow for killing Phalanxes,
+              normal enemies.
+            </li>
+            <li>
+              Eager Edge sword to quickly move around map, kill standard
+              bearers.
+            </li>
+            <li>Snipers (Long range bell shooting).</li>
+          </ul>
+          <p>
+            Players must enter the vault to begin the next major encounter. The
+            objective of this game is to kill three Nightmares by depositing a
+            total of six Standard Essences. The Nightmare will be susceptible
+            when each two Essences are deposited.
+          </p>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/286675db-duality-dungeon-guide-8.webp"
+            class="img-fluid"
+            alt="..."
+            style="margin: auto; display: block"
+          />
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Once in the nightmare realm, the two players who went to the wall
+            should notice a hidden staircase. Head up this staircase into the
+            room, where there will be many ads, including Phalanxes and a
+            Colossus. When all ads in the room are killed, a standard bearer
+            will appear. Killing the bearer again drops a standard that should
+            be picked up and also extends the Nightmare Timer.
+          </p>
+          <p>
+            Both players should grab their standards and head back to the bell.
+            The player who is in charge of killing bellkeepers should locate and
+            kill bellkeepers in the Nightmare dimension. The bellkeepers, just
+            like in the previous encounter, are opposite where the active bell
+            is.
+          </p>
+          <p>
+            Once all players are at the bell with two standards between them,
+            the team can return to the main area and deposit the standards where
+            the symbols are. When both standards have been deposited, the
+            miniboss becomes vulnerable and should be killed. Repeat this two
+            more times.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/destiny-2-duality-dungeon-open-the-vault-symbols.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/destiny-2-duality-dungeon-open-the-vault-nightmare.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="row mt-4">
+            <div class="col-md">
+              <p>Tips:</p>
+              <ul>
+                <li>
+                  Symbols in the second round are the ones that were not used in
+                  the first round.
+                </li>
+                <li>
+                  Killing the wrong standard bearer decreases your nightmare
+                  timer.
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-5">
+              <p><b>Master Difficulty: </b></p>
+              <ul>
+                <li>
+                  Bellkeepers have <b>void</b> shields (<b>Match Game</b> is
+                  present).
+                </li>
+                <li>
+                  <b>Barrier Champions</b> have replaced the Colossus in each
+                  room.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Depths" name="Depths">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/eve-astra-duality-020.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-5" >The Depths</h2>
+          </div>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              Continue through the vault into the huge chamber with the
+              cloth-covered block in the center. Shoot through the bars to
+              trigger the Bell of Conquest on the back left.
+            </p>
+            <p>
+              To get to the bell, jump from the platforms and go through the top
+              wall hole. Climb the tube to the top to return to reality. Find
+              another bell across the street by looking through the bars. To go
+              to another bell, navigate the gap in the nightmare. Work your way
+              around to the other side of the rafter and descend the chute to
+              return to reality.
+            </p>
+            <p>
+              To get to the Dark Shrine, you must cross a large abyss in the
+              following location. To go to the red doorway across the opening,
+              turn right and proceed along the wall.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/eve-astra-duality-024.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Caiatl" name="Caiatl">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/stephen-boe-duality-2560x1440.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-6" >Nightmare of Caiatl, Princess-Imperial</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The battle with Nightmare of Caiatl is simple yet challenging to win
+            because of the different mechanisms at work and the fine line
+            between needing to redo the whole battle and the damage phase. The
+            objective is to collect four Standard Essences, ring the huge Bell
+            of Conquest, and then utilize the three bells in the nightmare realm
+            to stun Caiatl so that a damage phase may be initiated.
+          </p>
+          <p><b>Loadouts: </b></p>
+          <ul>
+            <li>DPS weapons (LFR, Swords, Slug Shotguns)</li>
+            <li>Thundercrash/Well of Radiance (Starfire Protocol)</li>
+          </ul>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/Duality/585c285b-duality-dungeon-guide-11.webp"
+            class="img-fluid"
+            alt="..."
+            style="margin: auto; display: block"
+          />
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The encounter begins when you step beyond the stage, where the rally
+            flag is. Many ads will spawn, including a total of 6 bellkeepers (2
+            per bell, a total of 3 bells). The big bell in the centre is
+            supported by four beams. There are symbols beside two of the beams.
+            Players should note these symbols down and go to the platforms at
+            the side of the room that show the corresponding symbol. The third
+            player can go on to shoot the bell, bringing the team into the
+            nightmare realm.
+          </p>
+          <p>
+            When in the nightmare realm, players should kill their standard
+            bearers, taking care not to kill the wrong standard bearers. Killing
+            the correct standard bearer drops a standard to be picked up, and
+            killing the wrong standard bearer decreases your nightmare timer.
+            The other player should kill the four bellkeepers that spawn. The
+            bellkeepers spawn based on which bell was shot to enter; they spawn
+            at the other two bells that were not used. In order to reopen the
+            bell, all four bellkeepers must be killed.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/destiny-2-duality-dungeon-nightmare-of-caiatl.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >The Psions spawn in the nightmare realm in the locations
+              indicated by the symbols above the balcony.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/destiny-2-duality-caiatl-nightmare.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >To produce a Standard Essence, you must defeat the Psions on the
+              balconies. One will only spawn from the Psions on the balconies
+              that have the correct symbol.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Once the two standards are collected, the team can return to the
+            normal realm and deposit the two standards. Two more symbols will
+            reappear at the beams that were not used previously, and the players
+            should kill bellkeepers and return to the nightmare realm to collect
+            these two standards.
+          </p>
+          <p>
+            Once all 4 standards have been deposited, a message will appear in
+            the chat: “The Bell of Conquest is primed.” A button on the beams
+            connected to the chains will start glowing red. When the buttons are
+            shot, a sound effect will play and the big bell in the middle will
+            activate. All players and the boss will be thrown into the nightmare
+            realm as a result of this.
+          </p>
+          <p>
+            Two bellkeepers will then spawn per bell. The boss will spawn on the
+            far side of the realm and will begin to move towards one of the
+            bells. During this time, the boss is vulnerable but takes
+            significantly reduced damage.
+          </p>
+          <p>
+            The team must kill the bellkeepers to unlock the bell the boss is
+            moving to, then shoot the bell while all the players and the boss
+            are within the black aura circle around the bell. This will stun the
+            boss and remove her damage resistance for 11 seconds. This is marked
+            by a buff called “Waking Resonance." After the Waking Resonance
+            timer runs out, the boss is no longer stunned and will move toward
+            another bell. Again, activate the bell while all players and the
+            boss are near it, receive the Waking Resonance buff again, and
+            continue dealing damage for another 11 seconds. After this, the boss
+            moves on to the final bell, rinse and repeat. Once the damage phase
+            ends for all 3 bells, the boss returns to the main arena, and the
+            team repeats the encounter.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/destiny-2-duality-caiatl-glowing-chains.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >The jewels on the chain will illuminate after four Standard
+              Essences have been placed. The enormous Bell of Conquest will ring
+              when you shoot a jewel to break a chain. The damage phase has now
+              started.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/Duality/destiny-2-duality-caiatl-damage-phase.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >DPS as much as you can while the Waking Resonance buff is
+              active.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            If a bell is rung prematurely, the boss can go to it but will not
+            interact with it. Players will not be able to use that bell for
+            damage either. If the bell is shot with the boss in its radius but
+            not the players, the players outside the radius will not receive
+            Waking Resonance and will continue to do significantly less damage
+            to the boss. If the boss reaches the bell, closed or opened, without
+            players intervening, she will disappear, and the team has to repeat
+            the encounter. When the boss is killed, the encounter and dungeon
+            are over.
+          </p>
+          <p><b>Master Difficulty: </b></p>
+          <ul>
+            <li>
+              Bellkeepers have <b>void</b> shields (<b>Match Game</b> is
+              present).
+            </li>
+            <li>
+              <b>Barrier Champions</b> have replaced the Colossus is the
+              nightmare realm.
+            </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4">
+          <h3>Video Guides</h3>
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2: DUALITY DUNGEON FOR DUMMIES! | Complete Dungeon Guide & Walkthrough!</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=SlohDPSLwKA" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">The Complete Duality Dungeon Guide (All Secret Chests + MASTER) | Destiny 2 Season of the Haunted</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=E5B9vwYAhE8" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">*NEW* Heartshadow Exotic Catalyst Guide! | Destiny 2 Duality Dungeon</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=u2VGHjO2HT4" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer"></footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://www.paracausality.com/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    
+    <script src="https://www.paracausality.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="https://www.paracausality.com/assets/js/main.js"></script>
+  </body>
+</html>

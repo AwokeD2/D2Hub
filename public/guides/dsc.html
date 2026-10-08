@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Paracausality SG</title>
+
+    <!-- Embed -->
+    <meta content="Deep Stone Crypt Guide" property="og:title" />
+    <meta content="Paracausality SG" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta
+      content="The chains of legacy must be broken. "
+      property="og:description"
+    />
+    <meta
+      content="https://paracausality.netlify.app/dsc_guide.html"
+      property="og:url"
+    />
+    <meta content="https://i.imgur.com/lhmFkSB.webp" property="og:image" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta content="#121d3f" data-react-helmet="true" name="theme-color" />
+
+    <!-- Favicons -->
+    <link href="https://www.paracausality.com/assets/img/witnessicon.webp" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="https://www.paracausality.com/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="https://www.paracausality.com/assets/css/style.css" rel="stylesheet" />
+
+    <!-- Script for Header and Footer-->
+    
+  
+<style>
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 60px !important;
+  }
+  body {
+    background-color: #0b0e14 !important;
+    color: #e2e8f0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    padding: 0.75rem 2rem 3rem 2rem !important;
+    overflow-x: hidden !important;
+  }
+  header, footer, #header, #footer, .header, .footer, #preloader, .back-to-top {
+    display: none !important;
+  }
+  
+  /* Natural Beautiful Typography */
+  h1 {
+    font-size: 1.85rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 0.75rem !important;
+  }
+  h2 {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #f8fafc !important;
+    scroll-margin-top: 60px !important;
+  }
+  h3 {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+    margin-top: 1.25rem !important;
+    scroll-margin-top: 60px !important;
+  }
+  p, li, td, th {
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Sticky Section Navigator */
+  #section-nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(11, 14, 20, 0.96) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #1e293b;
+    padding: 8px 0 10px 0;
+    margin: 0 -2rem 24px -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #section-nav-inner {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #0b0e14;
+  }
+  #section-nav-inner::-webkit-scrollbar {
+    height: 4px;
+  }
+  #section-nav-inner::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+  .sec-nav-link {
+    white-space: nowrap;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #181f2c;
+    border: 1px solid #283548;
+    color: #94a3b8;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .sec-nav-link:hover {
+    background: #232d3f;
+    color: #f8fafc;
+    border-color: #475569;
+    text-decoration: none;
+  }
+  .sec-nav-link.active {
+    background: #7c3aed !important;
+    color: #ffffff !important;
+    border-color: #9333ea !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+    text-decoration: none;
+  }
+
+  /* High-Res Full Proportional Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    margin: 10px 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  .container, .container-fluid {
+    max-width: 1280px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0e14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+</style>
+
+<script>
+  function highlightNavLink(el) {
+    document.querySelectorAll('.sec-nav-link').forEach(l => l.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+</script>
+
+</head>
+
+  <body>
+
+    <div id="section-nav-sticky">
+      <div id="section-nav-inner">
+        
+      <a href="#sec-heading-0" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Drop Table
+      </a>
+    
+
+      <a href="#sec-heading-1" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Weapons
+      </a>
+    
+
+      <a href="#sec-heading-2" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Desolation
+      </a>
+    
+
+      <a href="#sec-heading-3" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Disable Crypt Security
+      </a>
+    
+
+      <a href="#sec-heading-4" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Maps
+      </a>
+    
+
+      <a href="#sec-heading-5" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Atraks-1, Fallen Exo
+      </a>
+    
+
+      <a href="#sec-heading-6" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Maps
+      </a>
+    
+
+      <a href="#sec-heading-7" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Descent
+      </a>
+    
+
+      <a href="#sec-heading-8" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Taniks Reborn
+      </a>
+    
+
+      <a href="#sec-heading-9" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Taniks, the Abomination
+      </a>
+    
+
+      <a href="#sec-heading-10" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Video Guides
+      </a>
+    
+      </div>
+    </div>
+    
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages"></header>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section
+        class="breadcrumbs"
+        style="background-image: url('./assets/img/guides/DSC/dsc_banner.webp')"
+      >
+        <div class="container mt-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/dsc_overlay.webp"
+            class="img-fluid"
+            alt="..."
+            style="width: 50px"
+          />&emsp;
+          <h1
+            style="
+              color: white;
+              display: inline;
+              position: absolute;
+              vertical-align: middle;
+            "
+          >
+            Deep Stone Crypt Guide
+          </h1>
+          <ol class="mt-2" style="color: white">
+            Encounters:&emsp;
+            <li><a style="color: white" href="#Desolation">Desolation</a></li>
+            <li>
+              <a style="color: white" href="#Crypt-Security">Crypt Security</a>
+            </li>
+            <li><a style="color: white" href="#Atraks-1">Atraks-1, Fallen Exo</a></li>
+            <li><a style="color: white" href="#Descent">Descent</a></li>
+            <li>
+              <a style="color: white" href="#Taniks-Reborn">Taniks Reborn</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Taniks-the-Abomination"
+                >Taniks the Abomination</a
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- End Breadcrumbs -->
+
+      <div class="container">
+        <div class="mt-4 mb-4">
+          <div class="section-title">
+            <h2>Done by: Kenai#2066 | Jan 4th 2023</h2>
+          </div>
+          <h2 id="sec-heading-0" >Drop Table</h2>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/dsc_droptable.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Weapons" name="Weapons">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/Deep-Stone-Crypt-weapons-Destiny-2-900p.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-1" >Weapons</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <b>Origin Trait: </b><br /><br />
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/BRAY%20INHERITANCE.webp"
+            class="img-fluid"
+            alt="..."
+            style="width: 50px"
+          />&nbsp;
+          <p
+            style="display: inline; position: absolute; vertical-align: middle"
+          >
+            Bray Inheritance - Weapon Hits grant Grenade, Melee, and Class
+            Ability Energy. Incandescent Scorch ticks, Chain Reaction and
+            Dragonfly elemental explosions, and Voltshot jolt chains count as
+            hits.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Solar.webp"
+                class="img-fluid"
+                alt="Solar"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Trustee</b><br />&emsp;&emsp;&emsp;Legendary // Rapid-Fire
+              Frame // Scout Rifle
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Barrel:</li>
+                  <ul>
+                    <li>Arrowhead Brake</li>
+                    <li>Corkscrew Rifling</li>
+                  </ul>
+                  <br />
+                  <li>Magazine:</li>
+                  <ul>
+                    <li>Accurized Rounds</li>
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Reconstruction</li>
+                    <li>Rapid Hit</li>
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Incandescent</li>
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Range <br />
+                Mod Slot: Minor Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/1392919471.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            Good scout for solar surge content. Has good ad-clear for a scout,
+            but something like the Staccato may be better for higher end content
+            since it rolls explosive payload where Trustee does not.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Arc.webp"
+                class="img-fluid"
+                alt="Arc"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Posterity</b><br />&emsp;&emsp;&emsp;Legendary // Precision
+              Frame // Hand Cannon
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Barrel:</li>
+                  <ul>
+                    <li>Corkscrew Rifling</li>
+                    <li>Arrowhead Brake</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Magazine:</li>
+                  <ul>
+                    <li>Accurized Rounds</li>
+                    <br />
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Reconstruction</li>
+                    <li>Voltshot</li>
+                    <li>Rapid Hit</li>
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Rampage</li>
+                    <br />
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Range <br />
+                Mod Slot: Minor Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/3281285075.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            One of the best Hand Cannons for PvE content. With a powerful
+            ad-clear roll featuring Voltshot, this hand cannon's only downside
+            is being a hand cannon, and a precision frame at that. Precision
+            frames fire fast, but deal underwhelming damage that is not made up
+            for by their larger magazine size.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Kinetic.webp"
+                class="img-fluid"
+                alt="Kinetic"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Succession</b><br />&emsp;&emsp;&emsp;Legendary // Aggressive
+              Frame // Sniper Rifle
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Barrel:</li>
+                  <ul>
+                    <li>Fluted Barrel</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Magazine:</li>
+                  <ul>
+                    <li>Tactical Mag</li>
+                    <br />
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Reconstruction</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Vorpal Weapon</li>
+                    <li>Firing Line</li>
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Range <br />
+                Mod Slot: Boss Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/2990047042.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            One of the best snipers for PvE content. Passive reloads for
+            smoother gameplay, a hard-hitting frame and a sleek scope ensure
+            that this sniper remains one of the best in the business.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Kinetic.webp"
+                class="img-fluid"
+                alt="Kinetic"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Heritage</b><br />&emsp;&emsp;&emsp;Legendary // Pinpoint Slug
+              Frame // Shotgun
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Barrel:</li>
+                  <ul>
+                    <li>Hammer-Forged Rifling</li>
+                  </ul>
+                  <br />
+                  <li>Magazine:</li>
+                  <ul>
+                    <li>Assault Mag</li>
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Reconstruction</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Recombination</li>
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Range <br />
+                Mod Slot: Boss Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/4248569242.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            Heritage is in a similar situation to Succession, where it is one of
+            the best weapons of its frame in the business. Unlike succession,
+            however, Heritage has found itself falling out of favor in terms of
+            a kinetic special in place of stronger weapons like the Riptide.
+            Nevertheless, the Heritage is not to be slept on, being an adept
+            miniboss killer and DPS option.
+          </p>
+          <p>
+            Timeless S tier option in PvP. Heritage easily hits 90-100 range,
+            has monstrously high base stats, and comes with lethal perks for any
+            playstyle. Slideshot/Threat detector + Moving target make the slug
+            easy to use outside of pellet shotgun range. Swashbuckler at max
+            stacks allows the slug to kill in one bodyshot. Hipfire grip +
+            Offhand strike transform this weapon into a hip mounted sniper rifle
+            that does most of the aiming for you, at a shockingly high range.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Arc.webp"
+                class="img-fluid"
+                alt="Arc"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Bequest</b><br />&emsp;&emsp;&emsp;Legendary // Adaptive Frame
+              // Sword
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Blade:</li>
+                  <ul>
+                    <li>Hungry Edge</li>
+                  </ul>
+                  <br />
+                  <li>Guard:</li>
+                  <ul>
+                    <li>Balanced Guard</li>
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Relentless Strikes</li>
+                    <br />
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Surrounded</li>
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Impact <br />
+                Mod Slot: Boss Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/3366545721.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-sm-4 mt-md-0">
+            Despite the shortcomings of most swords today, which arise due to
+            unfavourable metas in many situations, the Bequest is still worth
+            picking up, as it can be the best legendary sword for damage.
+          </p>
+          <p>
+            Bequest has 3 things going for it: Firstly, its frame being the most
+            ideal for damage. Secondly, its capability to have the Enhanced
+            Surrounded damage perk, which increases Sword damage by 42% when
+            surrounded by at least 3 targets. Lastly, and unique to the Bequest
+            is an intrinsic additional 10 points of impact damage. These 3
+            points come together to make the Bequest the best damage sword when
+            you can get Enhanced Surrounded active.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Void.webp"
+                class="img-fluid"
+                alt="Void"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Commemoration</b><br />&emsp;&emsp;&emsp;Legendary // Adaptive
+              Frame // Machine Gun
+            </p>
+            <div class="row">
+              <p>
+                <b><u>Desirable Perks</u></b>
+              </p>
+              <div class="col">
+                <ol style="display: table; margin: 0 auto; text-align: left">
+                  <li>Barrel:</li>
+                  <ul>
+                    <li>Arrowhead Brake</li>
+                  </ul>
+                  <br />
+                  <li>Magazine:</li>
+                  <ul>
+                    <li>Accurized Rounds</li>
+                  </ul>
+                </ol>
+              </div>
+
+              <div class="col">
+                <ol start="3">
+                  <li>Column 1 Perks:</li>
+                  <ul>
+                    <li>Reconstruction</li>
+                  </ul>
+                  <br />
+                  <li>Column 2 Perks:</li>
+                  <ul>
+                    <li>Killing Tally</li>
+                  </ul>
+                </ol>
+              </div>
+              <p>
+                Masterwork: Range <br />
+                Mod Slot: Boss Spec, Major Spec
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/4230965989.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-4">
+            A single word is etched inside the barrel: “Perfection.” Ever since
+            the sunsetting of the dearly beloved Hammerhead, the Commemoration
+            fills a hole in the hearts of machine gun enthusiasts with the same
+            frame and damage type. Reconstruction + Killing Tally is a
+            no-brainer combination. Magazines of over 100 and a 30% damage boost
+            with technically permanent uptime makes this weapon a force to be
+            reckoned with anywhere you bring it. And you will probably bring it
+            everywhere. With such high base stats, the weapon can be crafted and
+            refined to your precise tastes in barrels and magazines.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="row h-100 mt-4 mb-2">
+          <div
+            class="col-md-7 justify-content-center align-self-center"
+          >
+            <p>
+              <img
+                src="https://www.paracausality.com/assets/img/RaidIntro/Solar.webp"
+                class="img-fluid"
+                alt="Solar"
+                style="width: 30px"
+              />
+              &nbsp;
+              <b>Eyes of Tomorrow</b><br />&emsp;&emsp;&emsp;Exotic // Rocket
+              Launcher
+            </p>
+            <div class="row">
+              <h5><u>Details</u></h5>
+              <p>
+                Fires multiple tracking rockets simultaneously that lock on to
+                different targets.
+              </p>
+              <p>
+                Killing 4 or more combatants increases the damage of the next
+                volley.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 justify-content-center align-self-center mt-2"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/eyesoftomorrow_1920x1080.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <p class="mt-4">
+            Your reluctant introduction to this gun may be in the Crucible or
+            Gambit. The EoT is a powerful addclear tool with good reserves, a
+            modest reload and devastating area damage that will have you
+            accidentally violating the Geneva Convention as half your rockets
+            track onto the dreg kneeling before you and the other half head off
+            to kill his wife two blocks down.
+          </p>
+          <p>
+            In PvP there is little to be said about a volley rocket launcher
+            with more aggressive tracking than the Wardcliff Coil, where it can
+            wipe out several opponents at once and cause the destruction of a
+            keyboard and monitor. At the end of the day it is a fun rocket
+            launcher for rapidly clearing the space in front of you, but it's
+            not a great late game damage tool.
+          </p>
+        </div>
+
+        <hr />
+
+        <div
+          class="mt-4 mb-4"
+          id="Desolation"
+          name="Desolation"
+        >
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/d2_beyondlight_deepstonecrypt_raid_00.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-2" >Desolation</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The Deep Stone Crypt's opening encounter is a Pike segment (though
+            Sparrows can be used). The objective for this phase is to navigate
+            across icebergs while moving from bubble to bubble to dodge the
+            storm.
+          </p>
+
+          <p>
+            While outside of a bubble, the storm causes the Frostbite debuff to
+            be applied, and each bubble grants the Shelter from the Storm bonus.
+            If the Frostbite debuff accumulates 10 stacks, a player will perish.
+          </p>
+          <p>
+            Fallen, especially the formidable Dark Council Guard, guard these
+            bubbles. A few Fallen Brigs are defending the last bubble. Right
+            before the plummet down to the last bubble in this encounter, a
+            hidden treasure is nestled away among the icebergs.
+          </p>
+          <p>
+            Right before the plummet down to the last bubble in this encounter,
+            a hidden treasure is nestled away among the icebergs.
+          </p>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h3>Map</h3>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/dsc-sparrow-398x1024.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h5>Encounter Triumph:</h5>
+          <p>
+            <b>Not a Scratch</b> - Bring all six Pikes from the starting heat
+            bubble to the final heat bubble.
+          </p>
+        </div>
+
+        <hr />
+
+        <div
+          class="mt-4 mb-4"
+          id="Crypt-Security"
+          name="Crypt-Security"
+        >
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/d2_beyondlight_deepstonecrypt_raid_02.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-3" >Disable Crypt Security</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <b>Roles:</b>
+          <ul>
+            <li>1 Operator</li>
+            <li>1 Scanner</li>
+            <li>
+              4 ad-clear/damage (players should be on standby to take operator
+              as well)
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h3>Loadouts</h3>
+          <p>
+            Operator should have a weapon that can comfortably shoot the panels
+            (trace rifle, smg etc). A sword can be used to make reading easier
+            in the second half of the encounter.
+          </p>
+          <p>
+            Scanner and all other players should have Bastion, an ad-clear
+            weapon and something to stun Overload Captains.
+          </p>
+          <p>
+            Choice of classes is very flexible, though Titans are recommended
+            for later encounters.
+          </p>
+          <p>
+            Choice of subclasses is also not too strict here, though I recommend
+            being on solar subclasses in order to have the Radiant damage boost
+            readily available. This allows Bastion to 2-shot the fuses, as
+            opposed to 3-shotting them.
+          </p>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The encounter should start with the Operator, scanner and 2 others
+            on the dark side of the room, and the remaining 2 on the light side.
+          </p>
+          <p>
+            The Operator's job is to shoot 4 of the 10 panels in the basement,
+            then take the scanner augment from the original scanner and scan the
+            fuses to be shot for damage.
+          </p>
+          <p>
+            The Scanner's job is to tell the Operator which 4 of the 10 panels
+            to shoot, as shooting the wrong panel kills the Operator. This is
+            done by peering into the windows on the floor above the panels. If
+            the panel glows yellow while you have the scanner buff, it is the
+            correct panel and your operator should shoot that.
+          </p>
+          <p>
+            The rest of the players should concentrate on ad-clear, with
+            Sentinel Servitors that spawn throughout the encounter being of
+            priority - kill them as fast as possible, as they prevent the use of
+            the terminals. They, alongside the scanner will be the ones dealing
+            damage to the fuses.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-security-room-layout.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>
+              This viewpoint represents the room's light side. The fuses are
+              stored in the three tubes in the centre. The basement is accessed
+              by the entrance on the far left.
+            </small>
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-security-augmentation-terminal.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>
+              To start the encounter, take the Operator Augment from the
+              terminal.
+            </small>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The Operator takes their augment from the terminal in the dark side
+            to start the encounter. Immediately after this, they should head to
+            the door to the basement, but do not shoot the panel to open it yet,
+            rather, they should wait for the scanner to finish scanning the dark
+            side.
+          </p>
+          <p>
+            A vandal with the Scanner augment will spawn on the dark side when
+            the encounter starts. This vandal has the yellow scanner augment
+            displayed above their head, so they're hard to miss. Once you have
+            killed them and picked up the Scanner augment, begin scanning the
+            dark side panels according to the map. I recommend starting to scan
+            from Dark 4 and 5, since the vandal will spawn near it. I also
+            recommend skipping scanning Dark 3, as it can be annoying to see.
+            Instead, scan Dark 1, 2, 4 and 5, and by process of elimination, if
+            only one of these 4 panels is lit up then the other panel is dark 3.
+          </p>
+          <p>
+            Once the Scanner is done scanning the dark side, they are to head to
+            where the Operator is waiting. The Operator then shoots the glowing
+            red panel to open the door to the basement. This will also open the
+            door from the dark side to the light side. The scanner will use this
+            to cross over to the light side and scan. The Operator will wait for
+            the Scanner to finish calling out the light side panels, then head
+            downstairs into the basement.
+          </p>
+          <p>
+            Once in the basement, the Operator should shoot all 4 of the panels
+            called out by the scanner to start damage. Before doing so, ensure
+            that the team is ready to damage the fuses. Once all panels are
+            shot, the protective shield around the fuses will be removed,
+            indicated by an alarm sound and the message “Security shields lower,
+            presenting a weakness…”. At this point, 4 things need to happen
+            before anyone shoots the fuses:
+          </p>
+          <div>
+            <ol>
+              <li>Operator puts their augment in the terminal.</li>
+              <li>
+                One of the other players takes the operator augment from the
+                terminal.
+              </li>
+              <li>Scanner puts their augment in the terminal.</li>
+              <li>
+                The previous Operator takes the Scanner augment from the
+                terminal.
+              </li>
+            </ol>
+          </div>
+          <p>Take note that explosive shanks spawn in when damage begins.</p>
+          <p>
+            Now, the player in the basement (ex-op, now scanner) will read out
+            to the team which fuse to shoot. Players must destroy the fuse
+            called out by the scanner before shooting any other fuses, as
+            shooting fuses that are not the one called out by the scanner causes
+            a wipe. The scanner knows which fuses the team should shoot by
+            looking at the lights on the wall near the terminal (refer to the
+            image titled basement map, its the yellow dots there). The one
+            glowing yellow is the one the team should shoot.
+          </p>
+          <p>
+            Once damage is done, if you did not one phase, the new Scanner reads
+            out which panels are glowing for the new Operator to shoot. The
+            Operator will then open the basement once again, letting the new
+            Scanner out.
+          </p>
+          <p>Repeat this process until the encounter is done.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-security-basement-keypad.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>
+              The Operator enters the basement and fires them after the Scanners
+              call out the right panels.
+            </small>
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-security-fuses-basement.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>
+              One of the six fuses in the basement will illuminate once all four
+              have been fired. The relevant fuse must be extinguished by the
+              players above. The room's dark side would be this one.
+            </small>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2 id="sec-heading-4" >Maps</h2>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/Encounter%201_%20Security%20-%20Top%20side%20map.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>Top floor</small>
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/Encounter%201_%20Security%20-%20Basement%20Map.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>Basement</small>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h5>Encounter Triumph:</h5>
+          <p>
+            <b>Resource Contention</b> - Shut down Crypt security while only
+            using 2 of the 3 augmentation terminals.
+          </p>
+          <h5>Challenge Mode:</h5>
+          <p>
+            <b>Red Rover</b> - All Guardians must be operator during the
+            encounter and shoot the two panels on the lower level.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Atraks-1" name="Atraks-1">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/d2_beyondlight_deepstonecrypt_raid_05.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-5" >Atraks-1, Fallen Exo</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <b>Roles: </b>
+          <div>
+            <ul>
+              <li>1 Scanner</li>
+              <li>1 Operator</li>
+              <li>4 Damage</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h3>Loadouts</h3>
+          <p>
+            All players should be using an ad-clear weapon, an aggressive sniper
+            with major spec/vorpal to 1-shot shanks and Parasite, with The
+            Lament on hand to swap to. Operator might want to bring whatever
+            weapon they used to shoot panels last time as well.
+          </p>
+          <p>
+            In terms of classes, try to have as many titans as possible, though
+            your team is bound to have at least one warlock for later
+            encounters.
+          </p>
+          <p>
+            Subclasses are more strict here, specifically for the titans. Titans
+            should use their Thundercrash super alongside the Cuirass of the
+            Falling Star exotic chest piece. Warlocks should be on Nova Bomb
+            (both work fine), but for warlocks it is less strict. Any hunters
+            should use Blade Barrage with the Ember of Beams fragment as well as
+            the Star-Eater Scales exotic leg piece.
+          </p>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            This encounter has 2 areas- the basement where you originally are,
+            and the space area which is accessed by the elevators, which come
+            down to the basement through the elevator shafts seen at the back of
+            the basement.
+          </p>
+          <p>
+            All players start at the basement, but you will send 4 players up
+            first, these players preferably being your titans.
+          </p>
+          <p>
+            The Scanner is in charge of telling the team which copy of the boss
+            is the correct one to damage.
+          </p>
+          <p>
+            The Operator is the one in charge of calling pods to the
+            basement/space area, as well as cleansing the debuff picked up into
+            space.
+          </p>
+          <p>
+            Only one person may be in an elevator at a time. There are a total
+            of 4 elevators, and they are called down automatically at the start
+            of the encounter, and when the operator shoots a panel beside it.
+          </p>
+        </div>
+
+        <div class="row">
+          <h2 id="sec-heading-6" >Maps</h2>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/Encounter%202_%20Atraks%20-%20Basement.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>Basement</small>
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/Encounter%202_%20Atraks%20-%20Space.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>Orbital Station</small>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            When the encounter starts, all 4 elevators will come to the
+            basement. The allocated scanner and other players will head to
+            space, leaving the Operator and whichever player(s) choose to stay
+            behind.
+          </p>
+          <p>
+            Around this time, ads would have spawned in as well. Players should
+            target the shanks first, using their snipers to 1-shot them. This
+            applies to all players - shanks and other ads will spawn in both the
+            basement and space. The shanks are the main priority, then kill the
+            smaller ads after that. Once this is done/after a short while, an
+            alarm will go off, saying something along the lines of “Security
+            Sentinels have arrived”. When this happens, 6 servitors will spawn;
+            3 in the basement and 3 in space area. Along side them will also be
+            the Operator Vandal and Scanner Vandal, spawning in the basement and
+            space area respectively.
+          </p>
+          <p>
+            All servitors, except for one in space are to be killed as soon as
+            possible. Most teams opt to keep the right side servitor in space
+            alive, though this depends on your team.
+          </p>
+          <p>
+            Once all servitors in the basement are dead and operator augment
+            acquired, the players in the basement will move up to the space
+            area, with the operator shooting the panel beside the elevator they
+            want to use to bring them up to space.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-atraks-1-operator.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Which glowing keypads next to the airlocks may be seen by the
+              operator.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-atraks-1-sentinel-servitor.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >The Augmentation Terminals will be turned off by the Sentinel
+              Servitors.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Once all players are in space, the last servitor in space may be
+            killed. This triggers a message called “Extinction Protocol
+            Activated”. This will cause all copies of Atraks in space to begin
+            glowing white. If left alone, these copies of the boss will wipe you
+            after a short duration. Thus, the Scanner must look for the copy of
+            the boss that is glowing yellow. The team should head to that boss
+            and prepare to damage.
+          </p>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/dsc-atraks-1-glow.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>The ideal damage combo on Atraks is:</p>
+          <p>
+            <i
+              >(countdown ends) thundercrash/nova/blade barrage Atraks, then
+              Parasite</i
+            >
+          </p>
+          <p>
+            After this is done, 2 things are to be done, depending on whether
+            you have managed to one-floor Atraks (meaning you have done enough
+            damage to get to Final Stand.
+          </p>
+          <p>
+            If you have not one-phased Atraks, the Scanner and at most 3 other
+            players should run towards the elevators and head back to the
+            basement immediately. The copies of Atraks in the basement would
+            have begun to enter their Extinction Protocol as well. Once out of
+            the elevators, the Scanner will direct the players to the copy of
+            the boss that is glowing yellow, and damage the boss in a similar
+            fashion to previously in space.
+          </p>
+          <p>
+            Importantly, every time you kill a copy of the boss, it drops a ball
+            that should be picked up by a player without an augment. This gives
+            the player a debuff called “Atraks-1 Replication”, and it has a ~40
+            second timer. If this timer hits 0, the team wipes. In order to get
+            rid of this debuff, the Operator has to go to one of the 5-6
+            airlocks in space and shoot the panel beside it. This opens the
+            airlock for the player to run into, and then the Operator should
+            shoot the debuff off their head, eliminating the debuff. Thus, it is
+            important that:
+          </p>
+          <div>
+            <ul>
+              <li>The Operator does not pick the debuff up</li>
+              <li>
+                Players remember to pick the debuff up after killing a copy of
+                the boss (the timer will continue ticking when on the ground,
+                but can be reset if it is shot off the player's head.)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/dsc-atraks-1-replication-debuff.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <small
+            >The Atraks-1 Replication debuff must be ejected out the airlock.
+            Players with the debuff must stand in the airlock and have the
+            Operator shoot the buff of their head.</small
+          >
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The boss will continue entering Extinction Protocol phases until
+            either it has been brought to final stand, or it has entered
+            Extinction Protocol phases 5 or 6 times.
+          </p>
+          <p>
+            Once in final stand, all copies of the boss will teleport to space.
+            After ~30 seconds, some of them will begin to enter the Extinction
+            Protocol stage. Again, scanner has to find the correct copy of the
+            boss for the team to kill.
+          </p>
+          <p>
+            Once Atraks's health is completely depleted, the encounter is done.
+          </p>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h3>Tips for this encounter (Good to know if farming)</h3>
+          <div>
+            <ul>
+              <li>
+                The servitors spawning depends on whether the ads have been
+                killed. In my experience, the servitors spawn faster if all
+                shanks and some/all the vandals are killed.
+              </li>
+              <li>
+                3 titans with parasite should be enough to bring the boss to
+                final stand within one damage window.
+              </li>
+              <li>
+                Debuffs (Tether, Tractor cannon, Weaken Grenades) do not work on
+                this boss.
+              </li>
+              <li>
+                One thundercrash is enough to kill the boss in final stand, so
+                most farmers opt to have the scanner be a titan who saves their
+                thundercrash for final stand.
+              </li>
+              <li>
+                If a one-phase is not achieved, players should swap to The
+                Lament and do damage with that instead of Parasite, since its
+                damage falls off drastically if you do not have Worm's Hunger
+                x20, and you won't have a lot of time to get your stacks back.
+                Players going downstairs should make the swap while in the
+                elevator.
+              </li>
+              <li>
+                The ideal Lament combo on Atraks is charge -> 3 light attacks ->
+                1 heavy attack. If a teammate does not have Parasite, they can
+                use the Lament instead as well.
+              </li>
+              <li>
+                If this teammate happens to be a titan with cuirass
+                Thundercrash, they can use the 4th Horseman (ideally with
+                catalyst) with a sword. The combo would be Thundercrash -> 4th
+                horseman.
+              </li>
+              <li>
+                If Operator accidentally gets the Atraks-1 Replication, they can
+                use a gun with Ricochet rounds to shoot it off their own heads.
+              </li>
+              <li>
+                Since completing the challenge rewards double loot, farmers
+                should try their best to complete it. The challenge is not to
+                cleanse the Replication into space. Instead, they should
+                constantly refresh the buff, preventing the timer from hitting
+                zero. This is done by shooting the buff off the player's head
+                every once in a while.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h5>Encounter Triumph:</h5>
+          <p>
+            <b>5 Seconds To Paradise</b> - Defeat Atraks-1 while destroying all
+            Servitors within 5 seconds of each other.
+          </p>
+          <h5>Challenge Mode:</h5>
+          <p>
+            <b>Copies Of Copies</b> - Defeat Atraks-1 without depositing
+            Replication Orbs into airlocks.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Descent" name="Descent">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/d2_beyondlight_deepstonecrypt_raid_08.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-7" >Descent</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            This is the Deep Stone Crypt raid's leaping puzzle portion. Make
+            your way around the station's perimeter before returning inside. On
+            a platform to the left is a chest, and of course, enjoy Deep Stone
+            Lullaby.
+          </p>
+        </div>
+
+        <div class="mt-4">
+          <iframe
+            src="https://open.spotify.com/embed/track/0loGeCS5Qa7pcVoTB9tkH2?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <hr />
+
+        <div
+          class="mt-4 mb-4"
+          id="Taniks-Reborn"
+          name="Taniks-Reborn"
+        >
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/d2_beyondlight_deepstonecrypt_raid_12.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-8" >Taniks Reborn</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <b>Roles:</b>
+          <div>
+            <ol>
+              <li>
+                Chaos Strategy: More flexible - all players can choose to do
+                whatever role they want.
+              </li>
+              <li>
+                Normal Strategy:
+                <ul>
+                  <li>1 Scanner + 1 Backup</li>
+                  <li>1 Operator + 1 Backup</li>
+                  <li>1 Suppressor + 1 Backup</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/dsc-rapture-1024x816.webp"
+            class="img-fluid"
+            alt="..."
+            style="margin: auto; display: block"
+          />
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>This encounter is relatively simple, but it is quite long.</p>
+          <p>
+            The goal is to deposit nuclear cores that the boss spawns into bins
+            to dispose of them and prevent them from wiping your team.
+          </p>
+          <p>
+            There is a new buff called the Suppressor (blue). The suppressor's
+            job is to stun the boss by shooting him while you are standing
+            beneath a Suppressor drone. Stunning the boss allows the team to
+            deposit the 3 cores. Suppressing a buff also disables one of the 3
+            augments.
+          </p>
+          <p>
+            Augments are re-enabled when you put them into the terminal, but
+            when you put a disabled augment into the terminal you get a 30
+            second penalty that prevents you from receiving an augment.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-taniks-reborn-nuclear-core.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Only when Taniks has been stunned by the Suppressor can the
+              Nuclear Core be dropped into the buckets.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-taniks-reborn-deactivated-augment.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >A deactivated Augment can be removed via an Augmentation Station.
+              You will now have a 45-second lockout period for your augments, so
+              a new player will have to take it.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Ads will spawn in from the multiple doors, kill them as soon as
+            possible. The next waves of ads will spawn Operator, Scanner and
+            Suppressor Vandals. Killing them drops the augment for the player to
+            pick up.
+          </p>
+          <p>
+            After a while, an alarm will go off, and a message appears in chat:
+            “Several nuclear cores begin charging”. This will let the players
+            with buffs do their jobs.
+          </p>
+          <p>
+            Operator can shoot one of 3 red panels around the map to spawn 2
+            nuclear cores. Failing to do so in time results in 3 cores spawning
+            instead. Scanner will be able to see which bins are glowing yellow -
+            those are the bins to dunk in. Do note that the callouts in the
+            attached map aren't the best - most players use L1, L2 or
+            spawn/close left/right callouts. It depends on your fireteam. The
+            scanner calls the glowing bins out for the fireteam. If 3 cores
+            spawn, a 3rd bin starts glowing as well. Suppressor stuns the boss
+            by shooting him while you are standing beneath a Suppressor drone.
+            The recommended strategy is to start on the left side drone, then to
+            the middle and end at the right. Stunning the boss allows the team
+            to deposit the 3 cores. Suppressing a buff also disables one of the
+            3 augments.
+          </p>
+          <p>
+            Once the cores are disposed, refresh the disabled augment and repeat
+            this 5 more times. Once this has been done 6 times, the enemies
+            despawn and the hole in the middle opens up for you to drop down
+            into. All players should drop down and run towards the safe room as
+            quickly as possible. New players will want to look out for a secret
+            chest somewhere along the path as well.
+          </p>
+          <p>
+            Once the door of the safe room has closed, the entire space station
+            will crash down, completing the encounter.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-taniks-reborn-suppressor.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Taniks will glow blue when the Suppressor is standing under a
+              drone. The Suppressor Rounds buff will also appear
+              on-screen.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-taniks-reborn-hatch-run.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Once there are enough nuclear cores placed, open the hatch and
+              dash to the end as quickly as you can. Anyone Taniks captures will
+              be killed.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h3>Tips</h3>
+          <div>
+            <ul>
+              <li>
+                The suppressor can use a DoT weapon/ability (witherhoard,
+                duskfield grenade, anarchy) to stick to the boss, then run
+                through the area below the drones. This allows you to damage the
+                boss while below the drone without having to shoot them, making
+                suppressing much easier.
+              </li>
+              <li>
+                Low-man runs can opt not to use operator, as it actually is not
+                needed to complete the encounter at all.
+              </li>
+              <li>
+                If you know that 3 cores will definitely spawn, the suppressor
+                should not finish suppressing until the scanner has read which
+                the last bin is.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h5>Encounter Triumph:</h5>
+          <p>
+            <b>Short Circuit</b> - Confront Taniks while allowing only one
+            player from your fireteam to deposit nuclear cores.
+          </p>
+          <h5>Challenge Mode:</h5>
+          <p>
+            <b>Of All Trades</b> - Complete the Descent encounter by having all
+            players use the Scanner, Operator, and Suppressor augments at least
+            once.
+          </p>
+        </div>
+
+        <hr />
+
+        <div
+          class="mt-4 mb-4"
+          id="Taniks-the-Abomination"
+          name="Taniks-the-Abomination"
+        >
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/d2_beyondlight_deepstonecrypt_raid_15.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-9" >Taniks, the Abomination</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <div>
+            <b>Roles: </b>
+            <ul>
+              <li>1 Operator</li>
+              <li>1 Suppressor</li>
+              <li>4 damage / backups</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h3>Loadouts</h3>
+          <p>
+            All players should have DPS weapons (double slug rocket, linear
+            fusions, grenade spam etc). Ideally, one player, preferably the
+            Operator runs Divinity. Suppressor should run Witherhoard, since it
+            makes suppressing much easier. At least one Warlock with Well of
+            Radiance - if the team is using double slug rockets this player
+            should run Lunafaction Boots.
+          </p>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            This encounter is extremely similar to the last encounter, albeit in
+            a larger area. The encounter starts by shooting/standing near the
+            big pile of wreckage in the middle of the area. There are 3 distinct
+            sides of this boss encounter: the spawn, blue and orange sides. Each
+            side has 2 bins each, labelled clockwise starting from spawn.
+            Suppressing the boss will still deactivate augments.
+          </p>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/DSC/dsc-taniks.webp"
+            class="img-fluid"
+            alt="..."
+            style="margin: auto; display: block"
+          />
+        </div>
+
+        <div class="mt-4">
+          <p>
+            When the encounter starts, ads will spawn around the map. When a
+            side clears out the first wave of ads, another set of ads, featuring
+            a Dark Council Guard will spawn at that side. Once this Guard is
+            killed, a Vandal with an augment depending on the side spawns.
+          </p>
+          <div>
+            <ul>
+              <li>Spawn: Operator</li>
+              <li>
+                Blue: Scanner (This augment is usually redundant here, picking
+                it up is up to choice)
+              </li>
+              <li>Orange: Suppressor</li>
+            </ul>
+          </div>
+          <p>
+            After a while, the boss will begin to float towards a side. Players
+            should follow the boss to this side. The boss will then begin to
+            summon purple beams from the sky, and the engines of the shank he is
+            on will become vulnerable to be damaged. The team should shoot all 4
+            of his engines down to spawn 4 nuclear cores from the previous
+            encounter. Standing under the purple beams for too long will cause
+            the player to die, debris will fall from the sky onto the area
+            marked by these purple beams a while after the beams spawn.
+          </p>
+          <p>
+            The 4 players without a buff (or if Scanner has been picked up,
+            Scanner and the 3 other players) will pick up the cores and begin
+            heading toward the bins at the sides the boss is not at. (for
+            example, if the boss is at spawn, cores are to be deposited at the
+            blue and orange sides, if the boss is at orange, cores are to be
+            deposited at the spawn and orange sides)
+          </p>
+          <p>
+            While holding the cores, players might find themselves trapped in
+            purple bubbles with red-pink dots around them. The Operator's job is
+            to shoot the red-pink dots and free the trapped player.
+          </p>
+          <p>
+            The job of the Suppressor is identical to in the previous encounter,
+            except that there are 3 drones per side of the map, and depending on
+            which side Taniks goes to, the Suppressor drones at that side of the
+            map must be used to suppress him.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-taniks-drones.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >In this picture, the drones are circled. Each one must be
+              undercut, and the player with the suppressor must shoot Taniks
+              from there. As a result, the Nuclear Core carriers may deposit the
+              nukes since he is stunned.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-abomination-detained.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Someone who is being detained can only be released by the
+              Operator. The purple shield must be shot in order to do
+              this.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Once all cores have been deposited, the boss will return to the
+            middle of the arena. After a while, he will generate a field around
+            himself that pushes any players near him away when it is generated.
+            Debris will float around the field at high speed, pushing and
+            sometimes killing players that collide with it.
+          </p>
+          <p>
+            This field resembles a donut. The boss is in the hole of the donut,
+            and that hole is a shock field around the boss that does
+            exponentially increasing damage to players in it (yes, you can die
+            in here even while in a well). The bread of the donut is where your
+            team stands to drop their well and do damage from. You cannot damage
+            the boss if you are outside the field.
+          </p>
+          <p>
+            After a while of damaging the boss, the boss will push players out
+            of the field. Players can simply re-enter the field and continue
+            damaging the boss. The boss will do this push twice, and on the 3rd
+            time damage ends (there is no push here).
+          </p>
+          <p>
+            Most teams can 1-phase the boss, but if this is not achieved,
+            players may simply rinse and repeat, keeping in mind to refresh any
+            disabled augments.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-taniks-abomination-damage-phase-tips.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Be careful to not to touch the inner ring when you leap over the
+              outer ring and into the centre.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/DSC/dsc-taniks-abomination-damage-phase.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Well of Radiance followed by Weapons of Light guarantees a
+              continuous player-damage bonus. Additional benefits are given by
+              divinity.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Once the boss's final stand bar is reached, the field will disappear
+            and the boss will proceed to teleport around the map repeatedly
+            while spawning purple beams on players. After a while of
+            teleporting, if the boss is not dead yet he will wipe your team.
+          </p>
+          <p>
+            Once the boss dies in final stand, the encounter, and entire raid is
+            complete.
+          </p>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h3>Tips</h3>
+          <div>
+            <ul>
+              <li>
+                Players may jump and walk when holding cores to go slightly
+                faster.
+              </li>
+              <li>
+                Thundercrashes seem to pass through parts of the boss, so I
+                don't 100% recommend using them here.
+              </li>
+              <li>
+                When the boss pushes you out of the dps ring, you can punch him,
+                which negates the push thanks to Destiny's immaculate melee
+                system. This allows you to remain in the dps area, though you
+                will need to move back a bit to avoid being in the shock field.
+              </li>
+              <li>
+                DPS strategies here are actually pretty lax - a team using
+                decent linears + divinity should be able to easily 1-phase the
+                boss. Double slug rocket is a more “sweat” strategy, but i like
+                using it because linears are boring to use.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <h5>Encounter Triumph:</h5>
+          <p>
+            <b>Ready, Set, Go!</b> - Defeat Taniks, the Abomination while
+            activating pairs of conduit nodes within 5 seconds of each other.
+          </p>
+          <h5>Challenge Mode:</h5>
+          <p>
+            <b>The Core Four</b> - Defeat Taniks by spawning four nuclear cores
+            at once.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4">
+          <h3>Ideal Rolls on DSC Weapons</h3>
+          <ul>
+            <li>
+              Trustee (Rapid-fire scout): Reconstruction/Rapid Hit +
+              Incandescent
+            </li>
+            <li>
+              Heritage (Slug shotgun): Reconstruction + Recombination/Snapshot
+              Sights (Snapshot allows you to get a 5th slug shot off when double
+              slugging before you swap back to your rocket)
+            </li>
+            <li>
+              Succession (Aggressive sniper): Reconstruction + Vorpal
+              Weapon/Firing Line/Focus Fury
+            </li>
+            <li>
+              Posterity (Precision hand cannon): Voltshot + Frenzy/Rampage
+            </li>
+            <li>
+              Commemoration (Adaptive machine gun): Reconstruction + Killing
+              Tally
+            </li>
+            <li>
+              Bequest (Adaptive sword): Relentless Strikes + Surrounded/Vorpal
+            </li>
+          </ul>
+          <p>
+            If you have good rolls of the 2 kinetic weapons, crafting them isn't
+            too too important since their new perks aren't much of an upgrade.
+            Trustee seems like a pretty solid scout, so its one of the more
+            high-priority weapons to craft. Same goes for Posterity.
+            Commemoration has not changed much either. Most people don't care
+            too much about Bequest, mainly due to its old perk pool being
+            terrible, but with the perk refresh in Season of the Seraph, it has
+            become promising for when Swords become viable again. (everyone uses
+            lament anyway) Bequest's specialty that sets it apart from other
+            swords is its base impact being 10 higher than other swords, giving
+            it higher damage at base. Raid exotic: Eyes of Tomorrow, Solar
+            Rocket.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4">
+          <h2 id="sec-heading-10" >Video Guides</h2>
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2: DEEP STONE CRYPT RAID FOR DUMMIES! | Complete Raid Guide & Walkthrough!</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=05vQIHhBmr4" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">All 5 Exo Stranger Data Pad Locations - Deep Stone Crypt Raid Ghost Shell (Destiny 2 Beyond Light)</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=N_qWFV2o-X8" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer"></footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://www.paracausality.com/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    
+    <script src="https://www.paracausality.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="https://www.paracausality.com/assets/js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+

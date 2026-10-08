@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Paracausality SG</title>
+
+    <!-- Embed -->
+    <meta content="Pit of Heresy Guide" property="og:title" />
+    <meta content="Paracausality SG" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta
+      content="Deep beneath Sorrow's Harbor, the Hive keep their darkest secrets. "
+      property="og:description"
+    />
+    <meta
+      content="https://paracausality.netlify.app/poh_guide.html"
+      property="og:url"
+    />
+    <meta content="https://i.imgur.com/1ikumSC.webp" property="og:image" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta content="#332211" data-react-helmet="true" name="theme-color" />
+
+    <!-- Favicons -->
+    <link href="https://www.paracausality.com/assets/img/witnessicon.webp" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="https://www.paracausality.com/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="https://www.paracausality.com/assets/css/style.css" rel="stylesheet" />
+
+    <!-- Script for Header and Footer-->
+    
+  
+<style>
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 60px !important;
+  }
+  body {
+    background-color: #0b0e14 !important;
+    color: #e2e8f0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    padding: 0.75rem 2rem 3rem 2rem !important;
+    overflow-x: hidden !important;
+  }
+  header, footer, #header, #footer, .header, .footer, #preloader, .back-to-top {
+    display: none !important;
+  }
+  
+  /* Natural Beautiful Typography */
+  h1 {
+    font-size: 1.85rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 0.75rem !important;
+  }
+  h2 {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #f8fafc !important;
+    scroll-margin-top: 60px !important;
+  }
+  h3 {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+    margin-top: 1.25rem !important;
+    scroll-margin-top: 60px !important;
+  }
+  p, li, td, th {
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Sticky Section Navigator */
+  #section-nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(11, 14, 20, 0.96) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #1e293b;
+    padding: 8px 0 10px 0;
+    margin: 0 -2rem 24px -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #section-nav-inner {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #0b0e14;
+  }
+  #section-nav-inner::-webkit-scrollbar {
+    height: 4px;
+  }
+  #section-nav-inner::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+  .sec-nav-link {
+    white-space: nowrap;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #181f2c;
+    border: 1px solid #283548;
+    color: #94a3b8;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .sec-nav-link:hover {
+    background: #232d3f;
+    color: #f8fafc;
+    border-color: #475569;
+    text-decoration: none;
+  }
+  .sec-nav-link.active {
+    background: #7c3aed !important;
+    color: #ffffff !important;
+    border-color: #9333ea !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+    text-decoration: none;
+  }
+
+  /* High-Res Full Proportional Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    margin: 10px 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  .container, .container-fluid {
+    max-width: 1280px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0e14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+</style>
+
+<script>
+  function highlightNavLink(el) {
+    document.querySelectorAll('.sec-nav-link').forEach(l => l.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+</script>
+
+</head>
+
+  <body>
+
+    <div id="section-nav-sticky">
+      <div id="section-nav-inner">
+        
+      <a href="#sec-heading-0" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Sorrow's Harbour
+      </a>
+    
+
+      <a href="#sec-heading-1" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Necropolis
+      </a>
+    
+
+      <a href="#sec-heading-2" class="sec-nav-link" onclick="highlightNavLink(this)">
+        The Wall Of Doors
+      </a>
+    
+
+      <a href="#sec-heading-3" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Tunnels of Despair
+      </a>
+    
+
+      <a href="#sec-heading-4" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Chamber of Suffering
+      </a>
+    
+
+      <a href="#sec-heading-5" class="sec-nav-link" onclick="highlightNavLink(this)">
+        The Harrow
+      </a>
+    
+
+      <a href="#sec-heading-6" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Zulmak, Instrument of Torment
+      </a>
+    
+      </div>
+    </div>
+    
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages"></header>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section
+        class="breadcrumbs"
+        style="background-image: url('./assets/img/guides/POH/poh_banner.webp')"
+      >
+        <div class="container mt-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/poh_overlay.webp"
+            class="img-fluid"
+            alt="..."
+            style="width: 50px"
+          />&emsp;
+          <h1
+            style="
+              color: white;
+              display: inline;
+              position: absolute;
+              vertical-align: middle;
+            "
+          >
+            Pit of Heresy Guide
+          </h1>
+          <ol class="mt-2" style="color: white">
+            Encounters:&emsp;
+            <li>
+              <a style="color: white" href="#Necropolis">Necropolis</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Tunnels">Tunnels of Despair</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Chamber">Chamber of Suffering</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Harrow">The Harrow</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Zulmak"
+                >Zulmak, Instrument of Torment</a
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <div class="container">
+        <div class="mt-4 mb-4">
+          <div class="section-title">
+            <h2>Done by: Vedallion#7774 | Jan 25th 2023</h2>
+          </div>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/How-to-unlock-the-Pit-of-Heresy-in-Destiny-2.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-0" >Sorrow's Harbour</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The Hive-themed dungeon in Destiny 2 is called The Pit of Heresy.
+            The newest three-person game requires participants to descend to the
+            Moon's interior and vanquish an ancient evil. There are several
+            encounters, each with distinct mechanics that build on the others
+            and end in the boss battle. Although a flawless solo is achievable,
+            most players are undoubtedly more concerned with learning how to
+            clear the dungeon first.
+          </p>
+        </div>
+
+        <hr />
+
+        <div
+          class="mt-4 mb-4"
+          id="Necropolis"
+          name="Necropolis"
+        >
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/mike-poe-mpoe-dungeon-b.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-1" >Necropolis</h2>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <p>
+            The Necropolis is the location of the first encounter in the Pit of
+            Heresy dungeon. This enormous, city-like building is perched on a
+            rock. It only takes a little bit of running around to grasp this
+            encounter:
+          </p>
+          <ol>
+            <li>Enter a chamber and study the symbols on the chain there.</li>
+            <li>Find these three symbols as massive holograms outside.</li>
+            <li>Vanquish the minibosses in each of these three chambers.</li>
+          </ol>
+          <p>
+            Each miniboss may only be damaged with a Hive Relic sword. The
+            enormous Knights scouring the region drop these swords. Be cautious
+            that occasionally an Ogre is accompanying these Knights. Three
+            separate strikes may be made with the Relic sword: a light strike, a
+            heavy strike that fires an energy blast, and a shield that blocks
+            blows. To damage the miniboss, utilize each of the following moves:
+          </p>
+          <ul>
+            <li>Use the light strike to defeat the Knight.</li>
+            <li>Use the ranged heavy assault to defeat the Wizard.</li>
+            <li>Use the guard to reflect projectiles back at the Shrieker.</li>
+          </ul>
+          <p>
+            Each of the chains will break after all three minibosses have been
+            eliminated, allowing you to go on to the next location. Look for the
+            light beam that directs you onward as soon as you leave the current
+            chamber.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/POH/pit-of-heresy-necropolis-the-broken-blade-miniboss-destiny-2.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Three Broken Blade minibosses exist, each with a distinctive
+              symbol. Take the sword, find them in their chambers, and slay them
+              all.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/POH/pit-of-heresy-necropolis-exit-destiny-2.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >You can exit the first encounter in the Pit of Heresy by
+              following the green light.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/XHJFwMbCexnmLkQoKHWqG6.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-2" >The Wall Of Doors</h2>
+            <p style="text-align: justify; text-justify: inter-word">
+              Players will enter a chamber with several entrances as they move
+              forward. There is a trap door in almost every doorway that will
+              launch gamers off the map. Players should search for a small
+              opening in the wall that is immediately to the right of the
+              platform in the chamber rather than attempting to enter through
+              the doors.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Tunnels" name="Tunnels">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/mike-poe-mpoe-dungeon-e.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-3" >Tunnels of Despair</h2>
+          </div>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              In the Tunnels of Despair encounter, players must dash through
+              tiny caverns while taking down Knights and using orbs to open
+              doors. This area is also where players will need to divert from
+              the main objective for the Xenophage exotic quest. This encounter
+              is completed in the following steps:
+            </p>
+            <ol>
+              <li>
+                By shooting off the webbing in your path, you can enter the
+                caverns.
+              </li>
+              <li>
+                Defeat the Heretical Knights in the caverns and grab its orb.
+              </li>
+              <li>Dunk each orb at each of the 3 barriers around the map.</li>
+            </ol>
+            <p>
+              While grabbing the orbs from the Knights and killing them is
+              simple enough, dodging the Harrowing Pariah Ogres is a challenge.
+              These three ogres are invulnerable, do a lot of damage, and patrol
+              the major tunnels. You'll have to lure them away from your
+              fireteam or sneak past them. The Ogres patrol tunnels that have
+              barriers at the end of each one. To enter the next encounter,
+              destroy each of the three barriers.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/POH/pit-of-heresy-tunnels-of-despair-heretical-knight-destiny-2.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/pit-of-heresy-destiny-2-tunnels-of-despair-map-bloody-mando.webp"
+            class="img-fluid"
+            alt="..."
+            style="margin: auto; display: block"
+          />
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Chamber" name="Chamber">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/stephan-williams-dungeon-sac-1.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-4" >Chamber of Suffering</h2>
+          </div>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              The first "increase" in difficulty is probably going to be the
+              confrontation in the Chamber of Suffering. Speed is key in this
+              encounter since the longer you remain, the more damage you will
+              receive. The actual workings are rather straightforward:
+            </p>
+            <ol>
+              <li>
+                To stop the Annihilator Totem from killing your squad, stand on
+                the plate underneath it.
+              </li>
+              <li>
+                Defeat the spawning Heretical Knights and grab their orbs.
+              </li>
+              <li>
+                The door behind the Annihilator Totem may be destroyed by
+                dunking <b>six</b> orbs.
+              </li>
+            </ol>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/POH/pit-of-heresy-chamber-of-suffering-destiny-2.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Although killing the Knights and other opponents isn't difficult,
+            the difficulty comes from needing to remain still and attract their
+            attention. In addition, a Warlock's Well of Radiance providing
+            additional health can help the player on the Annihilator Totem kill
+            enemies.
+          </p>
+          <p>
+            Knights spawn on top as you progress through the fight. You need to
+            instantly concentrate fire on them because these Knights are going
+            to bombard the plate. To get rid of any extra enemies, make use of
+            your super abilities.
+          </p>
+          <p>
+            Time is of the importance. The Curse of Suffering debuff will stack
+            up on you more quickly the longer you remain. The amount of damage
+            your adversaries will inflict on you increases with each stack. At
+            5x Curse of Suffering, the majority of opponents will be able to
+            one-shot you. Once you have dunked 6 orbs the encounter will end,
+            stating the flavour text "The suffering has ended".
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Harrow" name="Harrow">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/mike-poe-mpoe-dungeon-g.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-5" >The Harrow</h2>
+          </div>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              Similar to the previous encounter in the Necropolis, you must
+              battle the enemies you come across while searching for particular
+              symbols across the map.
+            </p>
+            <ol>
+              <li>
+                Find the <b>three</b> symbols displayed at the area's entrance.
+              </li>
+              <li>Find these symbols around the labyrinth.</li>
+              <li>
+                Defeat the Malevolent Ritualist Wizard near the symbol to break
+                the lock.
+              </li>
+              <li>Break all three locks to complete the encounter.</li>
+            </ol>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/POH/pit-of-heresy-the-harrow-destiny-2.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/pit-of-heresy-destiny-2-the-harrow-map-primo-pastafarian.webp"
+            class="img-fluid mb-4"
+            alt="..."
+            style="margin: auto; display: block"
+          />
+          <p>
+            Three symbols are fixed to the side of the wall as you enter the
+            area. You need to locate these three symbols in The Harrow. The
+            actual difficulty of The Harrow lies in dodging the maze of traps
+            without dying. The Wizards should also be avoided since they have a
+            high damage output.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Zulmak" name="Zulmak">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/POH/zulmak.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-6" >Zulmak, Instrument of Torment</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The Pit of Heresy dungeon's final room is called the Cradle of
+            Damnation. Fighting Zulmak, the Instrument of Torment, is the
+            objective of this encounter.
+          </p>
+          <p>
+            To complete this encounter, you must utilize all you've learned thus
+            far:
+          </p>
+          <ol>
+            <li>
+              Take the relic swords from defeating the Knights in the middle.
+            </li>
+            <li>
+              Use the swords to destroy the three outside minibosses (Knight,
+              Wizard, Shrieker).
+            </li>
+            <li>
+              Ignite the pedestal by dunking the three orbs to the middle.
+            </li>
+            <li>DPS Zulmak while you are standing in the middle location.</li>
+            <li>Leave the area once Zulmak kneels to charge the crystal.</li>
+          </ol>
+          <p>
+            Much like the first encounter, start the fight against Zulmak by
+            defeating a Knight and taking his sword. Use this sword to defeat
+            one of the minibosses in the towers around the arena. You must use
+            the correct sword move to defeat it:
+          </p>
+          <ul>
+            <li>Use the light strike to defeat the Knight.</li>
+            <li>Use the ranged heavy assault to defeat the Wizard.</li>
+            <li>Use the guard to reflect projectiles back at the Shrieker.</li>
+          </ul>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              When the miniboss is defeated, take the orb and use it to ignite
+              the pedestal in the center. Once all three orbs have been dunked,
+              the damage phase will begin.
+            </p>
+            <p>
+              Zulmak can only be damaged if you are standing in the center of
+              the arena. Zulmak will fall to his knees and begin charging the
+              crystal when the damage phase comes to an end. Anybody who is
+              still in the arena will be killed by a blast of fire when the
+              crystal is completely charged. Simply leave the circle to prevent
+              this from happening. phase will start.
+            </p>
+            <p>
+              Zulmak will still move around and attack during the damage phase.
+              Avoid the extremely powerful ranged attack that this boss uses.
+              The result is a circle of ongoing fire damage that starts as a
+              line of fire that spreads outward. If you are hit by this ability,
+              move.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/POH/pit-of-heresy-zulmak-fight.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Continue doing this until Zulmak is killed. Go to the chest to get
+            your rewards. You've just finished the Pit of Heresy dungeon.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4">
+          <h3>Video Guides</h3>
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2 PIT OF HERESY Dungeon NEW GUIDE in 2022 Complete Step-by-Step Walkthrough</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=G8qALOTgHTI" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2 -  How To Get Xenophage In 2022  SOLO - The Journey Quest Complete Guide!</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=flyCo1MhIqI" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2 Shadowkeep: The Pit of Heresy Dungeon Guide</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=_mqPAOSg-64" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer"></footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://www.paracausality.com/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    
+    <script src="https://www.paracausality.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="https://www.paracausality.com/assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Paracausality SG</title>
+
+    <!-- Embed -->
+    <meta content="Grasp of Avarice Guide" property="og:title" />
+    <meta content="Paracausality SG" property="og:site_name" />
+    <meta content="website" property="og:type" />
+    <meta
+      content="A cautionary tale for adventurers willing to trade their humanity for riches. "
+      property="og:description"
+    />
+    <meta
+      content="https://paracausality.netlify.app/goa_guide.html"
+      property="og:url"
+    />
+    <meta content="https://i.imgur.com/7pWGiMX.webp" property="og:image" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta content="#42322c" data-react-helmet="true" name="theme-color" />
+
+    <!-- Favicons -->
+    <link href="https://www.paracausality.com/assets/img/witnessicon.webp" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://www.paracausality.com/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="https://www.paracausality.com/assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://www.paracausality.com/assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="https://www.paracausality.com/assets/css/style.css" rel="stylesheet" />
+
+    <!-- Script for Header and Footer-->
+    
+  
+<style>
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 60px !important;
+  }
+  body {
+    background-color: #0b0e14 !important;
+    color: #e2e8f0 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    padding: 0.75rem 2rem 3rem 2rem !important;
+    overflow-x: hidden !important;
+  }
+  header, footer, #header, #footer, .header, .footer, #preloader, .back-to-top {
+    display: none !important;
+  }
+  
+  /* Natural Beautiful Typography */
+  h1 {
+    font-size: 1.85rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 0.75rem !important;
+  }
+  h2 {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.75rem !important;
+    color: #f8fafc !important;
+    scroll-margin-top: 60px !important;
+  }
+  h3 {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: #e2e8f0 !important;
+    margin-top: 1.25rem !important;
+    scroll-margin-top: 60px !important;
+  }
+  p, li, td, th {
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Sticky Section Navigator */
+  #section-nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(11, 14, 20, 0.96) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #1e293b;
+    padding: 8px 0 10px 0;
+    margin: 0 -2rem 24px -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #section-nav-inner {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #0b0e14;
+  }
+  #section-nav-inner::-webkit-scrollbar {
+    height: 4px;
+  }
+  #section-nav-inner::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+  }
+  .sec-nav-link {
+    white-space: nowrap;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #181f2c;
+    border: 1px solid #283548;
+    color: #94a3b8;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .sec-nav-link:hover {
+    background: #232d3f;
+    color: #f8fafc;
+    border-color: #475569;
+    text-decoration: none;
+  }
+  .sec-nav-link.active {
+    background: #7c3aed !important;
+    color: #ffffff !important;
+    border-color: #9333ea !important;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+    text-decoration: none;
+  }
+
+  /* High-Res Full Proportional Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    margin: 10px 0 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  }
+  .container, .container-fluid {
+    max-width: 1280px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0e14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+</style>
+
+<script>
+  function highlightNavLink(el) {
+    document.querySelectorAll('.sec-nav-link').forEach(l => l.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+</script>
+
+</head>
+
+  <body>
+
+    <div id="section-nav-sticky">
+      <div id="section-nav-inner">
+        
+      <a href="#sec-heading-0" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Drop Table
+      </a>
+    
+
+      <a href="#sec-heading-1" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Skywatch
+      </a>
+    
+
+      <a href="#sec-heading-2" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Rusted Gangplank
+      </a>
+    
+
+      <a href="#sec-heading-3" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Phry'zhia the Insatiable
+      </a>
+    
+
+      <a href="#sec-heading-4" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Shroud
+      </a>
+    
+
+      <a href="#sec-heading-5" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Sunken Lair - Fallen Shield
+      </a>
+    
+
+      <a href="#sec-heading-6" class="sec-nav-link" onclick="highlightNavLink(this)">
+        Captain Avarokk the Covetous
+      </a>
+    
+      </div>
+    </div>
+    
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-inner-pages"></header>
+    <!-- End Header -->
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section
+        class="breadcrumbs"
+        style="background-image: url('./assets/img/guides/GOA/goa_banner.webp')"
+      >
+        <div class="container mt-4">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/goa_overlay.webp"
+            class="img-fluid"
+            alt="..."
+            style="width: 50px"
+          />&emsp;
+          <h1
+            style="
+              color: white;
+              display: inline;
+              position: absolute;
+              vertical-align: middle;
+            "
+          >
+            Grasp of Avarice Guide
+          </h1>
+          <ol class="mt-2" style="color: white">
+            Encounters:&emsp;
+            <li>
+              <a style="color: white" href="#Skywatch">Skywatch</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Gangplank">Rusted Gangplank</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Phryzhia"
+                >Phry'zhia the Insatiable</a
+              >
+            </li>
+            <li>
+              <a style="color: white" href="#Shroud">Shroud</a>
+            </li>
+            <li>
+              <a style="color: white" href="#Lair"
+                >Sunken Lair - Fallen Shield</a
+              >
+            </li>
+            <li>
+              <a style="color: white" href="#Avarokk"
+                >Captain Avarokk the Covetous</a
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <div class="container">
+        <div class="mt-4 mb-4">
+          <div class="section-title">
+            <h2>Done by: Vedallion#7774 | Jan 27th 2023</h2>
+          </div>
+          <h2 id="sec-heading-0" >Drop Table</h2>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/Grasp-of-Avarice-loot-table-Infographic-Destiny-2-v2.webp"
+            class="img-fluid"
+            alt="..."
+            style="margin: auto; display: block"
+          />
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Skywatch" name="Skywatch">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/2021_30th_Press_Kit_Compressed_Avarice_01.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-1" >Skywatch</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The location of the encounter in the Skywatch was formerly the
+            treasure cave from the Destiny 1. Players are prompted to "Tempt the
+            Icon of Excess" in this part. Burdened by Riches, a new mechanism,
+            will be employed throughout the whole dungeon.
+          </p>
+          <p><b>Objectives: </b></p>
+          <ol>
+            <li>
+              Defeat enemies and gather the engrams they drop to obtain the
+              Burdened by Riches debuff.
+            </li>
+            <li>
+              Enter the cave and stand in front of the crystal to "deposit" the
+              debuff.
+            </li>
+            <li>
+              Continue until the crystal is satisfied and the words "The
+              remnants have quieted" appears.
+            </li>
+          </ol>
+          <p>
+            As enemies spawn, keep your distance and defeat them. They will
+            scatter engrams that, when gathered, will provide the debuff
+            <b>"Burdened by Riches"</b>. These may be carried in large numbers
+            at once. Your Super will return after you reach 10 stacks. There is
+            also a 30-second timer, which when it expires, will result in your
+            death. Gather as many as you can before entering the cave and
+            standing next to the crystal. As you "feed" the crystal, the stacks
+            will progressively deplete.
+          </p>
+          <p>
+            Up until the end of the engagement, keep eliminating enemies,
+            gathering Burdened by Riches, and placing it into the crystal. When
+            the sentence "The remnants have quieted." appears and the respawning
+            zone becomes restricted, the mission is complete.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-burdened-by-riches.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small> Kill enemies to obtain the Burden by Riches debuff. </small>
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-loot-cave-crystal.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small>Deposit the debuff into the crystal in the loot cave.</small>
+          </div>
+          <div class="mt-4">
+            <p>
+              Navigate your way through the crystal caverns till you reach the
+              next encounter.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div
+          class="mt-4 mb-4"
+          id="Gangplank"
+          name="Gangplank"
+        >
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/2021_30th_Press_Kit_Compressed_Avarice_09.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-2" >Rusted Gangplank</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            First, glance to the right to see two doors. The door to open is the
+            one on the left. Enter the entrance, leap over the floor-mounted
+            pressure plate (it's a trap), and throw the lever close to the
+            computer. Return outside and proceed through the tunnel that is now
+            open.
+          </p>
+          <p>
+            A bottomless pit will be in front of you, with a platform in the
+            center and a switch on the other side. The right route leads into a
+            side chamber on the right, below the platform. Two panels that make
+            up the platform swing open to let you fall into the pit. Jump to the
+            platform's left side to get to the route. In order to discover
+            another lever at a computer terminal, jump again when you land down
+            and try to veer beneath the right side. When you return to the
+            initial section with the two doors, pull the lever, and you'll see
+            six holes in the wall.
+          </p>
+          <p>
+            Jump up to the six holes, then enter the one on the right side of
+            the back. To open the grate above your head, stand on the pressure
+            plate. Through the gap, jump up, and go forward.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-trap-puzzle-platform-trapdoor-arrow.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-trap-puzzle-open-pipes.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            Jump up the pipes and platforms in this new passageway to the top.
+            Once you pass through the door, you will see a second lever next to
+            a computer terminal with a display mounted on the wall. Open the
+            door by pulling the lever to uncover a catwalk and a chasm filled
+            with water.
+          </p>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              In this new section, you'll be using levers to operate certain
+              doors. The goal is to leap from door to door across the abyss
+              until you come across a lever that unlocks the big door at one
+              end. If you have the agility and parkour skills, you may leap over
+              to the door with the switch early; for everyone else, go the path
+              shown on the image. The door with the switch is in the back-left
+              corner, behind the metal fence. A switch to open the next door
+              will be located in each room.
+            </p>
+            <p>
+              Enter the area and flip the switch once you've made it to the
+              opposite side of the chasm. To access a different area with a big
+              window and another lever on a terminal, climb up onto the roof.
+              The main gate may be opened by pulling this lever. Return to the
+              previous chamber, pull the lever to free yourself, then make your
+              way back to the catwalk that you started on.
+            </p>
+            <p>
+              A further switch may be found by leaping up and into the large
+              room at the end. Open the large door at the opposite end using the
+              switch. Make your way there and fend off any enemies you
+              encounter. Enter the building and enter the enormous, circular
+              chamber using the switch on the right-hand door.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-flip-door-puzzle.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The Scorch Cannon mechanic is described in the circular chamber. The
+            goal is to go about the area, pull the levers, and finally turn on
+            the generator using the Scorch Cannon. To turn on the generator,
+            fire a round into it. Follow this sequence beginning at the starting
+            point: Doors 03, 04, 01, and 02.
+          </p>
+          <p>
+            Go over to Door 02 while it's open and take out the Vandal known as
+            Scorch Vandal, Gunner of Avarokk. Go to Door 04 after grabbing the
+            Scorch Cannon. The door will open if you fire a round into the
+            generator and let it go off. Use the side holes to avoid the barrel
+            that will collapse as you ascend the stairs.
+          </p>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-circular-room.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-circular-room-scorch-cannon-generator.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="mt-4">
+            <p>
+              The next spacious room is down the corridor. Get to a hole at the
+              top of the wall by climbing up a set of containers that are
+              stacked on top of one another. Jump over the gap and continue into
+              the flooded chamber. The game's first boss, will be just ahead of
+              you.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Phryzhia" name="Phryzhia">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/2021_30th_Press_Kit_Compressed_Avarice_13.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-3" >Phry'zhia the Insatiable</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The two previously mentioned mechanics, Burdened by Riches and the
+            Scorch Cannon, are used in the battle with Phry'zhia the Insatiable.
+            Depositing Burdened by Riches is the objective until Phry'zhia's
+            immunity barrier is broken.
+          </p>
+          <p><b>Objectives: </b></p>
+          <ol>
+            <li>Get Scorch Cannons by defeating Vandals.</li>
+            <li>Spawn enemies in the rooms by using the scorch cannon.</li>
+            <li>Defeat enemies to get Burdened by Riches.</li>
+            <li>
+              To remove Phry'zhia's shield, dunk your Burdened by Riches at the
+              crystal.
+            </li>
+            <li>DPS Phry'zhia</li>
+            <li>Repeat until completion.</li>
+          </ol>
+          <p>
+            Jump across the chasm to the main area to start the battle. Two
+            doors that are powered by generators will be located on either side
+            of the arena. Defeat the Vandal that spawns in the back and activate
+            the generators with its Scorch Cannon. One side will close when you
+            open the other. By firing into the generator with the Scorch Cannon,
+            you can unlock a door and then take out the enemies within. Gather
+            stacks of Burdened by Riches and bring it to the crystal. Similar
+            like previously, being close to the crystal will remove the debuff
+            and stop the countdown.
+          </p>
+          <p></p>
+        </div>
+
+        <div class="row">
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-scorch-cannon-generator-door-open.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-phry-zhia-crystal.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div class="mt-4">
+            <p>
+              The next spacious room is down the corridor. Get to a hole at the
+              top of the wall by climbing up a set of containers that are
+              stacked on top of one another. Jump over the gap and continue into
+              the flooded chamber. The game's first boss, will be just ahead of
+              you.
+            </p>
+            <p>
+              In order to remove Phry'zhia's shields, keep unlocking the doors,
+              gathering stacks of Burdened by Riches, and placing it at the
+              crystal. When Phry'zhia the Insatiable's shield is gone and the
+              health bar loses its white outline, the message "Phry'zhia the
+              Insatiable has succumbed to temptation" will show up on the
+              screen. Deal damage to Phry'zhia at this moment.
+            </p>
+            <p>
+              Congratulations if you can one-phase Phry'zhia; if not, simply go
+              through the process again. Your choice of weapon will change
+              depending on whichever season you tackle this dungeon. For the
+              additional damage, Warlocks may want to think about utilizing Well
+              of Radiance. It's also important to keep in mind that obtaining 10
+              Burdened by Riches will instantly renew your Super. Take advantage
+              of this to make sure you always have one prepared during the
+              damage phase.
+            </p>
+            <p>
+              <b>Master Difficulty: </b>Anti-Barrier Knights spawn in the
+              garages.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Shroud" name="Shroud">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/2021_30th_Press_Kit_Compressed_Avarice_18.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-4" >Shroud</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The Sparrow portion of this dungeon is called the Shroud. This
+            Sparrow portion needs you to move quickly around the area, much to
+            the Scourge of the Past raid. Although there are buttons you may
+            pass by to lengthen the duration, there are mines along the way that
+            must be deactivated.
+          </p>
+          <p><b>Objectives: </b></p>
+          <ol>
+            <li>Race along the track on your Sparrow.</li>
+            <li>Defuse mines A, B, C, and D.</li>
+            <li>
+              By driving over buttons along the way, you may extend the mine
+              timer.
+            </li>
+          </ol>
+          <p>
+            A quick-summon Sparrow will be very helpful in this part, as will
+            the mod that shortens the cooldown for Sparrows if they are
+            destroyed. By doing this, you'll have more room to maneuver if you
+            were knocked off. This one doesn't actually require much planning.
+            Locate the buttons and keep track of their locations. The fuse timer
+            will be extended for each one you pass by (you don't need to stop;
+            just go near enough); a notification will show up on the screen.
+          </p>
+        </div>
+
+        <div class="row">
+          <h3>Button Locations</h3>
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-mine-a-button.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >On the right side of the road, beneath the shipwreck, is an
+              button for Mine A.</small
+            >
+          </div>
+          <div class="col-md">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-mine-b-button.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Before the hexagonal central structure, on the right side of the
+              ship, lies Mine B's button.</small
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-mine-c-button.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Right where the Spider tank is dropped off before Mine C, there
+              is a fuse extender button. The button is concealed under a piece
+              of debris in the route's center.</small
+            >
+          </div>
+          <div class="col-md mt-3">
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-mine-d-button.webp"
+              class="img-fluid"
+              alt="..."
+            />
+            <small
+              >Mine D is the one that is most challenging to deactivate. Right
+              before the gravity cannons, there is a button. It's at the top of
+              a ramp on the right-hand side. There is also one more button on
+              the left eye socket of the skull formation before the mine.</small
+            >
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          You can go on to the next region once you have defused the final mine.
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/mike-poe-mpoe-spyglass-m.webp"
+            class="img-fluid mt-3"
+            alt="..."
+          />
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Lair" name="Lair">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/2021_30th_Press_Kit_Compressed_Avarice_21.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-5" >Sunken Lair - Fallen Shield</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            The Scorch Cannon and Burdened by Riches mechanisms are used in the
+            Sunken Lair. The objective is to eliminate Abundance Monitor
+            Servitors and fire their shells towards the center, spherical
+            structure in order to deactivate a shield. To do this, you must jump
+            from platform to platform while angling the gravity guns.
+          </p>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              Find the Vandal nearby and seize its Scorch Cannon to start the
+              battle. To turn on the generator, point the gravity cannon in the
+              direction you want to go and fire a Scorch Cannon shot into it.
+              The gravity cannon will fire anything on its platform in the
+              direction it is pointing. Take use of this to jump about the
+              exterior until you come across enemy hordes and a Servitor. To
+              allow yourself enough time to reach the platform, you might need
+              to charge the Scorch Cannon blast.
+            </p>
+            <p>
+              The Servitor will have a white shield when you find it. Defeat the
+              enemies, get the debuff Burdened by Riches, and dunk it at the
+              crystal. Each platform's central building, where the crystals
+              should reside, should be roughly at the same location. The
+              Servitor's shield will fall if enough debuffs have been delivered,
+              allowing you to kill it.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-abundance-monitor.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="row h-100 mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-servitor-shell-in-gravity-cannon.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              You have around 90 seconds to transport the shell to the cannon's
+              platform once you destroy the Servitor. To do this, either melee
+              it or push it with your body. Work with the gravity cannon until
+              it is pointed towards the main, suspended structure. Use a Scorch
+              Cannon shot to turn on the generator while the shell is on the
+              cannon's platform and the cannon is pointed towards the central
+              structure. One of the nodes surrounding the ring will be destroyed
+              by the Servitor shell as it flies through the air.
+            </p>
+            <p>
+              Once the first node is gone, all that's left to do is locate the
+              following squad of enemies and the Servitor, then continue the
+              procedure until all four nodes are gone and the shield is down.
+              The awards are up the stairs from the cannon on the central
+              platform at this point. Now propel yourself up into the structure
+              while angling the cannon high.
+            </p>
+            <p>
+              <b>Master Difficulty: </b>Overload Captains spawn at each point.
+              Defeating them should be a priority.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4" id="Avarokk" name="Avarokk">
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/2021_30th_Press_Kit_Compressed_Avarice_23.webp"
+            class="img-fluid"
+            alt="..."
+          />
+          <div style="background: rgba(15, 23, 42, 0.9); border-left: 4px solid #7c3aed; padding: 8px 16px; border-radius: 0 8px 8px 0; margin: 16px 0 10px 0;">
+            <h2 id="sec-heading-6" >Captain Avarokk the Covetous</h2>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            This Fallen Kell is accompanied by two other crew members, a Shank
+            named R-M80, Loyal to Avarokk and a Vandal named Grisprax, Bosun of
+            Avarokk. The objective of this battle is to utilize Scorch Cannons
+            to power a generator, which scatters Burdened by Riches engrams over
+            the area. These may be deposited at the main crystal to weaken
+            Avarokk's shield.
+          </p>
+          <ol>
+            <li>Use the Scorch Cannon to defeat the Vandal.</li>
+            <li>Activate the generators using the Scorch Cannon.</li>
+            <li>Gather the Burdened by Riches engrams.</li>
+            <li>Deposit the engrams at the crystal.</li>
+            <li>DPS Avarokk.</li>
+            <li>Rinse and repeat till completion.</li>
+          </ol>
+        </div>
+
+        <div class="row h-100">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              Approach the central section of the crystal where the crystal is
+              located to start the battle against Captain Avarokk the Covetous;
+              there may be an engram there. Return to the outside boundary when
+              Avarokk emerges.
+            </p>
+            <p>
+              Use the Scorch Cannon to find and defeat the Vandal. Fire a bullet
+              into one of the stage-mounted generators with the Scorch Cannon.
+              There are three generators to choose from: one at the front, one
+              in the middle, and one on the right.
+            </p>
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-avarokk-fight-generators.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="row h-100 mt-4 mb-4">
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <img
+              src="https://www.paracausality.com/assets/img/guides/GOA/destiny-2-grasp-of-avarice-captain-avarokk-engrams.webp"
+              class="img-fluid"
+              alt="..."
+            />
+          </div>
+          <div
+            class="col-md justify-content-center align-self-center"
+          >
+            <p>
+              Pods on the sides of the arena will launch up and strike other
+              pods, which will release engrams when the generator turns on
+              following the scorch cannon explosion. To receive the Burdened by
+              Riches debuff, gather the engrams. Gather as many as you can, then
+              proceed to the center to place them on the crystal. Before
+              starting a new generator, deposit as many as you can.
+            </p>
+            <p>
+              Lowering Avarokk's shield requires 60 Burdened by Riches. When
+              enough engrams have been deposited, the words "Avarokk the
+              Covetous has succumbed to temptation" will show up on the screen
+              and its shields will lower. The 30-second damage phase officially
+              begins at this point. Do as much damage as you can.
+            </p>
+            <p>
+              After 30 seconds, the sentence "Avarokk the Covetous resists
+              temptation once more" will show on-screen and become immune. Rinse
+              and repeat.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-4 mb-4">
+          <p>
+            <b>Master Difficulty: </b>Anti-Barrier Servitors spawn during the
+            collection phase.
+          </p>
+          <p>
+            That concludes the battle with Avarokk the Covetous and the Grasp of
+            Avarice dungeon. You are one step closer to unlocked Gjallarhorn if
+            this is your first clear and you have the quest.
+          </p>
+          <img
+            src="https://www.paracausality.com/assets/img/guides/GOA/eve-astra-grasp-018.webp"
+            class="img-fluid"
+            alt="..."
+          />
+        </div>
+
+        <hr />
+
+        <div class="mt-4 mb-4">
+          <h3>Video Guides</h3>
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2: ULTIMATE Grasp of Avarice Dungeon Guide! | All Chests & Collectables!</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=YmjE96Z-32c" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2: Complete GRASP OF AVARICE Dungeon Guide!</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=2yAldSinpss" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">Destiny 2: How to get GJALLARHORN! - New Dungeon & Exotic Quest Guide!</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=ZZSzP9y5JH4" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+          
+        <div style="background: linear-gradient(135deg, #18181b 0%, #0f172a 100%); border: 1px solid #334155; border-radius: 12px; padding: 1.25rem; margin: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 44px; height: 44px; border-radius: 10px; background: #dc2626; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; font-weight: bold; flex-shrink: 0; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);">
+              ▶
+            </div>
+            <div>
+              <div style="font-size: 14px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">NEW Gjallarhorn Catalyst Guide! - GET THIS NOW! 🤯 | 30th Anniversary (Destiny 2)</div>
+              <div style="font-size: 12px; color: #94a3b8;">YouTube Walkthrough</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/watch?v=OoC1aSOGbV4" target="_blank" rel="noopener noreferrer" style="background: #7c3aed; color: white; padding: 8px 18px; border-radius: 8px; font-size: 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0;">
+            Watch Video ↗
+          </a>
+        </div>
+      
+        </div>
+      </div>
+    </main>
+    <!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer"></footer>
+    <!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="https://www.paracausality.com/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    
+    <script src="https://www.paracausality.com/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="https://www.paracausality.com/assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="https://www.paracausality.com/assets/js/main.js"></script>
+  </body>
+</html>
