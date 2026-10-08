@@ -151,13 +151,13 @@ export const LOST_SECTORS_POOL: LostSector[] = [
 // Exotic armor rotation cycle: Helmet -> Gauntlets -> Chest -> Legs
 export const EXOTIC_SLOTS = ["Helmets", "Gauntlets", "Chest Armor", "Leg Armor"] as const;
 
-// Featured weekly Nightfalls with official Bungie CDN weapon icons
+// Featured weekly Nightfalls with official Bungie CDN weapon icons (Adept)
 export const NIGHTFALLS_POOL: NightfallItem[] = [
   {
     strike: "The Disgraced",
     weapon: "Uzume RR4 (Sniper)",
     adeptWeapon: "Uzume RR4 (Adept)",
-    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/4801dd528afc4bbd294dcb4d5b3da64e.jpg",
+    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/103bde336ea126cb029e2d0a1e390a9d.jpg",
     adeptIconUrl: "https://www.bungie.net/common/destiny2_content/icons/103bde336ea126cb029e2d0a1e390a9d.jpg",
     surge: "Arc / Strand",
     champions: ["Barrier", "Unstoppable"],
@@ -166,7 +166,7 @@ export const NIGHTFALLS_POOL: NightfallItem[] = [
     strike: "Fallen S.A.B.E.R.",
     weapon: "The Slammer (Sword)",
     adeptWeapon: "The Slammer (Adept)",
-    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/07f5f5cdb1486f9488c912540b1ea04b.jpg",
+    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/86ac040ea14a03ea5267550c6612a803.jpg",
     adeptIconUrl: "https://www.bungie.net/common/destiny2_content/icons/86ac040ea14a03ea5267550c6612a803.jpg",
     surge: "Arc / Void",
     champions: ["Barrier", "Overload"],
@@ -175,7 +175,7 @@ export const NIGHTFALLS_POOL: NightfallItem[] = [
     strike: "Liminality",
     weapon: "Scintillation (Linear Fusion)",
     adeptWeapon: "Scintillation (Adept)",
-    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/fc7034c8741508de5b62fb9d15fb92d2.jpg",
+    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/ed14ac4aa12009e1923264421e16c2ef.jpg",
     adeptIconUrl: "https://www.bungie.net/common/destiny2_content/icons/ed14ac4aa12009e1923264421e16c2ef.jpg",
     surge: "Void / Strand",
     champions: ["Barrier", "Unstoppable"],
@@ -184,7 +184,7 @@ export const NIGHTFALLS_POOL: NightfallItem[] = [
     strike: "Battleground: Europa",
     weapon: "Wild Style (Grenade Launcher)",
     adeptWeapon: "Wild Style (Adept)",
-    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/107e2324791a67c2b2798d7766e3b92e.jpg",
+    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/a94bd173bc9d085e992c8089b869b215.jpg",
     adeptIconUrl: "https://www.bungie.net/common/destiny2_content/icons/a94bd173bc9d085e992c8089b869b215.jpg",
     surge: "Solar / Stasis",
     champions: ["Barrier", "Unstoppable"],
@@ -193,7 +193,7 @@ export const NIGHTFALLS_POOL: NightfallItem[] = [
     strike: "Heist Battleground: Moon",
     weapon: "Undercurrent (Wave Frame GL)",
     adeptWeapon: "Undercurrent (Adept)",
-    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/6bf38d233d7c65bc4bf2d30a145c1cb7.jpg",
+    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/7acc726a9f36c22c2f0261b1393fa369.jpg",
     adeptIconUrl: "https://www.bungie.net/common/destiny2_content/icons/7acc726a9f36c22c2f0261b1393fa369.jpg",
     surge: "Arc / Strand",
     champions: ["Barrier", "Unstoppable"],
@@ -202,7 +202,7 @@ export const NIGHTFALLS_POOL: NightfallItem[] = [
     strike: "The Devil's Lair",
     weapon: "Warden's Law (Hand Cannon)",
     adeptWeapon: "Warden's Law (Adept)",
-    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/bd42932ccf5d91cf4fb7dc4a24438cb8.jpg",
+    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/44a28fd1d59042f6c154119c571a2c3e.jpg",
     adeptIconUrl: "https://www.bungie.net/common/destiny2_content/icons/44a28fd1d59042f6c154119c571a2c3e.jpg",
     surge: "Arc / Void",
     champions: ["Barrier", "Overload"],
@@ -211,7 +211,7 @@ export const NIGHTFALLS_POOL: NightfallItem[] = [
     strike: "PsiOps Battleground: Cosmodrome",
     weapon: "Shadow Price (Auto Rifle)",
     adeptWeapon: "Shadow Price (Adept)",
-    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/bca91e46f4c6e3537e7045162045a24e.jpg",
+    iconUrl: "https://www.bungie.net/common/destiny2_content/icons/712f5e756b1b6f8a6178b1f34d3676f4.jpg",
     adeptIconUrl: "https://www.bungie.net/common/destiny2_content/icons/712f5e756b1b6f8a6178b1f34d3676f4.jpg",
     surge: "Arc / Solar",
     champions: ["Barrier", "Unstoppable"],
@@ -240,7 +240,7 @@ export const CANONICAL_RAIDS: RaidRotation[] = [
     id: "garden-of-salvation",
     name: "Garden of Salvation",
     featuredExotic: "Divinity (Quest)",
-    exoticIconUrl: "https://www.bungie.net/common/destiny2_content/icons/f8c050a41d0aa38bfd206f477038e211.jpg",
+    exoticIconUrl: "https://www.bungie.net/common/destiny2_content/icons/c6aa03536fd68b5fca5ad6b83ea0cf1e.jpg",
     spoilsFarming: true,
   },
   {
@@ -307,14 +307,14 @@ export const CANONICAL_DUNGEONS: DungeonRotation[] = [
     id: "pit-of-heresy",
     name: "Pit of Heresy",
     featuredExotic: "Xenophage / High-Stat Armor",
-    exoticIconUrl: "https://www.bungie.net/common/destiny2_content/icons/a94bd173bc9d085e992c8089b869b215.jpg",
+    exoticIconUrl: "https://www.bungie.net/common/destiny2_content/icons/de34570a93281dc201690cfd146e6d24.jpg",
     pinnacle: true,
   },
   {
     id: "prophecy",
     name: "Prophecy",
     featuredExotic: "Judgment / Relentless Rolls",
-    exoticIconUrl: "https://www.bungie.net/common/destiny2_content/icons/41a5d5366017686c8619d18d53b1ca2d.jpg",
+    exoticIconUrl: "https://www.bungie.net/common/destiny2_content/icons/038d5831a7c95696367a8894093d1c5d.jpg",
     pinnacle: true,
   },
   {

@@ -608,12 +608,21 @@ export default function OverlayPanel({ profile, onOpenGodroll }: Props) {
               <span className="text-xs font-semibold text-purple-300">⚔️ Verity 4th Encounter 3D Dissection Solver</span>
               <p className="text-[10px] text-neutral-500">Automated outside 3D statue dissection calculator & inside solo room escape guide</p>
             </div>
-            <button
-              onClick={() => setShowEncounterTools(v => !v)}
-              className={btn + (showEncounterTools ? " " + accent : "")}
-            >
-              {showEncounterTools ? "Hide Tools" : "Open Tools"}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => api.toggleVerityOverlay().catch(() => {})}
+                className={btn + " border-purple-700 bg-purple-900/60 text-purple-200 hover:bg-purple-800"}
+                title="Toggle the in-game Verity overlay window (Default: Alt+V)"
+              >
+                Launch Overlay (Alt+V)
+              </button>
+              <button
+                onClick={() => setShowEncounterTools(v => !v)}
+                className={btn + (showEncounterTools ? " " + accent : "")}
+              >
+                {showEncounterTools ? "Hide Tools" : "Open Tools"}
+              </button>
+            </div>
           </div>
 
           {showEncounterTools && (

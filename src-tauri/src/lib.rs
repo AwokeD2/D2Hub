@@ -15,10 +15,10 @@ use overlay::{
     reset_overlay_layout, set_overlay_opacity, get_overlay_data, set_overlay_hotkey,
     set_calibrate_hotkey, disable_all_hotkeys, set_overlay_settings, ocr_test_capture,
     start_weapon_detection, stop_weapon_detection, set_dim_search_hotkey, detect_once, set_detect_hotkey,
-    set_app_hotkey, quit_app,
+    set_app_hotkey, quit_app, toggle_verity_overlay, set_verity_hotkey,
     WeaponDbState, DetectionState,
     OverlayDataState, OverlayHotkeyState, CalibrateHotkeyState, OverlaySettingsState, DimSearchHotkeyState,
-    DetectHotkeyState, AppHotkeyState,
+    DetectHotkeyState, AppHotkeyState, VerityHotkeyState,
 };
 use std::sync::Mutex;
 use tauri::Manager;
@@ -94,6 +94,7 @@ pub fn run() {
         .manage(DimSearchHotkeyState::default())
         .manage(DetectHotkeyState::default())
         .manage(AppHotkeyState::default())
+        .manage(VerityHotkeyState::default())
         .setup(|app| {
             start_file_watcher(app.handle().clone());
 
@@ -206,6 +207,7 @@ pub fn run() {
             set_dim_search_hotkey,
             detect_once, set_detect_hotkey,
             set_app_hotkey,
+            toggle_verity_overlay, set_verity_hotkey,
             quit_app,
             open_url,
             uninstall_app,

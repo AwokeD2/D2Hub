@@ -1,7 +1,7 @@
 {
   "identifier": "default",
   "description": "Default capability",
-  "windows": ["main", "calibrate", "overlay_stats", "overlay_perks"],
+  "windows": ["main", "calibrate", "overlay_stats", "overlay_perks", "verity_overlay"],
   "permissions": [
     "core:default",
     "core:window:allow-show",

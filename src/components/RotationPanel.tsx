@@ -221,14 +221,22 @@ export default function RotationPanel() {
                 className="flex items-center gap-3 rounded border border-neutral-800/80 bg-neutral-950/80 p-2.5"
               >
                 {raid.exoticIconUrl ? (
-                  <img
-                    src={raid.exoticIconUrl}
-                    alt={raid.featuredExotic}
-                    className="h-10 w-10 shrink-0 rounded border border-purple-700/60 object-cover"
-                    loading="lazy"
-                  />
+                  <div
+                    className="relative h-11 w-11 shrink-0 overflow-hidden rounded border border-amber-500/80 bg-neutral-950 shadow"
+                    title={`Exotic Drop: ${raid.featuredExotic}`}
+                  >
+                    <img
+                      src={raid.exoticIconUrl}
+                      alt={raid.featuredExotic}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-0 right-0 rounded-tl bg-neutral-950/90 px-1 py-0 text-[8px] font-black text-amber-300">
+                      EXOTIC
+                    </div>
+                  </div>
                 ) : (
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-purple-800/60 bg-purple-950 font-bold text-purple-300">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded border border-purple-800/60 bg-purple-950 font-bold text-purple-300">
                     {idx + 1}
                   </div>
                 )}
@@ -238,7 +246,7 @@ export default function RotationPanel() {
                     <span className="text-[10px] font-semibold text-purple-400">Slot 0{idx + 1}</span>
                   </div>
                   <div className="text-[11px] text-neutral-400">
-                    Exotic: <span className="font-medium text-purple-300">{raid.featuredExotic}</span>
+                    Exotic Drop: <span className="font-medium text-amber-300">{raid.featuredExotic}</span>
                   </div>
                 </div>
               </div>
@@ -266,14 +274,22 @@ export default function RotationPanel() {
                 className="flex items-center gap-3 rounded border border-neutral-800/80 bg-neutral-950/80 p-2.5"
               >
                 {dungeon.exoticIconUrl ? (
-                  <img
-                    src={dungeon.exoticIconUrl}
-                    alt={dungeon.featuredExotic}
-                    className="h-10 w-10 shrink-0 rounded border border-indigo-700/60 object-cover"
-                    loading="lazy"
-                  />
+                  <div
+                    className="relative h-11 w-11 shrink-0 overflow-hidden rounded border border-amber-500/80 bg-neutral-950 shadow"
+                    title={`Exotic Drop: ${dungeon.featuredExotic}`}
+                  >
+                    <img
+                      src={dungeon.exoticIconUrl}
+                      alt={dungeon.featuredExotic}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute bottom-0 right-0 rounded-tl bg-neutral-950/90 px-1 py-0 text-[8px] font-black text-amber-300">
+                      EXOTIC
+                    </div>
+                  </div>
                 ) : (
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded border border-indigo-800/60 bg-indigo-950 font-bold text-indigo-300">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded border border-indigo-800/60 bg-indigo-950 font-bold text-indigo-300">
                     {idx + 1}
                   </div>
                 )}
@@ -283,7 +299,7 @@ export default function RotationPanel() {
                     <span className="text-[10px] font-semibold text-indigo-400">Slot 0{idx + 1}</span>
                   </div>
                   <div className="text-[11px] text-neutral-400">
-                    Exotic: <span className="font-medium text-indigo-300">{dungeon.featuredExotic}</span>
+                    Exotic Drop: <span className="font-medium text-amber-300">{dungeon.featuredExotic}</span>
                   </div>
                 </div>
               </div>
@@ -343,12 +359,17 @@ export default function RotationPanel() {
 
           {/* Next Nightfall & Weapon */}
           <div className="rounded border border-neutral-800 bg-neutral-950/70 p-3 flex items-center gap-3">
-            <img
-              src={nextWeek.nightfall.iconUrl}
-              alt={nextWeek.nightfall.weapon}
-              className="h-12 w-12 shrink-0 rounded border border-yellow-600/70 object-cover"
-              loading="lazy"
-            />
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded border border-yellow-500/80 bg-neutral-950 shadow">
+              <img
+                src={nextWeek.nightfall.iconUrl}
+                alt={nextWeek.nightfall.weapon}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute bottom-0 right-0 rounded-tl bg-neutral-950/90 px-1 py-0 text-[8px] font-extrabold text-yellow-400">
+                ADEPT
+              </div>
+            </div>
             <div className="min-w-0 flex-1">
               <span className="text-[10px] font-bold uppercase tracking-wider text-yellow-400 block mb-0.5">
                 Upcoming GM Weapon

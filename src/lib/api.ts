@@ -292,6 +292,14 @@ export function setAppHotkey(combo: string | null): Promise<void> {
   return invoke<void>("set_app_hotkey", { combo });
 }
 
+export function toggleVerityOverlay(): Promise<void> {
+  return invoke<void>("toggle_verity_overlay");
+}
+
+export function setVerityHotkey(combo: string | null): Promise<void> {
+  return invoke<void>("set_verity_hotkey", { combo });
+}
+
 export function getAppVersion(): Promise<string> {
   return invoke<string>("app_version");
 }

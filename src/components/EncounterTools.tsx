@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import * as api from "../lib/api";
 
 export type Shape2D = "Circle" | "Triangle" | "Square";
 export type Shape3D = "Sphere" | "Pyramid" | "Cube" | "Cone" | "Cylinder" | "Prism";
@@ -188,7 +189,11 @@ function solveVerityBFS(
   return { steps: [], target3D, isBalanced: true, counts };
 }
 
-export default function EncounterTools() {
+export interface EncounterToolsProps {
+  isOverlay?: boolean;
+}
+
+export default function EncounterTools({ isOverlay = false }: EncounterToolsProps = {}) {
   const [activeTab, setActiveTab] = useState<"outside" | "inside">("outside");
 
   // Outside 3D Statues (Starting hold)
@@ -289,6 +294,20 @@ export default function EncounterTools() {
               Inside (Solo Room Escape)
             </button>
           </div>
+
+          {!isOverlay && (
+            <button
+              onClick={() => api.toggleVerityOverlay().catch(() => {})}
+              className="flex items-center gap-1.5 rounded border border-purple-700/80 bg-purple-950/80 px-2.5 py-1.5 text-xs font-bold text-purple-200 hover:bg-purple-900 transition-colors shadow-sm"
+              title="Toggle floating in-game Verity overlay window (Default: Alt+V)"
+            >
+              <span>⚔️</span>
+              <span>Overlay</span>
+              <span className="rounded bg-purple-900 px-1 py-0.2 text-[10px] font-mono text-purple-300 border border-purple-700/60">
+                Alt+V
+              </span>
+            </button>
+          )}
         </div>
       </div>
 

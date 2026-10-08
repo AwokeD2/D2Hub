@@ -14,6 +14,7 @@ import SettingsModal from "./components/SettingsModal";
 import WelcomeModal from "./components/WelcomeModal";
 import UpdateToast from "./components/UpdateToast";
 import RotationPanel from "./components/RotationPanel";
+import EncounterTools from "./components/EncounterTools";
 import { type Account, ACCOUNTS_KEY, ACTIVE_ACCOUNT_KEY, MAIN_ID, loadAccounts, profileForAccount, slugify } from "./lib/accounts";
 import { type TabId, TAB_LABELS, loadTabPrefs, saveTabPrefs, type TabPrefs } from "./lib/tabOrder";
 import { isExtraFeaturesUnlocked } from "./lib/extraFeatures";
@@ -21,6 +22,44 @@ import { useUpdater } from "./lib/useUpdater";
 
 const WELCOME_SEEN_KEY = "d2hub.welcomeSeen";
 const DISMISSED_UPDATE_KEY = "d2hub.dismissedUpdateVersion";
+
+function VerityOverlayWindow() {
+  const handleClose = () => {
+    getCurrentWindow().hide().catch(() => {});
+  };
+
+  return (
+    <div className="flex h-screen w-screen flex-col overflow-hidden bg-neutral-950/95 text-neutral-100 border border-purple-800/80 rounded-lg shadow-2xl backdrop-blur-md select-none">
+      {/* Draggable Titlebar */}
+      <div
+        data-tauri-drag-region
+        className="flex items-center justify-between border-b border-purple-900/60 bg-purple-950/40 px-3 py-2 cursor-move"
+      >
+        <div className="flex items-center gap-2 pointer-events-none">
+          <span className="text-sm">⚔️</span>
+          <span className="text-xs font-bold tracking-wide text-purple-200">Verity Calculator Overlay</span>
+          <span className="rounded bg-purple-900/80 px-1.5 py-0.2 text-[10px] font-mono text-purple-300 border border-purple-700/60">
+            Alt+V
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <button
+            onClick={handleClose}
+            className="flex h-5 w-5 items-center justify-center rounded text-xs font-bold text-neutral-400 hover:bg-red-950 hover:text-red-300 transition-colors"
+            title="Close / Hide Overlay (Alt+V)"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="flex-1 min-h-0 overflow-y-auto">
+        <EncounterTools isOverlay={true} />
+      </div>
+    </div>
+  );
+}
 
 // Defined once at module scope (not inside App()) so the array reference is
 // stable across renders — EmbeddedSitePanel only re-syncs its webviews when
@@ -46,16 +85,26 @@ export default function App() {
   const [isPublisher, setIsPublisher] = useState(
     () => window.location.hash === "#publisher" || window.location.search.includes("publisher")
   );
+  const [isVerityOverlay, setIsVerityOverlay] = useState(
+    () => window.location.hash === "#verity_overlay" || window.location.search.includes("window=verity_overlay")
+  );
 
   useEffect(() => {
     const checkHash = () => {
       if (window.location.hash === "#publisher" || window.location.search.includes("publisher")) {
         setIsPublisher(true);
       }
+      if (window.location.hash === "#verity_overlay" || window.location.search.includes("window=verity_overlay")) {
+        setIsVerityOverlay(true);
+      }
     };
     window.addEventListener("hashchange", checkHash);
     return () => window.removeEventListener("hashchange", checkHash);
   }, []);
+
+  if (isVerityOverlay) {
+    return <VerityOverlayWindow />;
+  }
 
   if (isPublisher) {
     return <PublisherPanel />;
@@ -66,6 +115,8 @@ export default function App() {
     api.getAppVersion().then(setAppVersion).catch(() => {});
     const combo = localStorage.getItem("d2hub.appHotkey") || "Alt+Z";
     if (combo) api.setAppHotkey(combo).catch(() => {});
+    const verityCombo = localStorage.getItem("d2hub.verityHotkey") || "Alt+V";
+    if (verityCombo) api.setVerityHotkey(verityCombo).catch(() => {});
     api.loadBindings().then(bindings => {
       if (bindings && bindings.length > 0) {
         api.registerHotkeys(bindings).catch(() => {});

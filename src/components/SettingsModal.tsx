@@ -11,6 +11,7 @@ const btn = "rounded border border-neutral-700 bg-neutral-800 px-3 py-1.5 text-s
 
 const DIM_SEARCH_HOTKEY_KEY = "d2hub.dimSearchHotkey";
 const APP_HOTKEY_KEY = "d2hub.appHotkey";
+const VERITY_HOTKEY_KEY = "d2hub.verityHotkey";
 
 /** Layout-independent key capture using e.code so symbol keys and non-EN layouts work reliably. */
 function comboFromKeyEvent(e: KeyboardEvent): string | null {
@@ -77,6 +78,9 @@ export default function SettingsModal({
   const [appHotkey, setAppHotkey] = useState(() => localStorage.getItem(APP_HOTKEY_KEY) || "Alt+Z");
   const [bindingAppHotkey, setBindingAppHotkey] = useState(false);
   const [appHotkeyStatus, setAppHotkeyStatus] = useState("");
+  const [verityHotkey, setVerityHotkey] = useState(() => localStorage.getItem(VERITY_HOTKEY_KEY) || "Alt+V");
+  const [bindingVerityHotkey, setBindingVerityHotkey] = useState(false);
+  const [verityHotkeyStatus, setVerityHotkeyStatus] = useState("");
   const [theme, setTheme] = useState<ThemeId>(loadTheme);
   const [creditsOpen, setCreditsOpen] = useState(false);
   const [appVersion, setAppVersion] = useState("");
@@ -160,6 +164,30 @@ export default function SettingsModal({
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, [bindingAppHotkey]);
+
+  // Persist + (re)register the Verity overlay hotkey whenever it changes.
+  useEffect(() => { localStorage.setItem(VERITY_HOTKEY_KEY, verityHotkey); }, [verityHotkey]);
+  useEffect(() => {
+    if (!verityHotkey) { setVerityHotkeyStatus(""); api.setVerityHotkey(null).catch(() => {}); return; }
+    api.setVerityHotkey(verityHotkey)
+      .then(() => setVerityHotkeyStatus(""))
+      .catch(e => setVerityHotkeyStatus(String(e)));
+  }, [verityHotkey]);
+
+  // Capture the next keypress while binding the Verity overlay hotkey.
+  useEffect(() => {
+    if (!bindingVerityHotkey) return;
+    const handler = (e: KeyboardEvent) => {
+      e.preventDefault();
+      if (e.key === "Escape") { setBindingVerityHotkey(false); return; }
+      const combo = comboFromKeyEvent(e);
+      if (!combo) return;
+      setVerityHotkey(combo);
+      setBindingVerityHotkey(false);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [bindingVerityHotkey]);
 
   function handleApiKeyChange(value: string) {
     setBungieApiKey(value);
@@ -412,6 +440,42 @@ export default function SettingsModal({
                     className="rounded border border-red-900 bg-red-950/30 px-1.5 py-0.5 text-[10px] text-red-400 hover:bg-red-950/60"
                     title="Unbind the DIM search hotkey"
                     onClick={() => { setDimSearchHotkey(""); setDimSearchStatus(""); }}
+                  >
+                    {'\u2715'}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between rounded border border-neutral-800 bg-neutral-950/40 px-3 py-3">
+              <div>
+                <span className="text-sm font-semibold text-neutral-100">⚔️ Verity — Calculator Overlay</span>
+                <p className="mt-1 text-sm text-neutral-400">
+                  Global hotkey to toggle the floating in-game Verity 4th encounter calculator over Destiny 2
+                </p>
+                {verityHotkeyStatus && (
+                  <p className="mt-1 text-sm text-red-400">{verityHotkeyStatus}</p>
+                )}
+              </div>
+              <div className="flex shrink-0 items-center gap-2">
+                <button
+                  className={
+                    btn +
+                    (bindingVerityHotkey ? " border-purple-800 bg-purple-900/40 text-purple-200" : "") +
+                    (verityHotkeyStatus ? " border-red-800" : "")
+                  }
+                  onClick={() => setBindingVerityHotkey(true)}
+                >
+                  {bindingVerityHotkey ? "Press a key…" : (friendlyKeyName(verityHotkey) || "Bind")}
+                </button>
+                {bindingVerityHotkey && (
+                  <button className={btn} onClick={() => setBindingVerityHotkey(false)}>Cancel</button>
+                )}
+                {!bindingVerityHotkey && verityHotkey && (
+                  <button
+                    className="rounded border border-red-900 bg-red-950/30 px-1.5 py-0.5 text-[10px] text-red-400 hover:bg-red-950/60"
+                    title="Unbind the Verity overlay hotkey"
+                    onClick={() => { setVerityHotkey(""); setVerityHotkeyStatus(""); }}
                   >
                     {'\u2715'}
                   </button>

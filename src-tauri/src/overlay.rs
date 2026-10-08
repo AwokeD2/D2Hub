@@ -823,6 +823,12 @@ pub struct CalibrateHotkeyState {
     pub combo: Mutex<Option<String>>,
 }
 
+/// The global Verity encounter solver overlay shortcut currently registered (if any).
+#[derive(Default)]
+pub struct VerityHotkeyState {
+    pub combo: Mutex<Option<String>>,
+}
+
 /// Live overlay settings the detection loop reads on every fire, so changing
 /// the source / optimise mode / panels mid-detection takes effect immediately
 /// (instead of being frozen at "Start auto-detect" time).
@@ -1038,6 +1044,67 @@ pub fn set_app_hotkey(app: AppHandle, combo: Option<String>) -> Result<(), Strin
                     crate::restore_main_window(&app2);
                 }
             }
+        }
+    })
+    .map_err(|e| format!("hotkey unavailable (already in use?): {e}"))?;
+    if let Ok(mut c) = state.combo.lock() {
+        *c = Some(combo);
+    }
+    Ok(())
+}
+
+/// Toggle or spawn the in-game Verity Calculator overlay window.
+#[tauri::command]
+pub fn toggle_verity_overlay(app: AppHandle) -> Result<(), String> {
+    const LABEL: &str = "verity_overlay";
+    if let Some(win) = app.get_webview_window(LABEL) {
+        if win.is_visible().unwrap_or(false) {
+            let _ = win.hide();
+        } else {
+            let _ = win.show();
+            let _ = win.set_focus();
+        }
+        return Ok(());
+    }
+
+    tauri::WebviewWindowBuilder::new(
+        &app,
+        LABEL,
+        WebviewUrl::App("index.html?window=verity_overlay".into()),
+    )
+    .title("Verity Calculator Overlay")
+    .decorations(false)
+    .always_on_top(true)
+    .skip_taskbar(true)
+    .resizable(true)
+    .inner_size(540.0, 720.0)
+    .visible(true)
+    .build()
+    .map_err(|e| e.to_string())?;
+
+    Ok(())
+}
+
+/// Register (or clear) the global hotkey to toggle the Verity Calculator overlay.
+#[tauri::command]
+pub fn set_verity_hotkey(app: AppHandle, combo: Option<String>) -> Result<(), String> {
+    use tauri_plugin_global_shortcut::{GlobalShortcutExt, Shortcut, ShortcutState};
+    let gs = app.global_shortcut();
+    let state = app.state::<VerityHotkeyState>();
+    if let Ok(mut c) = state.combo.lock() {
+        if let Some(old) = c.take() {
+            if let Ok(sc) = crate::commands::parse_shortcut(&old) {
+                let _ = gs.unregister(sc);
+            }
+        }
+    }
+    let Some(combo) = combo.filter(|c| !c.is_empty()) else { return Ok(()) };
+    let sc: Shortcut = crate::commands::parse_shortcut(&combo)
+        .map_err(|e| format!("invalid hotkey: {e}"))?;
+    let app2 = app.clone();
+    gs.on_shortcut(sc, move |_a, _s, ev| {
+        if ev.state == ShortcutState::Pressed {
+            let _ = toggle_verity_overlay(app2.clone());
         }
     })
     .map_err(|e| format!("hotkey unavailable (already in use?): {e}"))?;
@@ -1382,6 +1449,9 @@ pub fn disable_all_hotkeys(app: AppHandle) -> Result<(), String> {
         *c = None;
     }
     if let Ok(mut c) = app.state::<AppHotkeyState>().combo.lock() {
+        *c = None;
+    }
+    if let Ok(mut c) = app.state::<VerityHotkeyState>().combo.lock() {
         *c = None;
     }
     Ok(())
