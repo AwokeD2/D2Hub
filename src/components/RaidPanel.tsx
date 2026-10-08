@@ -125,7 +125,7 @@ export default function RaidPanel() {
                   activeView === "tools" ? "bg-purple-900/70 text-purple-200 border border-purple-600" : "text-neutral-400 hover:text-neutral-200"
                 }`}
               >
-                🧩 Encounter Tools (Verity / Vesper / Crota)
+                🧩 Verity 4th Encounter Solver
               </button>
             </div>
 

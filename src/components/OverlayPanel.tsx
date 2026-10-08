@@ -605,8 +605,8 @@ export default function OverlayPanel({ profile, onOpenGodroll }: Props) {
         <div className="rounded border border-neutral-800 bg-neutral-900/50 p-3">
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-xs font-semibold text-purple-300">⚔️ Interactive Raid Tools & Audio Metronomes</span>
-              <p className="text-[10px] text-neutral-500">Verity 4th 3D solver, Vesper Radiation alerts, and Crota Chalice timer</p>
+              <span className="text-xs font-semibold text-purple-300">⚔️ Verity 4th Encounter 3D Dissection Solver</span>
+              <p className="text-[10px] text-neutral-500">Automated outside 3D statue dissection calculator & inside solo room escape guide</p>
             </div>
             <button
               onClick={() => setShowEncounterTools(v => !v)}

@@ -1,31 +1,15 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useMemo } from "react";
 
-// Web Audio API beep generator (no external audio files needed)
-function playTone(freq: number, durationMs: number, type: OscillatorType = "sine") {
-  try {
-    const ctx = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, ctx.currentTime);
-    gain.gain.setValueAtTime(0.15, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + durationMs / 1000);
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.start();
-    osc.stop(ctx.currentTime + durationMs / 1000);
-  } catch {
-    // Audio context unavailable or user blocked autoplay
-  }
-}
-
-// -------------------------------------------------------------
-// VERITY ENCOUNTER CONSTANTS & ALGORITHMS
-// -------------------------------------------------------------
 export type Shape2D = "Circle" | "Triangle" | "Square";
 export type Shape3D = "Sphere" | "Pyramid" | "Cube" | "Cone" | "Cylinder" | "Prism";
 
-const SHAPE_COMPOSITION: Record<Shape3D, [Shape2D, Shape2D]> = {
+export const SHAPE_2D_ICONS: Record<Shape2D, { icon: string; color: string }> = {
+  Circle: { icon: "⚪", color: "text-amber-300" },
+  Triangle: { icon: "🔺", color: "text-emerald-400" },
+  Square: { icon: "🟩", color: "text-purple-400" },
+};
+
+export const SHAPE_3D_COMPOSITION: Record<Shape3D, [Shape2D, Shape2D]> = {
   Sphere: ["Circle", "Circle"],
   Pyramid: ["Triangle", "Triangle"],
   Cube: ["Square", "Square"],
@@ -34,503 +18,487 @@ const SHAPE_COMPOSITION: Record<Shape3D, [Shape2D, Shape2D]> = {
   Prism: ["Triangle", "Square"],
 };
 
-function getShape3DFrom2D(a: Shape2D, b: Shape2D): Shape3D | null {
-  for (const [s3d, [part1, part2]] of Object.entries(SHAPE_COMPOSITION) as [Shape3D, [Shape2D, Shape2D]][]) {
-    if ((part1 === a && part2 === b) || (part1 === b && part2 === a)) {
-      return s3d;
-    }
-  }
-  return null;
-}
+export const SHAPE_3D_TARGET: Record<Shape2D, Shape3D> = {
+  Circle: "Prism", // Triangle + Square
+  Triangle: "Cylinder", // Circle + Square
+  Square: "Cone", // Circle + Triangle
+};
 
-interface DissectionStep {
+export interface DissectionStep {
   fromStatue: "Left" | "Middle" | "Right";
   fromShape: Shape2D;
   toStatue: "Left" | "Middle" | "Right";
   toShape: Shape2D;
+  resultingShapes?: {
+    Left: Shape3D;
+    Middle: Shape3D;
+    Right: Shape3D;
+  };
 }
 
-function solveDissection(
+function get3DShapeName(part1: Shape2D, part2: Shape2D): Shape3D {
+  for (const [s3d, [p1, p2]] of Object.entries(SHAPE_3D_COMPOSITION) as [Shape3D, [Shape2D, Shape2D]][]) {
+    if ((p1 === part1 && p2 === part2) || (p1 === part2 && p2 === part1)) {
+      return s3d;
+    }
+  }
+  return "Sphere";
+}
+
+// 100% Guaranteed BFS Shortest-Path Dissection Solver
+function solveVerityBFS(
   start3D: { Left: Shape3D; Middle: Shape3D; Right: Shape3D },
   inside2D: { Left: Shape2D; Middle: Shape2D; Right: Shape2D }
-): { steps: DissectionStep[]; target3D: { Left: Shape3D; Middle: Shape3D; Right: Shape3D } } {
-  // Target outside 3D shapes: each statue must have the TWO OTHER 2D shapes that the inside player does NOT have
-  const targets: { Left: Shape2D[]; Middle: Shape2D[]; Right: Shape2D[] } = {
-    Left: (["Circle", "Triangle", "Square"] as Shape2D[]).filter(s => s !== inside2D.Left),
-    Middle: (["Circle", "Triangle", "Square"] as Shape2D[]).filter(s => s !== inside2D.Middle),
-    Right: (["Circle", "Triangle", "Square"] as Shape2D[]).filter(s => s !== inside2D.Right),
-  };
+): {
+  steps: DissectionStep[];
+  target3D: { Left: Shape3D; Middle: Shape3D; Right: Shape3D };
+  isBalanced: boolean;
+  counts: { Circle: number; Triangle: number; Square: number };
+} {
+  // Count total 2D shapes
+  const allShapes = [
+    ...SHAPE_3D_COMPOSITION[start3D.Left],
+    ...SHAPE_3D_COMPOSITION[start3D.Middle],
+    ...SHAPE_3D_COMPOSITION[start3D.Right],
+  ];
+
+  const counts: { Circle: number; Triangle: number; Square: number } = { Circle: 0, Triangle: 0, Square: 0 };
+  for (const s of allShapes) counts[s]++;
+
+  const isBalanced = counts.Circle === 2 && counts.Triangle === 2 && counts.Square === 2;
 
   const target3D = {
-    Left: getShape3DFrom2D(targets.Left[0], targets.Left[1])!,
-    Middle: getShape3DFrom2D(targets.Middle[0], targets.Middle[1])!,
-    Right: getShape3DFrom2D(targets.Right[0], targets.Right[1])!,
+    Left: SHAPE_3D_TARGET[inside2D.Left],
+    Middle: SHAPE_3D_TARGET[inside2D.Middle],
+    Right: SHAPE_3D_TARGET[inside2D.Right],
   };
 
-  const current: { Left: Shape2D[]; Middle: Shape2D[]; Right: Shape2D[] } = {
-    Left: [...SHAPE_COMPOSITION[start3D.Left]],
-    Middle: [...SHAPE_COMPOSITION[start3D.Middle]],
-    Right: [...SHAPE_COMPOSITION[start3D.Right]],
+  if (!isBalanced) {
+    return { steps: [], target3D, isBalanced: false, counts };
+  }
+
+  const target2D = {
+    Left: [...SHAPE_3D_COMPOSITION[target3D.Left]].sort(),
+    Middle: [...SHAPE_3D_COMPOSITION[target3D.Middle]].sort(),
+    Right: [...SHAPE_3D_COMPOSITION[target3D.Right]].sort(),
   };
 
-  const steps: DissectionStep[] = [];
+  const startState = {
+    Left: [...SHAPE_3D_COMPOSITION[start3D.Left]],
+    Middle: [...SHAPE_3D_COMPOSITION[start3D.Middle]],
+    Right: [...SHAPE_3D_COMPOSITION[start3D.Right]],
+  };
+
+  function isSolved(st: typeof startState): boolean {
+    return (
+      [...st.Left].sort().join(",") === target2D.Left.join(",") &&
+      [...st.Middle].sort().join(",") === target2D.Middle.join(",") &&
+      [...st.Right].sort().join(",") === target2D.Right.join(",")
+    );
+  }
+
+  if (isSolved(startState)) {
+    return { steps: [], target3D, isBalanced: true, counts };
+  }
+
+  function stateKey(st: typeof startState): string {
+    return `${[...st.Left].sort().join("")}|${[...st.Middle].sort().join("")}|${[...st.Right].sort().join("")}`;
+  }
+
   const statues = ["Left", "Middle", "Right"] as const;
+  const queue: { state: typeof startState; steps: DissectionStep[] }[] = [{ state: startState, steps: [] }];
+  const visited = new Set<string>();
+  visited.add(stateKey(startState));
 
-  for (let iteration = 0; iteration < 4; iteration++) {
-    // Check if fully solved
-    let solved = true;
-    for (const stat of statues) {
-      const cur = [...current[stat]].sort().join(",");
-      const tgt = [...targets[stat]].sort().join(",");
-      if (cur !== tgt) solved = false;
+  while (queue.length > 0) {
+    const { state, steps } = queue.shift()!;
+    if (isSolved(state)) {
+      return { steps, target3D, isBalanced: true, counts };
     }
-    if (solved) break;
 
-    // Find a statue that has an unwanted shape
-    let moved = false;
     for (let i = 0; i < statues.length; i++) {
-      const statA = statues[i];
-      const unwantedIdxA = current[statA].findIndex(s => !targets[statA].includes(s) || current[statA].filter(x => x === s).length > 1);
-      if (unwantedIdxA === -1) continue;
+      for (let j = i + 1; j < statues.length; j++) {
+        const sA = statues[i];
+        const sB = statues[j];
 
-      const shapeA = current[statA][unwantedIdxA];
+        for (let idxA = 0; idxA < 2; idxA++) {
+          for (let idxB = 0; idxB < 2; idxB++) {
+            const shapeA = state[sA][idxA];
+            const shapeB = state[sB][idxB];
+            if (shapeA === shapeB) continue; // swapping identical shapes produces identical state
 
-      // Find another statue that wants shapeA or has an unwanted shape that statue A wants
-      for (let j = 0; j < statues.length; j++) {
-        if (i === j) continue;
-        const statB = statues[j];
-        const unwantedIdxB = current[statB].findIndex(s => !targets[statB].includes(s) || (targets[statA].includes(s) && s !== shapeA));
-        if (unwantedIdxB === -1) continue;
+            const next = {
+              Left: [...state.Left] as [Shape2D, Shape2D],
+              Middle: [...state.Middle] as [Shape2D, Shape2D],
+              Right: [...state.Right] as [Shape2D, Shape2D],
+            };
+            next[sA][idxA] = shapeB;
+            next[sB][idxB] = shapeA;
 
-        const shapeB = current[statB][unwantedIdxB];
-
-        // Swap shapeA and shapeB between statA and statB
-        current[statA].splice(unwantedIdxA, 1, shapeB);
-        current[statB].splice(unwantedIdxB, 1, shapeA);
-        steps.push({
-          fromStatue: statA,
-          fromShape: shapeA,
-          toStatue: statB,
-          toShape: shapeB,
-        });
-        moved = true;
-        break;
+            const k = stateKey(next);
+            if (!visited.has(k)) {
+              visited.add(k);
+              queue.push({
+                state: next,
+                steps: [
+                  ...steps,
+                  {
+                    fromStatue: sA,
+                    fromShape: shapeA,
+                    toStatue: sB,
+                    toShape: shapeB,
+                    resultingShapes: {
+                      Left: get3DShapeName(next.Left[0], next.Left[1]),
+                      Middle: get3DShapeName(next.Middle[0], next.Middle[1]),
+                      Right: get3DShapeName(next.Right[0], next.Right[1]),
+                    },
+                  },
+                ],
+              });
+            }
+          }
+        }
       }
-      if (moved) break;
     }
   }
 
-  return { steps, target3D };
+  return { steps: [], target3D, isBalanced: true, counts };
 }
 
 export default function EncounterTools() {
-  const [activeTool, setActiveTool] = useState<"verity" | "vesper" | "crota">("verity");
+  const [mode, setMode] = useState<"outside" | "inside">("outside");
 
-  // -------------------------------------------------------------
-  // VERITY STATE
-  // -------------------------------------------------------------
-  const [verityMode, setVerityMode] = useState<"outside" | "inside">("outside");
+  // Outside 3D initial statues
+  const [left3D, setLeft3D] = useState<Shape3D>("Sphere");
+  const [mid3D, setMid3D] = useState<Shape3D>("Pyramid");
+  const [right3D, setRight3D] = useState<Shape3D>("Cube");
 
-  // Outside state
-  const [outsideLeft3D, setOutsideLeft3D] = useState<Shape3D>("Sphere");
-  const [outsideMid3D, setOutsideMid3D] = useState<Shape3D>("Pyramid");
-  const [outsideRight3D, setOutsideRight3D] = useState<Shape3D>("Cube");
+  // Inside 2D initial calls
+  const [leftInside, setLeftInside] = useState<Shape2D>("Circle");
+  const [midInside, setMidInside] = useState<Shape2D>("Triangle");
+  const [rightInside, setRightInside] = useState<Shape2D>("Square");
 
-  const [insideLeft2D, setInsideLeft2D] = useState<Shape2D>("Circle");
-  const [insideMid2D, setInsideMid2D] = useState<Shape2D>("Triangle");
-  const [insideRight2D, setInsideRight2D] = useState<Shape2D>("Square");
+  // Inside Solo Room guide state
+  const [soloStatue, setSoloStatue] = useState<Shape2D>("Circle");
+  const [soloWall1, setSoloWall1] = useState<Shape2D>("Circle");
+  const [soloWall2, setSoloWall2] = useState<Shape2D>("Triangle");
 
-  // Inside state
-  const [myStatue, setMyStatue] = useState<Shape2D>("Circle");
-  const [myWallShape1, setMyWallShape1] = useState<Shape2D>("Circle");
-  const [myWallShape2, setMyWallShape2] = useState<Shape2D>("Triangle");
-
-  // -------------------------------------------------------------
-  // VESPER RADIATION STATE
-  // -------------------------------------------------------------
-  const [radiationStacks, setRadiationStacks] = useState(0);
-  const [radTimerRunning, setRadTimerRunning] = useState(false);
-  const [terminals, setTerminals] = useState(["", "", "", ""]);
-
-  useEffect(() => {
-    let t: ReturnType<typeof setInterval> | null = null;
-    if (radTimerRunning) {
-      t = setInterval(() => {
-        setRadiationStacks(prev => {
-          const next = prev + 1;
-          if (next === 8) {
-            playTone(880, 250, "triangle"); // Warning beep at 8x
-          } else if (next >= 10) {
-            playTone(1100, 450, "sawtooth"); // Wipe alarm
-            setRadTimerRunning(false);
-          }
-          return Math.min(next, 10);
-        });
-      }, 3500); // approx stack interval
-    }
-    return () => {
-      if (t) clearInterval(t);
-    };
-  }, [radTimerRunning]);
-
-  // -------------------------------------------------------------
-  // CROTA CHALICE STATE
-  // -------------------------------------------------------------
-  const [chalicePercent, setChalicePercent] = useState(0);
-  const [chaliceRunning, setChaliceRunning] = useState(false);
-
-  useEffect(() => {
-    let timer: ReturnType<typeof setInterval> | null = null;
-    if (chaliceRunning) {
-      timer = setInterval(() => {
-        setChalicePercent(p => {
-          const next = p + 4;
-          if (next === 76 || next === 80) playTone(700, 150, "sine");
-          if (next >= 96) playTone(950, 300, "square");
-          if (next >= 100) {
-            setChaliceRunning(false);
-            return 100;
-          }
-          return next;
-        });
-      }, 1000);
-    }
-    return () => {
-      if (timer) clearInterval(timer);
-    };
-  }, [chaliceRunning]);
-
-  // Calculate dissection
-  const dissectionResult = solveDissection(
-    { Left: outsideLeft3D, Middle: outsideMid3D, Right: outsideRight3D },
-    { Left: insideLeft2D, Middle: insideMid2D, Right: insideRight2D }
-  );
+  const solution = useMemo(() => {
+    return solveVerityBFS(
+      { Left: left3D, Middle: mid3D, Right: right3D },
+      { Left: leftInside, Middle: midInside, Right: rightInside }
+    );
+  }, [left3D, mid3D, right3D, leftInside, midInside, rightInside]);
 
   return (
     <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-neutral-950 p-4 text-neutral-100">
-      {/* Top Selector Bar */}
+      {/* Header */}
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-neutral-800 pb-3">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setActiveTool("verity")}
-            className={`rounded px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
-              activeTool === "verity" ? "bg-purple-900/70 border border-purple-500 text-purple-200" : "bg-neutral-900 text-neutral-400 hover:text-neutral-200"
-            }`}
-          >
-            🏰 Verity 4th Encounter (Salvation's Edge)
-          </button>
-          <button
-            onClick={() => setActiveTool("vesper")}
-            className={`rounded px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
-              activeTool === "vesper" ? "bg-cyan-900/70 border border-cyan-500 text-cyan-200" : "bg-neutral-900 text-neutral-400 hover:text-neutral-200"
-            }`}
-          >
-            ⚡ Vesper's Host Nuclear Operator
-          </button>
-          <button
-            onClick={() => setActiveTool("crota")}
-            className={`rounded px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-colors ${
-              activeTool === "crota" ? "bg-emerald-900/70 border border-emerald-500 text-emerald-200" : "bg-neutral-900 text-neutral-400 hover:text-neutral-200"
-            }`}
-          >
-            ⚔️ Crota's End Chalice Metronome
-          </button>
+        <div>
+          <div className="flex items-center gap-2">
+            <span className="rounded bg-purple-950/80 border border-purple-700/60 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-purple-300">
+              Salvation's Edge
+            </span>
+            <h1 className="text-base font-bold text-neutral-100">Verity (4th Encounter) 3D Dissection Solver</h1>
+          </div>
+          <p className="mt-0.5 text-xs text-neutral-400">
+            Automated dissection calculator for outside players & step-by-step escape guide for inside players
+          </p>
         </div>
 
-        <button
-          onClick={() => playTone(800, 150)}
-          className="rounded border border-neutral-700 bg-neutral-900 px-2.5 py-1 text-[11px] text-neutral-400 hover:bg-neutral-800"
-        >
-          🔊 Test Audio Cue
-        </button>
+        {/* Mode Switcher */}
+        <div className="flex items-center rounded border border-neutral-800 bg-neutral-900 p-0.5 text-xs font-semibold">
+          <button
+            onClick={() => setMode("outside")}
+            className={`rounded px-3 py-1.5 transition-colors ${
+              mode === "outside" ? "bg-purple-600 text-white" : "text-neutral-400 hover:text-neutral-200"
+            }`}
+          >
+            Outside (Dissection Solver)
+          </button>
+          <button
+            onClick={() => setMode("inside")}
+            className={`rounded px-3 py-1.5 transition-colors ${
+              mode === "inside" ? "bg-purple-600 text-white" : "text-neutral-400 hover:text-neutral-200"
+            }`}
+          >
+            Inside (Solo Room Escape)
+          </button>
+        </div>
       </div>
 
-      {/* TOOL 1: VERITY SOLVER */}
-      {activeTool === "verity" && (
+      {/* OUTSIDE DISSECTION SOLVER */}
+      {mode === "outside" && (
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-neutral-400">Encounter View:</span>
-            <button
-              onClick={() => setVerityMode("outside")}
-              className={`rounded px-3 py-1 text-xs font-semibold ${
-                verityMode === "outside" ? "bg-purple-600 text-white" : "bg-neutral-900 text-neutral-400 hover:bg-neutral-800"
-              }`}
-            >
-              Outside (Dissection Solver)
-            </button>
-            <button
-              onClick={() => setVerityMode("inside")}
-              className={`rounded px-3 py-1 text-xs font-semibold ${
-                verityMode === "inside" ? "bg-purple-600 text-white" : "bg-neutral-900 text-neutral-400 hover:bg-neutral-800"
-              }`}
-            >
-              Inside (Solo Room Guide)
-            </button>
-          </div>
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            {/* Step 1 & 2 Inputs */}
+            <div className="flex flex-col gap-4 rounded-lg border border-neutral-800 bg-neutral-900/40 p-4">
+              <div>
+                <div className="mb-2 flex items-center justify-between">
+                  <h2 className="text-xs font-bold uppercase tracking-wide text-purple-300">
+                    1. Current Outside 3D Statues
+                  </h2>
+                  <span className="text-[11px] text-neutral-500">What each statue holds now</span>
+                </div>
 
-          {verityMode === "outside" ? (
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-              {/* Inputs */}
-              <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
-                <h3 className="mb-2 text-sm font-bold text-purple-300">1. Starting Outside 3D Statues</h3>
-                <div className="grid grid-cols-3 gap-2 text-xs">
+                <div className="grid grid-cols-3 gap-2.5">
                   {(["Left", "Middle", "Right"] as const).map(pos => {
-                    const val = pos === "Left" ? outsideLeft3D : pos === "Middle" ? outsideMid3D : outsideRight3D;
-                    const setVal = pos === "Left" ? setOutsideLeft3D : pos === "Middle" ? setOutsideMid3D : setOutsideRight3D;
+                    const val = pos === "Left" ? left3D : pos === "Middle" ? mid3D : right3D;
+                    const setVal = pos === "Left" ? setLeft3D : pos === "Middle" ? setMid3D : setRight3D;
+                    const parts = SHAPE_3D_COMPOSITION[val];
+
                     return (
-                      <div key={pos} className="rounded border border-neutral-800 bg-neutral-950 p-2">
-                        <span className="text-[10px] uppercase font-bold text-neutral-400">{pos} Statue</span>
+                      <div key={pos} className="flex flex-col rounded border border-neutral-800 bg-neutral-950 p-2.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1">
+                          {pos} Statue
+                        </span>
                         <select
                           value={val}
                           onChange={e => setVal(e.target.value as Shape3D)}
-                          className="mt-1 w-full rounded border border-neutral-700 bg-neutral-900 px-1 py-1 text-xs text-neutral-100"
+                          className="rounded border border-neutral-700 bg-neutral-900 px-2 py-1 text-xs font-semibold text-neutral-100 focus:border-purple-500 focus:outline-none"
                         >
-                          {(["Sphere", "Pyramid", "Cube", "Cone", "Cylinder", "Prism"] as Shape3D[]).map(s => (
+                          {(Object.keys(SHAPE_3D_COMPOSITION) as Shape3D[]).map(s => (
                             <option key={s} value={s}>{s}</option>
                           ))}
                         </select>
+                        <div className="mt-2 flex items-center justify-center gap-1.5 text-xs text-neutral-300 font-mono">
+                          <span>{SHAPE_2D_ICONS[parts[0]].icon}</span>
+                          <span>+</span>
+                          <span>{SHAPE_2D_ICONS[parts[1]].icon}</span>
+                        </div>
                       </div>
                     );
                   })}
                 </div>
+              </div>
 
-                <h3 className="mb-2 mt-4 text-sm font-bold text-purple-300">2. Inside Players' 2D Statue Calls</h3>
-                <div className="grid grid-cols-3 gap-2 text-xs">
+              <div>
+                <div className="mb-2 flex items-center justify-between">
+                  <h2 className="text-xs font-bold uppercase tracking-wide text-purple-300">
+                    2. Inside Players' 2D Statue Calls
+                  </h2>
+                  <span className="text-[11px] text-neutral-500">What each inside player sees on their statue</span>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2.5">
                   {(["Left", "Middle", "Right"] as const).map(pos => {
-                    const val = pos === "Left" ? insideLeft2D : pos === "Middle" ? insideMid2D : insideRight2D;
-                    const setVal = pos === "Left" ? setInsideLeft2D : pos === "Middle" ? setInsideMid2D : setInsideRight2D;
+                    const val = pos === "Left" ? leftInside : pos === "Middle" ? midInside : rightInside;
+                    const setVal = pos === "Left" ? setLeftInside : pos === "Middle" ? setMidInside : setRightInside;
+
                     return (
-                      <div key={pos} className="rounded border border-neutral-800 bg-neutral-950 p-2">
-                        <span className="text-[10px] uppercase font-bold text-neutral-400">{pos} Inside Call</span>
+                      <div key={pos} className="flex flex-col rounded border border-neutral-800 bg-neutral-950 p-2.5">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-1">
+                          {pos} Inside
+                        </span>
                         <select
                           value={val}
                           onChange={e => setVal(e.target.value as Shape2D)}
-                          className="mt-1 w-full rounded border border-neutral-700 bg-neutral-900 px-1 py-1 text-xs text-neutral-100"
+                          className="rounded border border-neutral-700 bg-neutral-900 px-2 py-1 text-xs font-semibold text-neutral-100 focus:border-purple-500 focus:outline-none"
                         >
                           <option value="Circle">Circle (⚪)</option>
                           <option value="Triangle">Triangle (🔺)</option>
                           <option value="Square">Square (🟩)</option>
                         </select>
+                        <div className="mt-2 text-center text-xs">
+                          Needs: <span className="font-bold text-amber-300">{SHAPE_3D_TARGET[val]}</span>
+                        </div>
                       </div>
                     );
                   })}
                 </div>
               </div>
 
-              {/* Solution Card */}
-              <div className="flex flex-col rounded-lg border border-purple-900/60 bg-purple-950/20 p-4">
-                <div className="mb-2 flex items-center justify-between">
-                  <span className="text-sm font-bold text-purple-300">⚔️ Exact Dissection Sequence</span>
-                  <span className="text-[11px] font-semibold text-emerald-400">Automated Solver</span>
+              {/* Balance Validation Indicator */}
+              <div className={`rounded border p-2.5 text-xs flex items-center justify-between ${
+                solution.isBalanced
+                  ? "border-emerald-800/80 bg-emerald-950/30 text-emerald-300"
+                  : "border-amber-800/80 bg-amber-950/40 text-amber-200"
+              }`}>
+                <div className="flex items-center gap-2">
+                  <span>{solution.isBalanced ? "✓" : "⚠️"}</span>
+                  <span>
+                    Total shapes on outside statues:
+                  </span>
                 </div>
+                <div className="flex items-center gap-3 font-mono font-bold">
+                  <span>⚪ {solution.counts.Circle}/2</span>
+                  <span>🔺 {solution.counts.Triangle}/2</span>
+                  <span>🟩 {solution.counts.Square}/2</span>
+                </div>
+              </div>
+            </div>
 
-                <div className="mb-3 rounded border border-neutral-800 bg-neutral-950/80 p-2.5 text-xs">
-                  <span className="text-[10px] uppercase font-bold text-neutral-500 block mb-1">Target 3D Shapes Needed:</span>
-                  <div className="flex justify-between font-mono text-xs">
-                    <div>Left: <span className="text-amber-300 font-bold">{dissectionResult.target3D.Left}</span></div>
-                    <div>Mid: <span className="text-amber-300 font-bold">{dissectionResult.target3D.Middle}</span></div>
-                    <div>Right: <span className="text-amber-300 font-bold">{dissectionResult.target3D.Right}</span></div>
+            {/* Dissection Steps Solution Card */}
+            <div className="flex flex-col rounded-lg border border-purple-900/60 bg-purple-950/20 p-4">
+              <div className="mb-3 flex items-center justify-between border-b border-purple-800/40 pb-2">
+                <span className="text-sm font-bold text-purple-200">⚔️ Exact Dissection Sequence</span>
+                <span className="rounded bg-purple-900/60 border border-purple-700/60 px-2 py-0.5 text-[10px] font-bold text-purple-300">
+                  {solution.steps.length} {solution.steps.length === 1 ? "Cut" : "Cuts"} Needed
+                </span>
+              </div>
+
+              {/* Target 3D Statues */}
+              <div className="mb-4 rounded border border-neutral-800 bg-neutral-950/80 p-3">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 block mb-2">
+                  Goal Statues (Must NOT match inside player's shape):
+                </span>
+                <div className="grid grid-cols-3 gap-2 text-center font-mono text-xs">
+                  <div className="rounded border border-neutral-800 bg-neutral-900/70 p-2">
+                    <span className="text-[10px] text-neutral-400 block mb-0.5">Left</span>
+                    <span className="font-bold text-amber-300 block">{solution.target3D.Left}</span>
+                    <span className="text-[10px] text-neutral-500">
+                      {SHAPE_3D_COMPOSITION[solution.target3D.Left].map(s => SHAPE_2D_ICONS[s].icon).join(" + ")}
+                    </span>
+                  </div>
+                  <div className="rounded border border-neutral-800 bg-neutral-900/70 p-2">
+                    <span className="text-[10px] text-neutral-400 block mb-0.5">Middle</span>
+                    <span className="font-bold text-amber-300 block">{solution.target3D.Middle}</span>
+                    <span className="text-[10px] text-neutral-500">
+                      {SHAPE_3D_COMPOSITION[solution.target3D.Middle].map(s => SHAPE_2D_ICONS[s].icon).join(" + ")}
+                    </span>
+                  </div>
+                  <div className="rounded border border-neutral-800 bg-neutral-900/70 p-2">
+                    <span className="text-[10px] text-neutral-400 block mb-0.5">Right</span>
+                    <span className="font-bold text-amber-300 block">{solution.target3D.Right}</span>
+                    <span className="text-[10px] text-neutral-500">
+                      {SHAPE_3D_COMPOSITION[solution.target3D.Right].map(s => SHAPE_2D_ICONS[s].icon).join(" + ")}
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                <div className="flex flex-col gap-2">
-                  {dissectionResult.steps.length === 0 ? (
-                    <div className="rounded border border-emerald-800 bg-emerald-950/40 p-3 text-center text-xs text-emerald-300">
-                      ✓ Statues already match required shapes! No cuts needed.
-                    </div>
-                  ) : (
-                    dissectionResult.steps.map((st, idx) => (
-                      <div key={idx} className="rounded border border-purple-800/60 bg-neutral-950/90 p-2.5 text-xs leading-relaxed">
-                        <span className="font-bold text-purple-400 mr-2">Step {idx + 1}:</span>
-                        Cut <span className="font-semibold text-rose-300">{st.fromShape}</span> from <span className="font-bold text-neutral-200">{st.fromStatue}</span>, then cut <span className="font-semibold text-cyan-300">{st.toShape}</span> from <span className="font-bold text-neutral-200">{st.toStatue}</span>
+              {/* Step by step execution */}
+              {!solution.isBalanced ? (
+                <div className="rounded border border-amber-800 bg-amber-950/40 p-4 text-center text-xs text-amber-200">
+                  ⚠️ The statues you selected do not sum to 2 Circles, 2 Triangles, and 2 Squares. In Destiny 2, the total count is always 2 of each shape. Please double check what the statues outside are holding.
+                </div>
+              ) : solution.steps.length === 0 ? (
+                <div className="rounded border border-emerald-800 bg-emerald-950/40 p-4 text-center text-xs text-emerald-300">
+                  🎉 Statues are already solved! All outside statues already have the correct non-matching 3D shapes.
+                </div>
+              ) : (
+                <div className="flex flex-col gap-2.5">
+                  {solution.steps.map((st, idx) => (
+                    <div
+                      key={idx}
+                      className="flex flex-col gap-1.5 rounded border border-purple-800/60 bg-neutral-950/90 p-3 text-xs"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="rounded bg-purple-900/80 px-1.5 py-0.5 text-[10px] font-bold text-purple-200">
+                          CUT #{idx + 1}
+                        </span>
+                        {st.resultingShapes && (
+                          <span className="text-[10px] text-neutral-500 font-mono">
+                            Result: L: {st.resultingShapes.Left} | M: {st.resultingShapes.Middle} | R: {st.resultingShapes.Right}
+                          </span>
+                        )}
                       </div>
-                    ))
-                  )}
+
+                      <div className="text-sm font-semibold text-neutral-100 flex items-center flex-wrap gap-1.5">
+                        <span>Dissect</span>
+                        <span className="rounded bg-neutral-900 border border-neutral-700 px-1.5 py-0.5 font-bold text-rose-300">
+                          {SHAPE_2D_ICONS[st.fromShape].icon} {st.fromShape}
+                        </span>
+                        <span>from</span>
+                        <span className="font-bold text-purple-300">{st.fromStatue}</span>
+                        <span className="text-neutral-500">⇄</span>
+                        <span>Dissect</span>
+                        <span className="rounded bg-neutral-900 border border-neutral-700 px-1.5 py-0.5 font-bold text-cyan-300">
+                          {SHAPE_2D_ICONS[st.toShape].icon} {st.toShape}
+                        </span>
+                        <span>from</span>
+                        <span className="font-bold text-purple-300">{st.toStatue}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </div>
-            </div>
-          ) : (
-            /* Inside Solo Room Solver */
-            <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4 max-w-xl">
-              <h3 className="mb-2 text-sm font-bold text-purple-300">Inside Solo Room Guide</h3>
-              <div className="grid grid-cols-3 gap-2 mb-4 text-xs">
-                <div>
-                  <label className="text-[10px] font-semibold text-neutral-400 block mb-1">My Statue</label>
-                  <select
-                    value={myStatue}
-                    onChange={e => setMyStatue(e.target.value as Shape2D)}
-                    className="w-full rounded border border-neutral-700 bg-neutral-900 px-2 py-1 text-xs text-neutral-100"
-                  >
-                    <option value="Circle">Circle (⚪)</option>
-                    <option value="Triangle">Triangle (🔺)</option>
-                    <option value="Square">Square (🟩)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-[10px] font-semibold text-neutral-400 block mb-1">Wall Shape 1</label>
-                  <select
-                    value={myWallShape1}
-                    onChange={e => setMyWallShape1(e.target.value as Shape2D)}
-                    className="w-full rounded border border-neutral-700 bg-neutral-900 px-2 py-1 text-xs text-neutral-100"
-                  >
-                    <option value="Circle">Circle</option>
-                    <option value="Triangle">Triangle</option>
-                    <option value="Square">Square</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-[10px] font-semibold text-neutral-400 block mb-1">Wall Shape 2</label>
-                  <select
-                    value={myWallShape2}
-                    onChange={e => setMyWallShape2(e.target.value as Shape2D)}
-                    className="w-full rounded border border-neutral-700 bg-neutral-900 px-2 py-1 text-xs text-neutral-100"
-                  >
-                    <option value="Circle">Circle</option>
-                    <option value="Triangle">Triangle</option>
-                    <option value="Square">Square</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="rounded border border-purple-800/80 bg-neutral-950 p-3 text-xs leading-relaxed">
-                <div className="font-bold text-purple-300 mb-1">Action Plan:</div>
-                <p className="text-neutral-300 mb-1">
-                  1. Eliminate your statue shape ({myStatue}) from your own room: deposit it onto the teammate statue who needs it.
-                </p>
-                <p className="text-neutral-300 mb-1">
-                  2. Once your wall has the two other shapes that are NOT {myStatue}, pick up both to form your 3D key.
-                </p>
-                <p className="text-emerald-400 font-semibold">
-                  3. Walk through the mirror glass to escape!
-                </p>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* TOOL 2: VESPER'S HOST NUCLEAR OPERATOR */}
-      {activeTool === "vesper" && (
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {/* Keypad */}
-          <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
-            <h3 className="mb-2 text-sm font-bold text-cyan-300">Operator Terminal Codepad</h3>
-            <p className="text-xs text-neutral-400 mb-3">Record the 4 active terminal numbers called out during encounters.</p>
-            <div className="grid grid-cols-4 gap-2 mb-4">
-              {terminals.map((val, idx) => (
-                <div key={idx} className="rounded border border-neutral-800 bg-neutral-950 p-2 text-center">
-                  <span className="text-[10px] text-neutral-500 block mb-1">Terminal {idx + 1}</span>
-                  <input
-                    type="text"
-                    maxLength={2}
-                    value={val}
-                    onChange={e => {
-                      const next = [...terminals];
-                      next[idx] = e.target.value.toUpperCase();
-                      setTerminals(next);
-                    }}
-                    placeholder="—"
-                    className="w-full bg-neutral-900 border border-neutral-700 rounded text-center font-mono text-base font-bold text-cyan-300 py-1"
-                  />
-                </div>
-              ))}
-            </div>
-            <button
-              onClick={() => setTerminals(["", "", "", ""])}
-              className="rounded border border-neutral-700 bg-neutral-800 px-3 py-1 text-xs text-neutral-300 hover:bg-neutral-700"
-            >
-              Clear Numbers
-            </button>
-          </div>
-
-          {/* Radiation Monitor */}
-          <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-sm font-bold text-rose-300">Radiation Wipe Counter</h3>
-              <span className={`text-xs font-bold ${radiationStacks >= 8 ? "text-red-400 animate-pulse" : "text-neutral-400"}`}>
-                {radiationStacks}/10 Stacks
-              </span>
-            </div>
-
-            {/* Meter */}
-            <div className="h-4 w-full rounded bg-neutral-950 border border-neutral-800 overflow-hidden mb-3">
-              <div
-                className={`h-full transition-all duration-300 ${
-                  radiationStacks >= 8 ? "bg-red-500" : radiationStacks >= 5 ? "bg-amber-400" : "bg-cyan-400"
-                }`}
-                style={{ width: `${(radiationStacks / 10) * 100}%` }}
-              />
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setRadTimerRunning(!radTimerRunning)}
-                className={`rounded px-3 py-1.5 text-xs font-bold ${
-                  radTimerRunning ? "bg-red-800 text-white" : "bg-cyan-700 text-white hover:bg-cyan-600"
-                }`}
-              >
-                {radTimerRunning ? "Stop Radiation Timer" : "Start Radiation Timer"}
-              </button>
-              <button
-                onClick={() => {
-                  setRadiationStacks(0);
-                  setRadTimerRunning(false);
-                }}
-                className="rounded border border-neutral-700 bg-neutral-800 px-3 py-1.5 text-xs text-neutral-300 hover:bg-neutral-700"
-              >
-                Reset Stacks
-              </button>
+              )}
             </div>
           </div>
         </div>
       )}
 
-      {/* TOOL 3: CROTA CHALICE METRONOME */}
-      {activeTool === "crota" && (
-        <div className="rounded-lg border border-neutral-800 bg-neutral-900/50 p-4 max-w-xl">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-bold text-emerald-300">Chalice of Light Charge Metronome</h3>
-            <span className={`text-xs font-bold ${chalicePercent >= 80 ? "text-amber-300" : "text-emerald-400"}`}>
-              {chalicePercent}% Charged
-            </span>
+      {/* INSIDE SOLO ROOM ESCAPE GUIDE */}
+      {mode === "inside" && (
+        <div className="rounded-lg border border-neutral-800 bg-neutral-900/40 p-4 max-w-2xl">
+          <h2 className="text-sm font-bold text-purple-300 mb-1">Inside Solo Room Solver</h2>
+          <p className="text-xs text-neutral-400 mb-4">
+            Select your own statue shape and the 2 starting shapes on your wall to get your exact exit sequence.
+          </p>
+
+          <div className="grid grid-cols-3 gap-3 mb-4 text-xs">
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-2.5">
+              <label className="text-[10px] font-bold uppercase text-neutral-400 block mb-1">My Statue</label>
+              <select
+                value={soloStatue}
+                onChange={e => setSoloStatue(e.target.value as Shape2D)}
+                className="w-full rounded border border-neutral-700 bg-neutral-900 px-2 py-1 text-xs text-neutral-100 font-semibold"
+              >
+                <option value="Circle">Circle (⚪)</option>
+                <option value="Triangle">Triangle (🔺)</option>
+                <option value="Square">Square (🟩)</option>
+              </select>
+            </div>
+
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-2.5">
+              <label className="text-[10px] font-bold uppercase text-neutral-400 block mb-1">Wall Shape 1</label>
+              <select
+                value={soloWall1}
+                onChange={e => setSoloWall1(e.target.value as Shape2D)}
+                className="w-full rounded border border-neutral-700 bg-neutral-900 px-2 py-1 text-xs text-neutral-100 font-semibold"
+              >
+                <option value="Circle">Circle (⚪)</option>
+                <option value="Triangle">Triangle (🔺)</option>
+                <option value="Square">Square (🟩)</option>
+              </select>
+            </div>
+
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-2.5">
+              <label className="text-[10px] font-bold uppercase text-neutral-400 block mb-1">Wall Shape 2</label>
+              <select
+                value={soloWall2}
+                onChange={e => setSoloWall2(e.target.value as Shape2D)}
+                className="w-full rounded border border-neutral-700 bg-neutral-900 px-2 py-1 text-xs text-neutral-100 font-semibold"
+              >
+                <option value="Circle">Circle (⚪)</option>
+                <option value="Triangle">Triangle (🔺)</option>
+                <option value="Square">Square (🟩)</option>
+              </select>
+            </div>
           </div>
 
-          <div className="h-4 w-full rounded bg-neutral-950 border border-neutral-800 overflow-hidden mb-3">
-            <div
-              className={`h-full transition-all duration-200 ${
-                chalicePercent >= 90 ? "bg-red-500" : chalicePercent >= 75 ? "bg-amber-400" : "bg-emerald-400"
-              }`}
-              style={{ width: `${chalicePercent}%` }}
-            />
-          </div>
+          <div className="rounded border border-purple-800/80 bg-neutral-950 p-4 text-xs leading-relaxed space-y-3">
+            <div className="font-bold text-purple-300 text-sm">Your Exact Solo Room Sequence:</div>
 
-          <div className="flex items-center gap-2 text-xs">
-            <button
-              onClick={() => {
-                if (chaliceRunning) {
-                  setChaliceRunning(false);
-                } else {
-                  setChalicePercent(0);
-                  setChaliceRunning(true);
-                }
-              }}
-              className={`rounded px-3 py-1.5 font-bold ${
-                chaliceRunning ? "bg-red-800 text-white" : "bg-emerald-700 text-white hover:bg-emerald-600"
-              }`}
-            >
-              {chaliceRunning ? "Stop / Swap Chalice" : "Take Chalice (Start 25s Timer)"}
-            </button>
-            <button
-              onClick={() => {
-                setChalicePercent(0);
-                setChaliceRunning(false);
-              }}
-              className="rounded border border-neutral-700 bg-neutral-800 px-3 py-1.5 text-neutral-300 hover:bg-neutral-700"
-            >
-              Reset
-            </button>
+            <div className="flex items-start gap-2">
+              <span className="rounded bg-purple-900 px-1.5 py-0.5 font-bold text-white text-[10px]">STEP 1</span>
+              <div>
+                <span className="font-bold text-neutral-200">Remove duplicates / Give away your statue's shape:</span>
+                <p className="text-neutral-400 mt-0.5">
+                  If either of your wall shapes is <span className="font-semibold text-amber-300">{soloStatue}</span>, kill that Knight and deposit {soloStatue} onto one of the two teammate statues that DOES NOT have {soloStatue}.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span className="rounded bg-purple-900 px-1.5 py-0.5 font-bold text-white text-[10px]">STEP 2</span>
+              <div>
+                <span className="font-bold text-neutral-200">Trade away your second shape:</span>
+                <p className="text-neutral-400 mt-0.5">
+                  Kill the other Knight and deposit that shape onto the teammate whose statue matches that shape.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span className="rounded bg-emerald-800 px-1.5 py-0.5 font-bold text-white text-[10px]">ESCAPE</span>
+              <div>
+                <span className="font-bold text-emerald-300">Assemble Pure Key & Walk Through:</span>
+                <p className="text-neutral-400 mt-0.5">
+                  Once your teammates send both shapes to you, your wall will show <span className="font-bold text-emerald-300">two {soloStatue}s</span>. Pick up both to form your 3D key (<span className="font-bold text-amber-300">{soloStatue === "Circle" ? "Sphere" : soloStatue === "Triangle" ? "Pyramid" : "Cube"}</span>) and walk through the glass mirror to escape!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       )}
