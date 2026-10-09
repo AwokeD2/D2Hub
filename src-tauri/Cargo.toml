@@ -1,6 +1,6 @@
 [package]
 name = "d2_hub"
-version = "1.1.4"
+version = "1.1.5"
 edition = "2021"
 authors = ["Awoke"]
 description = "D2 Hub - Destiny 2 Desktop Companion App"

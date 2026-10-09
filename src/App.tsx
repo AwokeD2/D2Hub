@@ -173,7 +173,7 @@ export default function App() {
   if (isPublisher) {
     return <PublisherPanel />;
   }
-  const [appVersion, setAppVersion] = useState("1.1.4");
+  const [appVersion, setAppVersion] = useState("1.1.5");
 
   useEffect(() => {
     api.getAppVersion().then(setAppVersion).catch(() => {});
