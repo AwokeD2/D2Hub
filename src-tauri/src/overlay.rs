@@ -1077,7 +1077,8 @@ pub fn toggle_verity_overlay(app: AppHandle) -> Result<(), String> {
     .always_on_top(true)
     .skip_taskbar(true)
     .resizable(true)
-    .inner_size(540.0, 720.0)
+    .inner_size(920.0, 680.0)
+    .min_inner_size(520.0, 480.0)
     .visible(true)
     .build()
     .map_err(|e| e.to_string())?;

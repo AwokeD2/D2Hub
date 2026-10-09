@@ -1,6 +1,7 @@
 import PublisherPanel from "./components/PublisherPanel";
 import { useEffect, useState } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
+import { LogicalSize } from "@tauri-apps/api/dpi";
 import { listen } from "@tauri-apps/api/event";
 import * as api from "./lib/api";
 import MacroPanel from "./components/MacroPanel";
@@ -24,8 +25,35 @@ const WELCOME_SEEN_KEY = "d2hub.welcomeSeen";
 const DISMISSED_UPDATE_KEY = "d2hub.dismissedUpdateVersion";
 
 function VerityOverlayWindow() {
+  const [isMax, setIsMax] = useState(false);
+
   const handleClose = () => {
     getCurrentWindow().hide().catch(() => {});
+  };
+
+  const handleResize = async (w: number, h: number) => {
+    try {
+      const win = getCurrentWindow();
+      if (await win.isMaximized()) {
+        await win.unmaximize();
+      }
+      await win.setSize(new LogicalSize(w, h));
+      setIsMax(false);
+    } catch { /* ignore */ }
+  };
+
+  const handleToggleMaximize = async () => {
+    try {
+      const win = getCurrentWindow();
+      const max = await win.isMaximized();
+      if (max) {
+        await win.unmaximize();
+        setIsMax(false);
+      } else {
+        await win.maximize();
+        setIsMax(true);
+      }
+    } catch { /* ignore */ }
   };
 
   return (
@@ -33,7 +61,7 @@ function VerityOverlayWindow() {
       {/* Draggable Titlebar */}
       <div
         data-tauri-drag-region
-        className="flex items-center justify-between border-b border-purple-900/60 bg-purple-950/40 px-3 py-2 cursor-move"
+        className="flex items-center justify-between border-b border-purple-900/60 bg-purple-950/40 px-3 py-1.5 cursor-move"
       >
         <div className="flex items-center gap-2 pointer-events-none">
           <span className="text-sm">⚔️</span>
@@ -42,7 +70,43 @@ function VerityOverlayWindow() {
             Alt+V
           </span>
         </div>
-        <div className="flex items-center gap-1.5">
+
+        <div className="flex items-center gap-2">
+          {/* Quick window size presets */}
+          <div className="flex items-center rounded border border-neutral-800 bg-neutral-900/80 p-0.5 text-[10px]">
+            <button
+              onClick={() => handleResize(740, 580)}
+              className="rounded px-1.5 py-0.5 text-neutral-400 hover:bg-neutral-800 hover:text-white transition-colors"
+              title="Compact Size (740x580)"
+            >
+              Compact
+            </button>
+            <button
+              onClick={() => handleResize(940, 680)}
+              className="rounded px-1.5 py-0.5 text-neutral-200 font-semibold hover:bg-neutral-800 hover:text-white transition-colors"
+              title="Default Side-by-Side (940x680)"
+            >
+              Wide
+            </button>
+            <button
+              onClick={() => handleResize(1160, 760)}
+              className="rounded px-1.5 py-0.5 text-neutral-400 hover:bg-neutral-800 hover:text-white transition-colors"
+              title="Large View (1160x760)"
+            >
+              Large
+            </button>
+          </div>
+
+          {/* Maximize toggle */}
+          <button
+            onClick={handleToggleMaximize}
+            className="flex h-5 w-5 items-center justify-center rounded text-xs font-bold text-neutral-400 hover:bg-neutral-800 hover:text-neutral-200 transition-colors"
+            title={isMax ? "Restore Window" : "Maximize Window"}
+          >
+            {isMax ? "❐" : "🗖"}
+          </button>
+
+          {/* Close / Hide */}
           <button
             onClick={handleClose}
             className="flex h-5 w-5 items-center justify-center rounded text-xs font-bold text-neutral-400 hover:bg-red-950 hover:text-red-300 transition-colors"

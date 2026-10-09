@@ -237,22 +237,24 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
   };
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-neutral-950 p-4 text-neutral-100">
+    <div className={`flex min-h-0 flex-1 flex-col overflow-y-auto bg-neutral-950 text-neutral-100 ${isOverlay ? "p-2.5" : "p-4"}`}>
       {/* Header */}
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-neutral-800 pb-3">
+      <div className={`flex flex-wrap items-center justify-between border-b border-neutral-800 ${isOverlay ? "mb-2.5 pb-2 gap-2" : "mb-4 pb-3 gap-3"}`}>
         <div>
           <div className="flex items-center gap-2">
             <span className="rounded bg-purple-950/80 border border-purple-700/60 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-purple-300">
               Salvation's Edge
             </span>
-            <h1 className="text-base font-bold text-neutral-100">Verity (4th Encounter) Interactive Solver</h1>
+            <h1 className={`${isOverlay ? "text-sm" : "text-base"} font-bold text-neutral-100`}>Verity (4th Encounter) Solver</h1>
             <span className="rounded bg-neutral-900 border border-neutral-700 px-1.5 py-0.5 text-[10px] font-mono text-neutral-400">
               Ref: nokynokes
             </span>
           </div>
-          <p className="mt-0.5 text-xs text-neutral-400">
-            Clickable statue selector with instant BFS optimal dissections (0 to 3 cuts) and inside solo room escape guide
-          </p>
+          {!isOverlay && (
+            <p className="mt-0.5 text-xs text-neutral-400">
+              Clickable statue selector with instant BFS optimal dissections (0 to 3 cuts) and inside solo room escape guide
+            </p>
+          )}
         </div>
 
         {/* Tab Switcher & Presets */}
@@ -279,19 +281,19 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
           <div className="flex items-center rounded border border-neutral-800 bg-neutral-900 p-0.5 text-xs font-semibold">
             <button
               onClick={() => setActiveTab("outside")}
-              className={`rounded px-3 py-1.5 transition-colors ${
+              className={`rounded px-2.5 py-1 transition-colors ${
                 activeTab === "outside" ? "bg-purple-600 text-white" : "text-neutral-400 hover:text-neutral-200"
               }`}
             >
-              Outside (Dissection Solver)
+              Outside (Dissection)
             </button>
             <button
               onClick={() => setActiveTab("inside")}
-              className={`rounded px-3 py-1.5 transition-colors ${
+              className={`rounded px-2.5 py-1 transition-colors ${
                 activeTab === "inside" ? "bg-purple-600 text-white" : "text-neutral-400 hover:text-neutral-200"
               }`}
             >
-              Inside (Solo Room Escape)
+              Inside (Solo Escape)
             </button>
           </div>
 
@@ -313,22 +315,24 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
 
       {/* OUTSIDE DISSECTION SOLVER (NOKYNOKES INTERACTIVE STYLE) */}
       {activeTab === "outside" && (
-        <div className="flex flex-col gap-4">
-          <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
-            {/* Statues Selection Grid (7 Cols on large screens) */}
-            <div className="flex flex-col gap-4 rounded-lg border border-neutral-800 bg-neutral-900/40 p-4 xl:col-span-7">
+        <div className="flex flex-col gap-3">
+          <div className={`grid grid-cols-1 gap-3 ${isOverlay ? "md:grid-cols-12" : "xl:grid-cols-12"}`}>
+            {/* Statues Selection Grid */}
+            <div className={`flex flex-col rounded-lg border border-neutral-800 bg-neutral-900/40 ${isOverlay ? "p-3 md:col-span-7 gap-2.5" : "p-4 xl:col-span-7 gap-4"}`}>
               {/* Header */}
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-sm font-bold text-neutral-100">Outside Statues Configuration</h2>
-                  <p className="text-[11px] text-neutral-400">
-                    Click each statue's inside 2D symbol callout and outside 3D starting shape
-                  </p>
+                  {!isOverlay && (
+                    <p className="text-[11px] text-neutral-400">
+                      Click each statue's inside 2D symbol callout and outside 3D starting shape
+                    </p>
+                  )}
                 </div>
 
                 {/* Balance validation badge */}
                 <div
-                  className={`rounded border px-2.5 py-1 text-xs font-bold font-mono flex items-center gap-2 ${
+                  className={`rounded border px-2 py-0.5 text-xs font-bold font-mono flex items-center gap-1.5 ${
                     solution.isBalanced
                       ? "border-emerald-700/80 bg-emerald-950/40 text-emerald-300"
                       : "border-amber-700/80 bg-amber-950/60 text-amber-300"
@@ -342,7 +346,7 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
               </div>
 
               {/* 3 Columns: Left, Middle, Right */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 {(["Left", "Middle", "Right"] as const).map(pos => {
                   const current2D = pos === "Left" ? leftInside : pos === "Middle" ? midInside : rightInside;
                   const set2D = pos === "Left" ? setLeftInside : pos === "Middle" ? setMidInside : setRightInside;
@@ -355,12 +359,12 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
                   return (
                     <div
                       key={pos}
-                      className="flex flex-col rounded-lg border border-neutral-800 bg-neutral-950/90 p-3 shadow-md"
+                      className={`flex flex-col rounded-lg border border-neutral-800 bg-neutral-950/90 shadow-md ${isOverlay ? "p-2" : "p-3"}`}
                     >
                       {/* Statue Title */}
-                      <div className="mb-2.5 flex items-center justify-between border-b border-neutral-800/80 pb-1.5">
+                      <div className="mb-2 flex items-center justify-between border-b border-neutral-800/80 pb-1">
                         <span className="font-bold text-xs uppercase tracking-wider text-purple-300">
-                          {pos} Statue
+                          {pos}
                         </span>
                         <span className="text-[10px] font-semibold text-neutral-400">
                           Goal: <span className="text-amber-300 font-bold">{targetForThis}</span>
@@ -431,9 +435,9 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
               )}
             </div>
 
-            {/* Solution & Cut Sequence Output (5 Cols on large screens) */}
-            <div className="flex flex-col rounded-lg border border-purple-900/70 bg-purple-950/20 p-4 xl:col-span-5">
-              <div className="mb-3 flex items-center justify-between border-b border-purple-800/50 pb-2">
+            {/* Solution & Cut Sequence Output (5 Cols on side-by-side screens) */}
+            <div className={`flex flex-col rounded-lg border border-purple-900/70 bg-purple-950/20 ${isOverlay ? "p-3 md:col-span-5" : "p-4 xl:col-span-5"}`}>
+              <div className={`flex items-center justify-between border-b border-purple-800/50 ${isOverlay ? "mb-2 pb-1.5" : "mb-3 pb-2"}`}>
                 <div>
                   <span className="text-sm font-bold text-purple-200">⚔️ Exact Dissection Sequence</span>
                   <div className="text-[10px] text-purple-300/80">BFS Shortest-Path Solution</div>
@@ -444,32 +448,32 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
               </div>
 
               {/* Goal Targets */}
-              <div className="mb-3.5 rounded border border-neutral-800 bg-neutral-950/90 p-3">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-2">
+              <div className={`rounded border border-neutral-800 bg-neutral-950/90 ${isOverlay ? "mb-2.5 p-2" : "mb-3.5 p-3"}`}>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 block mb-1.5">
                   Goal Statues (Must NOT contain inside player's callout):
                 </span>
-                <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                  <div className="rounded border border-neutral-800/90 bg-neutral-900/70 p-2">
-                    <span className="text-[10px] text-neutral-400 block mb-0.5">Left</span>
-                    <span className="font-bold text-amber-300 block">{solution.target3D.Left}</span>
-                    <span className="text-[10px] text-neutral-400 font-mono">
-                      {SHAPE_3D_COMPOSITION[solution.target3D.Left].map(s => SHAPE_2D_ICONS[s].icon).join(" + ")}
+                <div className="grid grid-cols-3 gap-1.5 text-center text-xs">
+                  <div className="rounded border border-neutral-800/90 bg-neutral-900/70 p-1.5">
+                    <span className="text-[9px] text-neutral-400 block mb-0.5">Left</span>
+                    <span className="font-bold text-amber-300 block text-xs">{solution.target3D.Left}</span>
+                    <span className="text-[9px] text-neutral-400 font-mono">
+                      {SHAPE_3D_COMPOSITION[solution.target3D.Left].map(s => SHAPE_2D_ICONS[s].icon).join("+")}
                     </span>
                   </div>
 
-                  <div className="rounded border border-neutral-800/90 bg-neutral-900/70 p-2">
-                    <span className="text-[10px] text-neutral-400 block mb-0.5">Middle</span>
-                    <span className="font-bold text-amber-300 block">{solution.target3D.Middle}</span>
-                    <span className="text-[10px] text-neutral-400 font-mono">
-                      {SHAPE_3D_COMPOSITION[solution.target3D.Middle].map(s => SHAPE_2D_ICONS[s].icon).join(" + ")}
+                  <div className="rounded border border-neutral-800/90 bg-neutral-900/70 p-1.5">
+                    <span className="text-[9px] text-neutral-400 block mb-0.5">Middle</span>
+                    <span className="font-bold text-amber-300 block text-xs">{solution.target3D.Middle}</span>
+                    <span className="text-[9px] text-neutral-400 font-mono">
+                      {SHAPE_3D_COMPOSITION[solution.target3D.Middle].map(s => SHAPE_2D_ICONS[s].icon).join("+")}
                     </span>
                   </div>
 
-                  <div className="rounded border border-neutral-800/90 bg-neutral-900/70 p-2">
-                    <span className="text-[10px] text-neutral-400 block mb-0.5">Right</span>
-                    <span className="font-bold text-amber-300 block">{solution.target3D.Right}</span>
-                    <span className="text-[10px] text-neutral-400 font-mono">
-                      {SHAPE_3D_COMPOSITION[solution.target3D.Right].map(s => SHAPE_2D_ICONS[s].icon).join(" + ")}
+                  <div className="rounded border border-neutral-800/90 bg-neutral-900/70 p-1.5">
+                    <span className="text-[9px] text-neutral-400 block mb-0.5">Right</span>
+                    <span className="font-bold text-amber-300 block text-xs">{solution.target3D.Right}</span>
+                    <span className="text-[9px] text-neutral-400 font-mono">
+                      {SHAPE_3D_COMPOSITION[solution.target3D.Right].map(s => SHAPE_2D_ICONS[s].icon).join("+")}
                     </span>
                   </div>
                 </div>
@@ -490,40 +494,40 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
                   </span>
                 </div>
               ) : (
-                <div className="flex flex-col gap-2.5 overflow-y-auto">
+                <div className="flex flex-col gap-2 overflow-y-auto">
                   {solution.steps.map((st, idx) => (
                     <div
                       key={idx}
-                      className="rounded-lg border border-purple-800/60 bg-neutral-950 p-3 text-xs shadow-md"
+                      className={`rounded-lg border border-purple-800/60 bg-neutral-950 text-xs shadow-md ${isOverlay ? "p-2" : "p-3"}`}
                     >
-                      <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center justify-between mb-1.5">
                         <span className="rounded bg-purple-900/90 px-2 py-0.5 text-[10px] font-extrabold text-purple-200 tracking-wider">
                           CUT #{idx + 1}
                         </span>
-                        <span className="text-[10px] text-neutral-500 font-mono">
-                          L: {st.resultingShapes.Left} | M: {st.resultingShapes.Middle} | R: {st.resultingShapes.Right}
+                        <span className="text-[10px] text-neutral-400 font-mono">
+                          L: {st.resultingShapes.Left} · M: {st.resultingShapes.Middle} · R: {st.resultingShapes.Right}
                         </span>
                       </div>
 
                       {/* Main action display */}
-                      <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div className="grid grid-cols-2 gap-1.5 text-xs">
                         {/* Side A */}
-                        <div className="rounded border border-neutral-800 bg-neutral-900/60 p-2">
-                          <span className="text-[10px] uppercase font-bold text-neutral-400 block mb-1">
+                        <div className="rounded border border-neutral-800 bg-neutral-900/60 p-1.5">
+                          <span className="text-[9px] uppercase font-bold text-neutral-400 block mb-0.5">
                             Dissect from {st.fromStatue}
                           </span>
-                          <div className="flex items-center gap-1.5 font-bold text-rose-300 text-sm">
+                          <div className="flex items-center gap-1 font-bold text-rose-300 text-xs">
                             <span>{SHAPE_2D_ICONS[st.fromShape].icon}</span>
                             <span>{st.fromShape}</span>
                           </div>
                         </div>
 
                         {/* Side B */}
-                        <div className="rounded border border-neutral-800 bg-neutral-900/60 p-2">
-                          <span className="text-[10px] uppercase font-bold text-neutral-400 block mb-1">
+                        <div className="rounded border border-neutral-800 bg-neutral-900/60 p-1.5">
+                          <span className="text-[9px] uppercase font-bold text-neutral-400 block mb-0.5">
                             Dissect from {st.toStatue}
                           </span>
-                          <div className="flex items-center gap-1.5 font-bold text-cyan-300 text-sm">
+                          <div className="flex items-center gap-1 font-bold text-cyan-300 text-xs">
                             <span>{SHAPE_2D_ICONS[st.toShape].icon}</span>
                             <span>{st.toShape}</span>
                           </div>
@@ -531,8 +535,8 @@ export default function EncounterTools({ isOverlay = false }: EncounterToolsProp
                       </div>
 
                       {/* Resulting statue snapshot */}
-                      <div className="mt-2 text-[11px] text-neutral-400 flex items-center justify-between border-t border-neutral-800/60 pt-1.5">
-                        <span>Statue Result:</span>
+                      <div className="mt-1.5 text-[10px] text-neutral-400 flex items-center justify-between border-t border-neutral-800/60 pt-1">
+                        <span>Result:</span>
                         <span className="text-purple-300 font-semibold font-mono">
                           {st.fromStatue} ➔ {st.resultingShapes[st.fromStatue]} · {st.toStatue} ➔{" "}
                           {st.resultingShapes[st.toStatue]}
